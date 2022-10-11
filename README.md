@@ -32,8 +32,18 @@ origin  git@github.com:christojeffrey/tubes-wbd-1.git (push)
 
 that means we're going to push to both gitlab and github, and we're going to fetch from github
 
-# How to run the server
+# How to run
 
 # what will you see if all goes well
 
 ### sidenote
+
+#### people who make this
+
+- Christopher Jeffrey, 13520055
+- Addin Nabilal Huda, 13520045
+- Dimas Faidh Muzaki, 13520156
+
+#### readings
+
+[project specification](https://docs.google.com/document/d/1bdYy1bAk6tpwYCZfqUxErCIJuESzfYH-n8ijvaNP_Jg/edit)
