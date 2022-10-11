@@ -1,21 +1,39 @@
-## Panduan Pengerjaan
-Berikut adalah hal yang harus diperhatikan untuk pengumpulan tugas ini:
-1. Buatlah grup pada Gitlab dengan format "IF3110-2022-KXX-01-YY", dengan XX adalah nomor kelas dan YY adalah nomor kelompok.
-2. Tambahkan anggota tim pada grup anda.
-3. **Fork** pada repository ini dengan organisasi yang telah dibuat.
-4. Ubah hak akses repository hasil Fork anda menjadi **private**.
-5. Hal-hal yang harus diperhatikan.
-    * Silakan commit pada repository anda (hasil fork)
-    * Lakukan beberapa commit dengan pesan yang bermakna, contoh: “add register form”, “fix logout bug”, jangan seperti “final”, “benerin dikit”, “fix bug”.
-    * Disarankan untuk tidak melakukan commit dengan perubahan yang besar karena akan mempengaruhi penilaian (contoh: hanya melakukan satu commit kemudian dikumpulkan).
-    * Sebaiknya commit dilakukan setiap ada penambahan fitur.
-    * Commit dari setiap anggota tim akan mempengaruhi penilaian.
-    * Jadi, setiap anggota tim harus melakukan commit yang berpengaruh terhadap proses pembuatan aplikasi.
-    * Sebagai panduan bisa mengikuti [semantic commit](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716).
-6. Buatlah file README yang berisi:
-    * Deskripsi aplikasi web
-    * Daftar requirement
-    * Cara instalasi
-    * Cara menjalankan server
-    * Screenshot tampilan aplikasi (tidak perlu semua kasus, minimal 1 per halaman), dan 
-    * Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
+# Description
+
+# Requirements
+
+# Installation
+
+## setup Repo
+
+we're going to use github and gitlab informatika as our remote git repository. We use github as a backup, and assuming that it's more reliable that gitlab informatika(and it's recommended by the assitant)
+
+here is how to setup the repo
+
+```bash
+git clone git@github.com:christojeffrey/tubes-wbd-1.git
+git remote set-url origin --push --add git@gitlab.informatika.org:if3110-2022-k01-01-26/tugas-besar-1.git
+git remote set-url origin --push --add git@github.com:christojeffrey/tubes-wbd-1.git
+```
+
+when you run
+
+```bash
+git remote -v
+```
+
+you should see something like this
+
+```bash
+origin  git@github.com:christojeffrey/tubes-wbd-1.git (fetch)
+origin  git@gitlab.informatika.org:if3110-2022-k01-01-26/tugas-besar-1.git (push)
+origin  git@github.com:christojeffrey/tubes-wbd-1.git (push)
+```
+
+that means we're going to push to both gitlab and github, and we're going to fetch from github
+
+# How to run the server
+
+# what will you see if all goes well
+
+### sidenote
