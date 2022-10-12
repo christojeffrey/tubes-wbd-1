@@ -1,9 +1,13 @@
-version: "3.3"
+version: "3.8"
 services:
   php-apache-environment:
     container_name: frontend
     image: christojeffrey/wbd-tubes-1:1.0
+    build:
+      context: dockerfiles
+      dockerfile: frontend.Dockerfile
+
     volumes:
-      - ./php/src:/var/www/html/
+      - ./src:/usr/src
     ports:
       - 8000:80

@@ -2,6 +2,9 @@
 
 # Requirements
 
+1. docker, docker desktop would be the easiest way to get started
+2. docker-compose
+
 # Installation
 
 ## setup Repo
@@ -33,6 +36,18 @@ origin  git@github.com:christojeffrey/tubes-wbd-1.git (push)
 that means we're going to push to both gitlab and github, and we're going to fetch from github
 
 # How to run
+
+1. go to folder where `docker-compose.yml` is located, run:
+
+```bash
+docker-compose up
+```
+
+2. go to `localhost:8000` on your browser. it should serve whatever that is on `./src/index.php`
+
+# How to stop
+
+press `ctrl + c` to stop the docker compose
 
 # what will you see if all goes well
 
