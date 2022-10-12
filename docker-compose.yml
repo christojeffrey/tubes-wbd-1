@@ -1,6 +1,9 @@
-version: '3.3'
+version: "3.3"
 services:
-  web:
-    image: tubes-1:latest
+  php-apache-environment:
+    container_name: frontend
+    image: christojeffrey/wbd-tubes-1:1.0
+    volumes:
+      - ./php/src:/var/www/html/
     ports:
-      - 8008:80
+      - 8000:80
