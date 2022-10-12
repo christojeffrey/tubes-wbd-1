@@ -62,3 +62,9 @@ press `ctrl + c` to stop the docker compose
 #### readings
 
 [project specification](https://docs.google.com/document/d/1bdYy1bAk6tpwYCZfqUxErCIJuESzfYH-n8ijvaNP_Jg/edit)
+
+[docker reference](https://www.section.io/engineering-education/dockerized-php-apache-and-mysql-container-development-environment/)
+
+#### skimped material
+
+1. Difference between CMD and ENTRYPOINT in Dockerfile
