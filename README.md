@@ -13,21 +13,22 @@ we're going to use github and gitlab informatika as our remote git repository. W
 
 here is how to setup the repo
 
-```bash
+```powershell
 git clone git@github.com:christojeffrey/tubes-wbd-1.git
+cd .\tubes-wbd-1\
 git remote set-url origin --push --add git@gitlab.informatika.org:if3110-2022-k01-01-26/tugas-besar-1.git
 git remote set-url origin --push --add git@github.com:christojeffrey/tubes-wbd-1.git
 ```
 
 when you run
 
-```bash
+```powershell
 git remote -v
 ```
 
 you should see something like this
 
-```bash
+```powershell
 origin  git@github.com:christojeffrey/tubes-wbd-1.git (fetch)
 origin  git@gitlab.informatika.org:if3110-2022-k01-01-26/tugas-besar-1.git (push)
 origin  git@github.com:christojeffrey/tubes-wbd-1.git (push)
@@ -39,7 +40,7 @@ that means we're going to push to both gitlab and github, and we're going to fet
 
 1. go to folder where `docker-compose.yml` is located, run:
 
-```bash
+```powershell
 docker-compose up
 ```
 
@@ -52,6 +53,8 @@ press `ctrl + c` to stop the docker compose
 # what will you see if all goes well
 
 ### sidenote
+
+#### the tutorial in this repo is intended for windows user
 
 #### people who make this
 
