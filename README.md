@@ -71,3 +71,7 @@ press `ctrl + c` to stop the docker compose
 #### skimped material
 
 1. Difference between CMD and ENTRYPOINT in Dockerfile
+
+### docker note
+
+port format is `host:container`

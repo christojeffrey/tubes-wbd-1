@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  php-apache-environment:
+  frontend:
     container_name: frontend
-    image: christojeffrey/wbd-tubes-1:1.0
+    image: christojeffrey/wbd-tubes-1-frontend:1.0
     build:
       context: dockerfiles
       dockerfile: frontend.Dockerfile
@@ -11,3 +11,21 @@ services:
       - ./src:/usr/src
     ports:
       - 8000:80
+  backend:
+    container_name: backend
+    image: christojeffrey/wbd-tubes-1-backend:1.0
+    build:
+      context: dockerfiles
+      dockerfile: backend.Dockerfile
+    environment:
+      MARIADB_ROOT_PASSWORD: example
+      MARIADB_DATABASE: tubes
+    volumes:
+      - ./backend:/var/lib/mysql
+
+  adminer:
+    container_name: backend-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
