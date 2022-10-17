@@ -40,11 +40,21 @@ that means we're going to push to both gitlab and github, and we're going to fet
 
 1. go to folder where `docker-compose.yml` is located, run:
 
-```powershell
-docker-compose up
-```
+   ```powershell
+   docker-compose down && docker-compose build && docker-compose up
+   ```
 
 2. go to `localhost:8000` on your browser. it should serve whatever that is on `./src/index.php`
+3. go to `localhost:7777` on your browser. you should see adminer page. login using the following credentials:
+
+   ```
+   server: db
+   username: tubes
+   password: tubes
+   database: tubes
+   ```
+
+   you should see the database that we're using for this project. the database is configured by `./sqlfile/initialschema.sql`
 
 # How to stop
 
@@ -80,3 +90,7 @@ todo:
 
 1. dump on close, and then load from dump
 2. php read data from public folder
+
+```
+
+```
