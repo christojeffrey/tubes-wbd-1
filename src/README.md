@@ -1,1 +1,1 @@
-folder to place all the php file. At least for the frontend
+folder to place all the php file. front end docker can read from this folder

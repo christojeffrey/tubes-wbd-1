@@ -7,6 +7,17 @@ CREATE TABLE IF NOT EXISTS `User` (
     PRIMARY KEY (`user_id`)
     );
 
+CREATE TABLE IF NOT EXISTS `Album` (
+    `album_id` int(11) NOT NULL AUTO_INCREMENT,
+    `Judul` varchar(256) NOT NULL,
+    `Penyanyi` varchar(128) NOT NULL,
+    `Total_duration` int(11) NOT NULL,
+    `Image_path` varchar(256) NOT NULL,
+    `Tanggal_terbit` date NOT NULL,
+    `Genre` varchar(256) NOT NULL,
+    PRIMARY KEY (`album_id`)
+    );
+    
 CREATE TABLE IF NOT EXISTS `Song` (
     `song_id` int(11) NOT NULL AUTO_INCREMENT,
     `Judul` varchar(256) NOT NULL,
@@ -18,16 +29,5 @@ CREATE TABLE IF NOT EXISTS `Song` (
     `Image_path` varchar(256),
     `album_id` int(11) NOT NULL,
     PRIMARY KEY (`song_id`),
-    FOREIGN KEY (`album_id`) REFERENCES `albums`(`album_id`)
-    );
-
-CREATE TABLE IF NOT EXISTS `Album` (
-    `album_id` int(11) NOT NULL AUTO_INCREMENT,
-    `Judul` varchar(256) NOT NULL,
-    `Penyanyi` varchar(128) NOT NULL,
-    `Total_duration` int(11) NOT NULL,
-    `Image_path` varchar(256) NOT NULL,
-    `Tanggal_terbit` date NOT NULL,
-    `Genre` varchar(256) NOT NULL,
-    PRIMARY KEY (`album_id`)
+    FOREIGN KEY (`album_id`) REFERENCES `Album`(`album_id`)
     );
