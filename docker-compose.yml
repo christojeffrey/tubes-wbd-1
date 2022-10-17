@@ -4,28 +4,32 @@ services:
     container_name: frontend
     image: christojeffrey/wbd-tubes-1-frontend:1.0
     build:
-      context: dockerfiles
-      dockerfile: frontend.Dockerfile
+      context: ./
+      dockerfile: dockerfiles/frontend.Dockerfile
 
     volumes:
       - ./src:/usr/src
     ports:
       - 8000:80
   backend:
-    container_name: backend
+    container_name: db
     image: christojeffrey/wbd-tubes-1-backend:1.0
     build:
-      context: dockerfiles
-      dockerfile: backend.Dockerfile
+      context: sqlfile
+      dockerfile: ../dockerfiles/backend.Dockerfile
     environment:
-      MARIADB_ROOT_PASSWORD: example
-      MARIADB_DATABASE: tubes
-    volumes:
-      - ./backend:/var/lib/mysql
+      MYSQL_USER: tubes
+      MYSQL_PASSWORD: tubes
+      MARIADB_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tubes
+    ports:
+      - 5555:3306
 
   adminer:
-    container_name: backend-adminer
-    image: adminer
+    container_name: adminer
+    image: adminer:4.8.1
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
     restart: always
     ports:
-      - 8080:8080
+      - 7777:8080
