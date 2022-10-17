@@ -75,3 +75,8 @@ press `ctrl + c` to stop the docker compose
 ### docker note
 
 port format is `host:container`
+
+todo:
+
+1. dump on close, and then load from dump
+2. php read data from public folder
