@@ -11,7 +11,7 @@
     //These are the defined authentication environment in the db service
 
     // The MySQL service named in the docker-compose.yml.
-    $host = 'database';
+    $host = 'db';
 
     // Database use name
     $user = 'tubes';
