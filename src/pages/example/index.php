@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- stylesheet -->
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
-  </head>
-  <body>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
     <p><b>Start typing a name in the input field below:</b></p>
     <form action="">
-      <label for="fname">First name:</label>
-      <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)" />
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)" />
     </form>
     <p>Suggestions: <span id="txtHint"></span></p>
 
@@ -21,10 +23,15 @@
 
     <?php
      require '../../components/card.php';
-      echo_card("i am a title", "i am a description", "https://picsum.photos/200/300");
-    ?>
-  </body>
-  <!-- script -->
-  <script src="../../utils.js"></script>
-  <script src="./index.js"></script>
+     echo_card("i am a title", "i am a description", "https://picsum.photos/200/300");
+     ?>
+</body>
+<?php
+    // add global js and styles
+    require '../../global.php';
+    echo_global();
+  ?>
+<!-- script -->
+<script src="./script.js"></script>
+
 </html>

@@ -1,4 +1,4 @@
-<!-- this is the entry point of the program -->
+<!-- this is the entry point of the program. you can do initial routing here -->
 
 <html>
  <head>

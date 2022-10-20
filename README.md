@@ -72,6 +72,10 @@ press `ctrl + c` to stop the docker compose
 - Addin Nabilal Huda, 13520045
 - Dimas Faidh Muzaki, 13520156
 
+### recommended vscode extensions
+
+[php formater](https://marketplace.visualstudio.com/items?itemName=rifi2k.format-html-in-php)
+
 #### readings
 
 [project specification](https://docs.google.com/document/d/1bdYy1bAk6tpwYCZfqUxErCIJuESzfYH-n8ijvaNP_Jg/edit)
