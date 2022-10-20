@@ -15,7 +15,7 @@ services:
     image: christojeffrey/wbd-tubes-1-backend:1.0
     build:
       context: sqlfile
-      dockerfile: ../dockerfiles/backend.Dockerfile
+      dockerfile: ../dockerfiles/database.Dockerfile
     environment:
       MYSQL_USER: tubes
       MYSQL_PASSWORD: tubes

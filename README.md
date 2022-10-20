@@ -78,6 +78,7 @@ press `ctrl + c` to stop the docker compose
 
 [docker reference](https://www.section.io/engineering-education/dockerized-php-apache-and-mysql-container-development-environment/)
 [ajax example](https://www.w3schools.com/php/php_ajax_php.asp)
+[ajax post example](https://stackoverflow.com/questions/9713058/send-post-data-using-xmlhttprequest)
 
 #### skimped material
 

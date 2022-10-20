@@ -2,7 +2,7 @@
 
 <html>
  <head>
-  <title>PHP Teadsfst</title>
+  <title>PHP tes</title>
  </head>
  <body>
  <?php echo '<p>Hello World</p>'; ?> 
@@ -11,7 +11,7 @@
     //These are the defined authentication environment in the db service
 
     // The MySQL service named in the docker-compose.yml.
-    $host = 'backend';
+    $host = 'database';
 
     // Database use name
     $user = 'tubes';
