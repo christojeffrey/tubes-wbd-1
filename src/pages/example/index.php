@@ -18,6 +18,11 @@
 
     <button onclick="doPost()">click me to post</button>
     <p>Suggestions: <span id="postResult"></span></p>
+
+    <?php
+     require '../../components/card.php';
+      echo_card("i am a title", "i am a description", "https://picsum.photos/200/300");
+    ?>
   </body>
   <!-- script -->
   <script src="../../utils.js"></script>
