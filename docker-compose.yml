@@ -6,12 +6,11 @@ services:
     build:
       context: ./
       dockerfile: dockerfiles/frontend.Dockerfile
-
     volumes:
       - ./src:/usr/src
     ports:
       - 8000:80
-  backend:
+  database:
     container_name: db
     image: christojeffrey/wbd-tubes-1-backend:1.0
     build:

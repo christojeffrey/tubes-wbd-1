@@ -31,3 +31,6 @@ CREATE TABLE IF NOT EXISTS `Song` (
     PRIMARY KEY (`song_id`),
     FOREIGN KEY (`album_id`) REFERENCES `Album`(`album_id`)
     );
+
+
+-- insert intial data
