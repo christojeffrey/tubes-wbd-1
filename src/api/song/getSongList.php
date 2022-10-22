@@ -12,7 +12,7 @@
         $page = $_REQUEST["page"];
         $limit = $_REQUEST["limit"];
         $offset = ($limit * $page) - $limit;
-        $stmt = $conn->prepare("SELECT * FROM (SELECT * FROM Song ORDER BY song_id LIMIT ? OFFSET ?) ORDER BY song_title ASC");
+        $stmt = $conn->prepare("SELECT * FROM (SELECT * FROM Song ORDER BY song_id DESC LIMIT ? OFFSET ?) AS Z ORDER BY song_title ASC");
         $stmt->bind_param("ii", $limit, $offset);
     } else {
         $stmt = $conn->prepare("SELECT * FROM Song ORDER BY song_title");
