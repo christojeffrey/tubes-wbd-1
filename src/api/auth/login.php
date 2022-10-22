@@ -45,8 +45,8 @@
             'id' => $row['user_id'],
             'username' => $row['username'],
             'email' => $row['email'],
-            'role' => $row['role']
-        );
+            'role' => $row['is_admin'] == 1 ? 'admin' : 'user'
+        ); 
         $token = encodeToken($data);
         // if role is user, return user_token. if role is admin, return admin_token
 

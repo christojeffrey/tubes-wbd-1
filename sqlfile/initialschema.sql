@@ -20,7 +20,23 @@ CREATE TABLE IF NOT EXISTS `Album` (
 
 ALTER TABLE `Album` ADD UNIQUE `unique_index`(`album_title`, `singer`);
 
+CREATE TABLE IF NOT EXISTS `Song` (
+    `song_id` int(11) NOT NULL AUTO_INCREMENT,
+    `song_title` varchar(256) NOT NULL,
+    `singer` varchar(128) NOT NULL,
+    `publish_date` date NOT NULL,
+    `genre` varchar(64),
+    `duration` int(11) NOT NULL,
+    `audio_path` varchar(256) NOT NULL,
+    `image_path` varchar(256),
+    `album_id` int(11),
+    PRIMARY KEY (`song_id`),
+    FOREIGN KEY (`album_id`) REFERENCES `Album`(`album_id`) ON DELETE SET NULL
+    );
 
+
+
+-- create trigger
 CREATE TRIGGER update_album_total_duration_on_insert
 AFTER INSERT ON Song
 FOR EACH ROW 
@@ -37,22 +53,12 @@ WHERE Album.album_id = OLD.album_id;
 
 
     
-CREATE TABLE IF NOT EXISTS `Song` (
-    `song_id` int(11) NOT NULL AUTO_INCREMENT,
-    `song_title` varchar(256) NOT NULL,
-    `singer` varchar(128) NOT NULL,
-    `publish_date` date NOT NULL,
-    `genre` varchar(64),
-    `duration` int(11) NOT NULL,
-    `audio_path` varchar(256) NOT NULL,
-    `image_path` varchar(256),
-    `album_id` int(11),
-    PRIMARY KEY (`song_id`),
-    FOREIGN KEY (`album_id`) REFERENCES `Album`(`album_id`) ON DELETE SET NULL
-    );
 
 
 -- insert intial data
 -- insert admin
 INSERT INTO `User` (`email`, `password`, `username`, `is_admin`) VALUES
 ('email@example.com', 'admin', 'admin', true);
+-- insert user
+INSERT INTO `User` (`email`, `password`, `username`, `is_admin`) VALUES
+('email@user.com', 'user', 'user', false);
