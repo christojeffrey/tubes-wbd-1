@@ -34,8 +34,13 @@
         //database user password
         $pass = 'tubes';
 
+        $dbname= 'tubes';
+
         // check the MySQL connection status
-        $conn = new mysqli($host, $user, $pass);
+        $conn = new mysqli($host, $user, $pass, $dbname);
+
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
         // map of conn, and err
         $map = array(
             'conn' => $conn,
@@ -68,6 +73,18 @@
         return true;
     }
 
+    function validateKeyValueIsNotNull($body, $needed_keys){
+        // loop through the needed keys
+        foreach ($needed_keys as $key) {
+            // check if the value is null
+            if ($body[$key] == null) {
+                // return false if the value is null
+                return false;
+            }
+        }
+        // return true if all needed key is set
+        return true;
+    }
 
     // function that is used to return from the api. take status code and error message
     function exitWithError($status, $error_msg) {
