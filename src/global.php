@@ -73,6 +73,18 @@
         return true;
     }
 
+    function validateKeyValueIsNotNull($body, $needed_keys){
+        // loop through the needed keys
+        foreach ($needed_keys as $key) {
+            // check if the value is null
+            if ($body[$key] == null) {
+                // return false if the value is null
+                return false;
+            }
+        }
+        // return true if all needed key is set
+        return true;
+    }
 
     // function that is used to return from the api. take status code and error message
     function exitWithError($status, $error_msg) {

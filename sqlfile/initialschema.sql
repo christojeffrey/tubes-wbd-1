@@ -37,5 +37,5 @@ CREATE TABLE IF NOT EXISTS `Song` (
 
 -- insert intial data
 -- insert admin
-INSERT INTO `User` (`email`, `password`, `username`, `isAdmin`) VALUES
+INSERT INTO `User` (`email`, `password`, `username`, `is_admin`) VALUES
 ('email@example.com', 'admin', 'admin', true);
