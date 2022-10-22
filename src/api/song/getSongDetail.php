@@ -10,10 +10,11 @@
 
     // get the song id parameter from URL
     if (!empty($_REQUEST["song_id"])) {
-        $page = $_REQUEST["page"];
+        $song_id = $_REQUEST["song_id"];
     } else {
-        exitWithError(400, "No song id provided");
+        exitWithError(400, "No song pspecified");
     }
+
 
     $sql = "SELECT * FROM Song WHERE song_id = ?";
     $stmt = $conn->prepare($sql);
@@ -21,18 +22,24 @@
 
     if ($stmt->execute()) {
         $result = $stmt->get_result();
+
+        // check if the song exists
         if ($result->num_rows == 0) {
             exitWithError(404, "Song not found");
         }
+
+        $song = $result->fetch_assoc();
         $data = array(
-            "song_title" => $row["song_title"],
-            "singer" => $row["singer"],
-            "publish_date" => $row["publish_date"],
-            "genre" => $row["genre"],
-            "file_path" => $row["file_path"],
-            "album_id" => $row["album_id"],
-            "duration" => $row["duration"],
+            "song_id" => $song["song_id"],
+            "song_title" => $song["song_title"],
+            "singer" => $song["singer"],
+            "publish_date" => $song["publish_date"],
+            "genre" => $song["genre"],
+            "audio_path" => $song["audio_path"],
+            "image_path" => $song["image_path"],
+            "duration" => $song["duration"],
         );
+        
         exitWithDataReturned($data);
     } else {
         exitWithError(500, "Error while fetching songs");
