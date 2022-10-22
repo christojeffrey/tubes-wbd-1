@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS `Album` (
     `genre` varchar(256) NOT NULL,
     PRIMARY KEY (`album_id`)
     );
+
+ALTER TABLE `Album` ADD UNIQUE `unique_index`(`album_title`, `singer`);
     
 CREATE TABLE IF NOT EXISTS `Song` (
     `song_id` int(11) NOT NULL AUTO_INCREMENT,

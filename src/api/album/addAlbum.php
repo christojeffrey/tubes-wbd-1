@@ -2,19 +2,18 @@
     require_once '../../global.php';
     
     $map = backendConnection();
-    $conn = $map['conn'];
-    
     if ($map['err'] != null) {
-        $conn->close();
         exitWithError(500, $map['err']);
     }
+    $conn = $map['conn'];
     
-    // $auth = checkIsAuthTokenValid();
+    
+    $auth = checkIsAuthTokenValid();
 
-    // if (!$auth['is_admin']){
-    //     $conn->close();
-    //     exitWithError(401, "You are not authorized to access this");
-    // }
+    if (!$auth['is_admin']){
+        $conn->close();
+        exitWithError(401, "You are not authorized to access this");
+    }
 
     $input = file_get_contents('php://input');
     $body = json_decode($input,true);
@@ -23,7 +22,7 @@
         $conn->close();
         exitWithError(400, 'Bad Request');
     }
-    
+
     $album_title = $body['album_title'];
     $singer = $body['singer'];
     $image_path = $body['image_path'];
