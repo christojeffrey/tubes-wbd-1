@@ -18,7 +18,7 @@ function showHint(str) {
 
 function doPost() {
   let jsonBody = { name: "John", age: "21" };
-  POST_API("../../api/postexample.php", jsonBody, (status, data) => {
+  POST_API("../../api/postexample.php", null, jsonBody, (status, data) => {
     console.log("status", status);
     if (status === 200) {
       document.getElementById("postResult").innerHTML = data;
