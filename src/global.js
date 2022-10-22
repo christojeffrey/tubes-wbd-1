@@ -1,10 +1,19 @@
 // a place for js function that can be used accross the app by importing them
+
+// ===CONSTANT===
 const TIMEOUT_TIME = 10000;
+const BASE_URL = "/../../";
+
+// ===FUNCTION===
+
 // callback function for the API have two args: status and respondData
-function GET_API(apiLoc, callbackfn) {
+// fill authHeader with the auth header if needed. if not, leave it empty or null
+function GET_API(apiLoc, authHeader = null, callbackfn) {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", apiLoc, true);
-  console.log("ready");
+  if (authHeader != null) {
+    xhr.setRequestHeader("Authorization", authHeader);
+  }
 
   xhr.onerror = (e) => {
     console.error(xhr.statusText);
@@ -26,18 +35,18 @@ function GET_API(apiLoc, callbackfn) {
 
 // use this function to do post. jsonBody is the body of the post request
 // callback function for the API have two args: status and respondData
-function POST_API(apiLoc, jsonBodyData, callbackfn) {
+// fill authHeader with the auth header if needed. if not, leave it empty or null
+function POST_API(apiLoc, authHeader = null, jsonBodyData, callbackfn) {
   let xhr = new XMLHttpRequest();
   xhr.open("POST", apiLoc, true);
   xhr.setRequestHeader("Content-Type", "application/json");
+  if (authHeader != null) {
+    xhr.setRequestHeader("Authorization", authHeader);
+  }
+
   xhr.onload = (e) => {
     if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        console.log(xhr.responseText);
-        callbackfn(xhr.status, xhr.responseText);
-      } else {
-        console.error(xhr.statusText);
-      }
+      callbackfn(xhr.status, xhr.responseText);
     }
   };
   xhr.onerror = (e) => {
