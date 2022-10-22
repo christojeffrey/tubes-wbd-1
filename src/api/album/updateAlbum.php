@@ -1,18 +1,18 @@
 <?php
     require_once '../../global.php';
-     $map = backendConnection();
-     $conn = $map['conn'];
-     
-     if ($map['err'] != null) {
-         $conn->close();
-         exitWithError(500, $map['err']);
-        }
+    $map = backendConnection();
+    $conn = $map['conn'];
+    
+    if ($map['err'] != null) {
+        $conn->close();
+        exitWithError(500, $map['err']);
+    }
         
-    //  $auth = checkIsAuthTokenValid();
-    //  if (!$auth['is_admin']){
-    //      $conn->close();
-    //      exitWithError(401, "You are not authorized to access this");
-    //  }
+    $auth = checkIsAuthTokenValid();
+    if (!$auth['is_admin']){
+        $conn->close();
+        exitWithError(401, "You are not authorized to access this");
+    }
 
     $input = file_get_contents('php://input');
     $body = json_decode($input,true);

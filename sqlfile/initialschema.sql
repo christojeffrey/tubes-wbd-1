@@ -19,6 +19,23 @@ CREATE TABLE IF NOT EXISTS `Album` (
     );
 
 ALTER TABLE `Album` ADD UNIQUE `unique_index`(`album_title`, `singer`);
+
+
+CREATE TRIGGER update_album_total_duration_on_insert
+AFTER INSERT ON Song
+FOR EACH ROW 
+UPDATE Album 
+SET total_duration = total_duration + NEW.duration
+WHERE Album.album_id = NEW.album_id;
+
+CREATE TRIGGER update_album_total_duration_on_delete
+BEFORE DELETE ON Song
+FOR EACH ROW 
+UPDATE Album 
+SET total_duration = total_duration - OLD.duration
+WHERE Album.album_id = OLD.album_id;
+
+
     
 CREATE TABLE IF NOT EXISTS `Song` (
     `song_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -31,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `Song` (
     `image_path` varchar(256),
     `album_id` int(11),
     PRIMARY KEY (`song_id`),
-    FOREIGN KEY (`album_id`) REFERENCES `Album`(`album_id`)
+    FOREIGN KEY (`album_id`) REFERENCES `Album`(`album_id`) ON DELETE SET NULL
     );
 
 

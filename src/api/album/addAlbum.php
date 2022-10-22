@@ -8,12 +8,12 @@
     $conn = $map['conn'];
     
     
-    $auth = checkIsAuthTokenValid();
+    // $auth = checkIsAuthTokenValid();
 
-    if (!$auth['is_admin']){
-        $conn->close();
-        exitWithError(401, "You are not authorized to access this");
-    }
+    // if (!$auth['is_admin']){
+    //     $conn->close();
+    //     exitWithError(401, "You are not authorized to access this");
+    // }
 
     $input = file_get_contents('php://input');
     $body = json_decode($input,true);
