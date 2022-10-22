@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `Album` (
     `album_id` int(11) NOT NULL AUTO_INCREMENT,
     `album_title` varchar(256) NOT NULL,
     `singer` varchar(128) NOT NULL,
-    `total_duration` int(11) NOT NULL,
+    `total_duration` int(11) NOT NULL DEFAULT 0,
     `image_path` varchar(256) NOT NULL,
     `publish_date` date NOT NULL,
     `genre` varchar(256) NOT NULL,
