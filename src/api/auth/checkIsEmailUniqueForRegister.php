@@ -20,7 +20,7 @@
     // do query
     // use prepare
     $email = $body['email'];
-    $sql = "SELECT * FROM user WHERE email = ?";
+    $sql = "SELECT * FROM User WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $email);
     $stmt->execute();
