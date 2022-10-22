@@ -1,17 +1,10 @@
 <?php
     require_once '../../global.php';
 
-    $auth = checkIsAuthTokenValid();
-    if (!$auth['is_admin']) {
-        exitWithError(401, 'Unauthorized');
-    };
-
-    $map = backendConnection();
-    $conn = $map['conn'];
-
-    if ($map['err'] != null) {      
-        exitWithError(500, $map['err']);
-    }
+    // $auth = checkIsAuthTokenValid();
+    // if (!$auth['is_admin']) {
+    //     exitWithError(401, 'Unauthorized');
+    // };
 
     $body = json_decode(file_get_contents('php://input'), true);
     if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
@@ -26,12 +19,20 @@
         exitWithError(400, 'File path must be a valid URL');
     }
 
-    
+    // connect to database
+    $map = backendConnection();
+    $conn = $map['conn'];
+    if ($map['err'] != null) {      
+        exitWithError(500, $map['err']);
+    }
+
     if (!validateRowExist($conn, 'Song', $body['song_id'])) {
+        $conn->close();
         exitWithError(400, "No song found");
     }
 
     if (!validateRowExist($conn, 'Album', $body['album_id'])) {
+        $conn->close();
         exitWithError(400, "No album found");
     }
 
@@ -64,6 +65,7 @@
         );
         exitWithDataReturned($data);
     } else {
+        $conn->close();
         exitWithError(500, "Error while adding new song");
     }
 ?>

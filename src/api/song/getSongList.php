@@ -1,6 +1,7 @@
 <?php
     require_once '../../global.php';
 
+    // connect to database
     $map = backendConnection();
     $conn = $map['conn'];
     if ($map['err'] != null) {      
@@ -9,8 +10,8 @@
 
     // check if page and limit number is provided
     if (!empty($_REQUEST["page"] && !empty($_REQUEST["limit"]))) {
-        $page = $_REQUEST["page"];
-        $limit = $_REQUEST["limit"];
+        $page = intval($_REQUEST["page"]);
+        $limit = intval($_REQUEST["limit"]);
         $offset = ($limit * $page) - $limit;
         $stmt = $conn->prepare("SELECT * FROM (SELECT * FROM Song ORDER BY song_id DESC LIMIT ? OFFSET ?) AS Z ORDER BY song_title ASC");
         $stmt->bind_param("ii", $limit, $offset);
@@ -36,6 +37,7 @@
         }
         exitWithDataReturned($data);
     } else {
+        $conn->close();
         exitWithError(500, "Error while fetching songs");
     }
 ?>
