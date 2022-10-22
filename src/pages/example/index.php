@@ -22,7 +22,7 @@
     <p>Suggestions: <span id="postResult"></span></p>
 
     <?php
-     require '../../components/card.php';
+     require '../../components/card/card.php';
      echo_card("i am a title", "i am a description", "https://picsum.photos/200/300");
      ?>
 </body>
