@@ -5,7 +5,7 @@ function showHint(str) {
     document.getElementById("txtHint").innerHTML = "";
     return;
   } else {
-    GET_API("../../api/getexample.php?q=" + str, (status, data) => {
+    GET_API("../../api/getexample.php?q=" + str, null, (status, data) => {
       console.log("status", status);
       if (status === 200) {
         document.getElementById("txtHint").innerHTML = data;
