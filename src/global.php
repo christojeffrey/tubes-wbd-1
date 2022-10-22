@@ -1,5 +1,5 @@
-<!-- this is a php file that contains function that can be used in other php files -->
 <?php
+    // <!-- this is a php file that contains function that can be used in other php files -->
     // ===CONSTANTS===
     // encryption key
     define('ENCRYPTION_KEY', 'this is a key');
@@ -34,8 +34,13 @@
         //database user password
         $pass = 'tubes';
 
+        $dbname= 'tubes';
+
         // check the MySQL connection status
-        $conn = new mysqli($host, $user, $pass);
+        $conn = new mysqli($host, $user, $pass, $dbname);
+
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
         // map of conn, and err
         $map = array(
             'conn' => $conn,
