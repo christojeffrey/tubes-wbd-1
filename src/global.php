@@ -103,4 +103,58 @@
         // return the data
         return $data;
     }
+
+    // get Auth in header. return the token if there is any, else null
+    function getAuth() {
+        // get the header
+        $headers = apache_request_headers();
+        // check if the header is set
+        if (isset($headers['Authorization'])) {
+            // return the token
+            return $headers['Authorization'];
+        }
+        // return null if there is no token
+        return null;
+    }
+
+
+
+    
+    // take token from header, and then return
+    // {
+    //     'is_auth_exist: true || false 
+    //     'is_valid':true || false,
+    //     'is_admin':true || false,
+    // }
+    function checkIsAuthTokenValid(){
+        // get the token
+        $token = getAuth();
+        // check if the token is null
+        if ($token == null) {
+            // return false if the token is null
+            return array(
+                'is_auth_exist' => false,
+                'is_valid' => false,
+                'is_admin' => false
+            );
+        }
+        // decode the token
+        $data = decodeToken($token);
+        // check if the data is null
+        if ($data == null) {
+            // return false if the data is null
+            return array(
+                'is_auth_exist' => true,
+                'is_valid' => false,
+                'is_admin' => false
+            );
+        }
+        // return with is_admin true if role == 'admin'
+        return array(
+            'is_auth_exist' => true,
+            'is_valid' => true,
+            'is_admin' => $data['role'] == 'admin'
+        );
+    }
+
 ?>

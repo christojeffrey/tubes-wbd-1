@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `User` (
     `email` varchar(256) NOT NULL,
     `password` varchar(256) NOT NULL,
     `username` varchar(265) NOT NULL,
-    `isAdmin` boolean NOT NULL,
+    `is_admin` boolean NOT NULL DEFAULT false,
     PRIMARY KEY (`user_id`)
     );
 
@@ -27,10 +27,13 @@ CREATE TABLE IF NOT EXISTS `Song` (
     `duration` int(11) NOT NULL,
     `audio_path` varchar(256) NOT NULL,
     `image_path` varchar(256),
-    `album_id` int(11) NOT NULL,
+    `album_id` int(11),
     PRIMARY KEY (`song_id`),
     FOREIGN KEY (`album_id`) REFERENCES `Album`(`album_id`)
     );
 
 
 -- insert intial data
+-- insert admin
+INSERT INTO `User` (`email`, `password`, `username`, `isAdmin`) VALUES
+('email@example.com', 'admin', 'admin', true);
