@@ -2,12 +2,11 @@
     require_once '../../global.php';
     
     $map = backendConnection();
-    $conn = $map['conn'];
-    
     if ($map['err'] != null) {
-        $conn->close();
         exitWithError(500, $map['err']);
     }
+    $conn = $map['conn'];
+    
     
     // $auth = checkIsAuthTokenValid();
 
@@ -23,7 +22,7 @@
         $conn->close();
         exitWithError(400, 'Bad Request');
     }
-    
+
     $album_title = $body['album_title'];
     $singer = $body['singer'];
     $image_path = $body['image_path'];

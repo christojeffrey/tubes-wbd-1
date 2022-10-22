@@ -17,7 +17,7 @@ function GET_API(apiLoc, authHeader = null, callbackfn) {
 
   xhr.onerror = (e) => {
     console.error(xhr.statusText);
-    callbackfn(500, xhr.statusText);
+    callbackfn(500, JSON.parse(xhr.statusText));
   };
   xhr.ontimeout = () => {
     console.error(`The request timed out.`);
@@ -27,7 +27,7 @@ function GET_API(apiLoc, authHeader = null, callbackfn) {
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
-      callbackfn(xhr.status, xhr.responseText);
+      callbackfn(xhr.status, JSON.parse(xhr.responseText));
     }
   };
   xhr.send();
@@ -46,7 +46,8 @@ function POST_API(apiLoc, authHeader = null, jsonBodyData, callbackfn) {
 
   xhr.onload = (e) => {
     if (xhr.readyState === 4) {
-      callbackfn(xhr.status, xhr.responseText);
+      console.log(xhr.responseText);
+      callbackfn(xhr.status, JSON.parse(xhr.responseText));
     }
   };
   xhr.onerror = (e) => {
