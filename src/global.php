@@ -73,6 +73,7 @@
         return true;
     }
 
+    // validate needed key in a php array. return true if all needed key is not null, else false
     function validateKeyValueIsNotNull($body, $needed_keys){
         // loop through the needed keys
         foreach ($needed_keys as $key) {
@@ -86,6 +87,21 @@
         return true;
     }
 
+    // validate if data with given id is exist in table Album or Song. return true if exist, else false
+    function validateRowExist($conn, $table,  $id){
+        // do query
+        if ($table == 'Album') {
+            $sql = "SELECT * FROM Album WHERE album_id = ?";
+        } else if ($table == 'Song') {
+            $sql = "SELECT * FROM Song WHERE song_id = ?";
+        }
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        // return
+       return $result->num_rows != 0;
+    }
     // function that is used to return from the api. take status code and error message
     function exitWithError($status, $error_msg) {
         $result = array(
