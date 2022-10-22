@@ -1,5 +1,5 @@
-<!-- this is a php file that contains function that can be used in other php files -->
 <?php
+    // this is a php file that contains function that can be used in other php files
     // ===CONSTANTS===
     // encryption key
     define('ENCRYPTION_KEY', 'this is a key');

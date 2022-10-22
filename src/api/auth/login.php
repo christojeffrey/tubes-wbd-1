@@ -21,15 +21,23 @@
     // use prepare
     $username = $body['username'];
     $password = $body['password'];
-    $sql = "SELECT * FROM user WHERE username = ? AND password = ?";
-    $stmt = $map['conn']->prepare($sql);
-    $stmt->bind_param('ss', $username, $password);
+  
+    $stmt = $conn->prepare("
+        SELECT * FROM User WHERE username = ? AND password = ?");
+    // check if stmt is valid
+    if ($stmt == false) {
+        echo $mysqli->error;
+        $conn->close();
+        exitWithError(500, 'error when preparing query' . $conn->error);
+    }
+    $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();
     
     // return
     if ($result->num_rows == 0) {
         $conn->close();
+        echo $mysqli->error;
         exitWithError(400, 'username or password is wrong');
     } else {
         $row = $result->fetch_assoc();
