@@ -73,7 +73,8 @@ press `ctrl + c` to stop the docker compose
 - Dimas Faidh Muzaki, 13520156
 
 ### working drive
-https://drive.google.com/drive/folders/1gtFksY_fHIAS5xdsUdHUGRMqDG4VUcrX?usp=sharing
+
+[drive link](https://drive.google.com/drive/folders/1gtFksY_fHIAS5xdsUdHUGRMqDG4VUcrX?usp=sharing)
 
 ### recommended vscode extensions
 
@@ -85,6 +86,7 @@ https://drive.google.com/drive/folders/1gtFksY_fHIAS5xdsUdHUGRMqDG4VUcrX?usp=sha
 - [docker reference](https://www.section.io/engineering-education/dockerized-php-apache-and-mysql-container-development-environment/)
 - [ajax example](https://www.w3schools.com/php/php_ajax_php.asp)
 - [ajax post example](https://stackoverflow.com/questions/9713058/send-post-data-using-xmlhttprequest)
+- [require and require once difference](<https://www.geeksforgeeks.org/difference-between-require-and-require_once-in-php/#:~:text=%3F%3E,-Output%3A&text=The%20require()%20function%20is%20used%20to%20include%20a%20PHP,will%20not%20include%20it%20again.>)
 
 #### skimped material
 
