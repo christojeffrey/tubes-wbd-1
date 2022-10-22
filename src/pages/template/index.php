@@ -24,7 +24,7 @@
 <?php
     // add global js and styles
     require '../../global.php';
-    echo_global();
+    echoGlobal();
 ?>
 <!-- script -->
 <script src="./script.js"></script>
