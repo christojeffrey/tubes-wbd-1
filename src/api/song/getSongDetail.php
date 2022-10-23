@@ -1,20 +1,26 @@
 <?php
     require_once '../../global.php';
-    // auth check is not yet implemented
 
-    $map = backendConnection();
-    $conn = $map['conn'];
-    if ($map['err'] != null) {      
-        exitWithError(500, $map['err']);
-    }
+    $auth = checkIsAuthTokenValid();
+    if (!$auth['is_valid']) {
+        exitWithError(401, 'You are not authorized to access song detail');
+    };
 
     // get the song id parameter from URL
     if (!empty($_REQUEST["song_id"])) {
-        $song_id = $_REQUEST["song_id"];
+        $song_id = intval($_REQUEST["song_id"]);
     } else {
+        $conn->close();
         exitWithError(400, "No song pspecified");
     }
 
+    // connect to database
+    $map = backendConnection();
+    $conn = $map['conn'];
+    if ($map['err'] != null) {      
+        $conn->close();
+        exitWithError(500, $map['err']);
+    }
 
     $sql = "SELECT * FROM Song WHERE song_id = ?";
     $stmt = $conn->prepare($sql);
@@ -25,6 +31,7 @@
 
         // check if the song exists
         if ($result->num_rows == 0) {
+            $conn->close();
             exitWithError(404, "Song not found");
         }
 
@@ -39,9 +46,9 @@
             "image_path" => $song["image_path"],
             "duration" => $song["duration"],
         );
-        
         exitWithDataReturned($data);
     } else {
+        $conn->close();
         exitWithError(500, "Error while fetching songs");
     } 
 ?>

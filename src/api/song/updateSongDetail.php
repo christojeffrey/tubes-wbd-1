@@ -3,19 +3,18 @@
 
     $auth = checkIsAuthTokenValid();
     if (!$auth['is_admin']) {
-        exitWithError(401, 'You are not authorized to add song');
+        exitWithError(401, 'Unauthorized');
     };
 
     $body = json_decode(file_get_contents('php://input'), true);
-    if (!validateNeededKeys($body, array('song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
+    if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
         exitWithError(400, 'All song detail is needed');
     }
 
-    if (!validateKeyValueIsNotNull($body, array('song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
+    if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
         exitWithError(400, 'All song detail must be filled');
     }
 
-    // check if audio_path and image_path is started with "/public/"
     if (!preg_match('/^(\/public\/)/', $body['audio_path']) || !preg_match('/^(\/public\/)/', $body['image_path'])) {
         exitWithError(400, 'File path must be a valid URL');
     }
@@ -23,25 +22,21 @@
     // connect to database
     $map = backendConnection();
     $conn = $map['conn'];
-    if ($map['err'] != null) {
-        $conn->close();   
+    if ($map['err'] != null) {      
         exitWithError(500, $map['err']);
     }
-    
-    $stmt = $conn->prepare("SELECT album_id FROM Album WHERE album_id = ?");
-    $stmt->bind_param("i", $body['album_id']);
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows == 0) {
-            $conn->close();
-            exitWithError(400, "No album found");
-        }
-    } else {
-        $conn->close();
-        exitWithError(500, "Error while checking album");
-    }
-    $stmt->close();
 
+    if (!validateRowExist($conn, 'Song', $body['song_id'])) {
+        $conn->close();
+        exitWithError(400, "No song found");
+    }
+
+    if (!validateRowExist($conn, 'Album', $body['album_id'])) {
+        $conn->close();
+        exitWithError(400, "No album found");
+    }
+
+    $song_id = $body['song_id'];
     $song_title = $body['song_title'];
     $singer = $body['singer'];
     $publish_date = $body['publish_date'];
@@ -52,14 +47,13 @@
     $album_id = $body['album_id'];
      
 
-    $sql = "INSERT INTO Song (song_title, singer, publish_date, genre, audio_path, image_path, duration, album_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "UPDATE Song SET song_title = ?, singer = ?, publish_date = ?, genre = ?, audio_path = ?, image_path = ?, duration = ?, album_id = ? WHERE song_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssssi", $song_title, $singer, $publish_date, $genre, $audio_path, $image_path, $duration, $album_id);
+    $stmt->bind_param("ssssssiii", $song_title, $singer, $publish_date, $genre, $audio_path, $image_path, $duration, $album_id, $song_id);
     if ($stmt->execute()) {
-        $new_id = $stmt->insert_id;
-        
-        $data = array(
-            "song_id" => $new_id,
+       
+       $data = array(
+            "song_id" => $song_id,
             "song_title" => $song_title,
             "singer" => $singer,
             "publish_date" => $publish_date,
@@ -67,9 +61,8 @@
             "audio_path" => $audio_path,
             "image_path" => $image_path,
             "duration" => $duration,
-            "album_id" => $album_id,
+            "album_id" => $album_id
         );
-        $conn->close();
         exitWithDataReturned($data);
     } else {
         $conn->close();
