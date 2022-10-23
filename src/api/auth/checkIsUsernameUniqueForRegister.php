@@ -20,7 +20,7 @@
     // do query
     // use prepare
     $username = $body['username'];
-    $sql = "SELECT * FROM user WHERE username = ?";
+    $sql = "SELECT * FROM User WHERE username = ?";
     $stmt = $map['conn']->prepare($sql);
     $stmt->bind_param('s', $username);
     $stmt->execute();

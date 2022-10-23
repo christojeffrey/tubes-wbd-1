@@ -13,23 +13,23 @@
 
 <body>
     <div class="flex justify-center items-center h-screen bg-black">
-        <div class="container flex flex-col w-1/4 bg-white p-12 rounded-lg">
-            <label for="username"><b>Username</b></label>
-            <input id="username" type="text" placeholder="Enter Username" name="username" required class="border-2"
-                oninput="updateUsername(this.value)">
-            <label for="password"><b>Password</b></label>
-            <input id="password" type="password" placeholder="Enter Password" name="password" required class="border-2">
-            <!-- button with onclick -->
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-                onclick="onLoginClick()">Login</button>
-            <div id="status">asdf</div>
+        <div class="container w-1/2 md:w-1/4 bg-white p-12 rounded-lg">
+            <form onsubmit="formSubmit()" class="flex flex-col" onchange="onFormChange()">
+
+                <label for="username"><b>Username</b></label>
+                <input id="username" type="text" placeholder="Enter Username" name="username" required class="border-2"
+                    oninput="updateUsername(this.value)">
+
+                <label for="password"><b>Password</b></label>
+                <input id="password" type="password" placeholder="Enter Password" name="password" required
+                    class="border-2">
+
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Login</button>
+                <div id="status"></div>
+            </form>
 
         </div>
-
-        <!-- <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div> -->
     </div>
 
 </body>

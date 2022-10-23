@@ -21,11 +21,20 @@
     $username = $body['username'];
     $password = $body['password'];
     $email = $body['email'];
-    $sql = "INSERT INTO user (name, username, password, email, role) VALUES (?, ?, ?, ?, 'user')";
+    $sql = "INSERT INTO User (name, username, password, email, is_admin) VALUES (?, ?, ?, ?, 0)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ssss', $name, $username, $password, $email);
-    $stmt->execute();
+    // try catch
+    try {
+        $stmt->execute();
+    } catch (Exception $e) {
+        $conn->close();
+        exitWithError(500, $e->getMessage());
+    }
+   
+
     $result = $stmt->get_result();
+ 
     
     // return user_token
     // encode
