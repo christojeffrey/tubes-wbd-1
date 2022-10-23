@@ -1,10 +1,10 @@
 <?php
     require_once '../../global.php';
 
-    // $auth = checkIsAuthTokenValid();
-    // if (!$auth['is_admin']) {
-    //     exitWithError(401, 'You are not authorized to add song');
-    // };
+    $auth = checkIsAuthTokenValid();
+    if (!$auth['is_admin']) {
+        exitWithError(401, 'You are not authorized to add song');
+    };
 
     $body = json_decode(file_get_contents('php://input'), true);
     if (!validateNeededKeys($body, array('song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {

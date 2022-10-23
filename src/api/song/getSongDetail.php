@@ -1,10 +1,10 @@
 <?php
     require_once '../../global.php';
 
-    // $auth = checkIsAuthTokenValid();
-    // if (!$auth['is_valid']) {
-    //     exitWithError(401, 'You are not authorized to access song detail');
-    // };
+    $auth = checkIsAuthTokenValid();
+    if (!$auth['is_valid']) {
+        exitWithError(401, 'You are not authorized to access song detail');
+    };
 
     // get the song id parameter from URL
     if (!empty($_REQUEST["song_id"])) {

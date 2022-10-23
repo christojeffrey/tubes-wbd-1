@@ -1,10 +1,10 @@
 <?php
     require_once '../../global.php';
 
-    // $auth = checkIsAuthTokenValid();
-    // if (!$auth['is_admin']) {
-    //     exitWithError(401, 'Unauthorized');
-    // };
+    $auth = checkIsAuthTokenValid();
+    if (!$auth['is_admin']) {
+        exitWithError(401, 'Unauthorized');
+    };
 
     $body = json_decode(file_get_contents('php://input'), true);
     if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {

@@ -9,12 +9,12 @@
         exitWithError(500, $map['err']);
     }
 
-    // check if user is admin
-    // $auth = checkIsAuthTokenValid();
-    // if (!$auth['is_admin']){
-    //     $conn->close();
-    //     exitWithError(401, "You are not authorized to delete song");
-    // }
+    check if user is admin
+    $auth = checkIsAuthTokenValid();
+    if (!$auth['is_admin']){
+        $conn->close();
+        exitWithError(401, "You are not authorized to delete song");
+    }
 
     if (empty($_REQUEST["song_id"])) {
         exitWithError(400, "Song id unspecified");
