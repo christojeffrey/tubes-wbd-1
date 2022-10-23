@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <title>search-song</title>
     <!-- styles -->
     <link rel="stylesheet" href="styles.css">
 
@@ -14,7 +14,7 @@
 <body>
     <div>
         <h1>
-            template. This page will be removed in the future
+            template
         </h1>
         <p>
             this is a page template. copy from this folder when you want to create a new page
