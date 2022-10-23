@@ -59,3 +59,25 @@ function POST_API(apiLoc, authHeader = null, jsonBodyData, callbackfn) {
   xhr.timeout = TIMEOUT_TIME;
   xhr.send(JSON.stringify(jsonBodyData));
 }
+
+function LOAD_COMPONENT(jsonBodyData, callbackfn) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "../../api/echoComponent.php", true);
+
+  xhr.onerror = (e) => {
+    console.error(xhr.statusText);
+    callbackfn(500, xhr.statusText);
+  };
+  xhr.ontimeout = () => {
+    console.error(`The request timed out.`);
+    callbackfn(500, "The request timed out.");
+  };
+  xhr.timeout = TIMEOUT_TIME;
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      callbackfn(xhr.status, xhr.responseText);
+    }
+  };
+  xhr.send(JSON.stringify(jsonBodyData));
+}
