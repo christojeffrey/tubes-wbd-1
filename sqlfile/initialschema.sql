@@ -1,8 +1,9 @@
 CREATE TABLE IF NOT EXISTS `User` (
     `user_id` int(11) NOT NULL AUTO_INCREMENT,
-    `email` varchar(256) NOT NULL,
+    `name` varchar(255) NOT NULL,
+    `email` varchar(256) NOT NULL UNIQUE,
     `password` varchar(256) NOT NULL,
-    `username` varchar(265) NOT NULL,
+    `username` varchar(265) NOT NULL UNIQUE,
     `is_admin` boolean NOT NULL DEFAULT false,
     PRIMARY KEY (`user_id`)
     );
@@ -57,8 +58,8 @@ WHERE Album.album_id = OLD.album_id;
 
 -- insert intial data
 -- insert admin
-INSERT INTO `User` (`email`, `password`, `username`, `is_admin`) VALUES
-('email@example.com', 'admin', 'admin', true);
+INSERT INTO `User` (`name`, `email`, `password`, `username`, `is_admin`) VALUES
+('admin', 'email@example.com', 'admin', 'admin', true);
 -- insert user
-INSERT INTO `User` (`email`, `password`, `username`, `is_admin`) VALUES
-('email@user.com', 'user', 'user', false);
+INSERT INTO `User` (`name`, `email`, `password`, `username`, `is_admin`) VALUES
+('user', 'email@user.com', 'user', 'user', false);
