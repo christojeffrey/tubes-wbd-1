@@ -14,7 +14,8 @@ const fetchSongs = () => {
                     id: song.song_id,
                     title: song.song_title,
                     artist: song.singer,
-                    img: song.image_path,
+                    audio_path: "../../assets/song-audio" + song.audio_path,
+                    img: "../../assets/song-image" +song.image_path,
                     on_click: "songCardOnClick",
                 },
             },
@@ -29,4 +30,34 @@ const fetchSongs = () => {
     });
     }
 
-    fetchSongs()
+// update card style
+let previd = null;
+const songCardOnClick = (id, title, singer, audio_path, img) => {
+    if (previd != null) {
+      document.getElementById("song-card-" + previd).classList.remove("selected-song");
+    }
+    document.getElementById("song-card-" + id).classList.add("selected-song");
+    console.log("selected id " + id);
+    previd = id;
+
+            // $id, $song_title, $singer, $audio_path, $img
+
+    LOAD_COMPONENT(
+        {
+          name: "player",
+          args: {
+            id: i,
+            title: title,
+            singer: singer,
+            audio_path: audio_path,
+            img: img,
+          },
+        },
+        (status, data) => {
+          if (status === 200) {
+            document.getElementById("player-home").innerHTML += data;
+          }
+        }
+      );
+  };
+fetchSongs()
