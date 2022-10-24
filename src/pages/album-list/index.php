@@ -14,11 +14,12 @@
 <body>
     <div>
         <h1>
-            template
+            Album List
         </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
+        
+        <section id="albums" class="albums">
+            
+        </section>
     </div>
 </body>
 <?php
