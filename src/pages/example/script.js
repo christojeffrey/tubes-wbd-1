@@ -1,29 +1,32 @@
-// import { GET_API } from "./utils";
+console.log("test");
 
-function showHint(str) {
-  if (str.length == 0) {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  } else {
-    GET_API("../../api/getexample.php?q=" + str, null, (status, data) => {
-      console.log("status", status);
+for (let i = 0; i < 10; i++) {
+  LOAD_COMPONENT(
+    {
+      name: "songCard",
+      args: {
+        id: i,
+        title: "Song Title" + i,
+        artist: "Artist Name" + i,
+        img: "https://picsum.photos/200/300",
+        on_click: "songCardOnClick",
+      },
+    },
+    (status, data) => {
       if (status === 200) {
-        document.getElementById("txtHint").innerHTML = data;
-      } else {
-        document.getElementById("txtHint").innerHTML = "Error: " + status;
+        document.getElementById("cards").innerHTML += data;
       }
-    });
-  }
+    }
+  );
 }
 
-function doPost() {
-  let jsonBody = { name: "John", age: "21" };
-  POST_API("../../api/postexample.php", null, jsonBody, (status, data) => {
-    console.log("status", status);
-    if (status === 200) {
-      document.getElementById("postResult").innerHTML = data;
-    } else {
-      document.getElementById("postResult").innerHTML = "Error: " + status;
-    }
-  });
-}
+// update card style
+let previd = null;
+songCardOnClick = (id) => {
+  if (previd != null) {
+    document.getElementById("song-card-" + previd).classList.remove("selected-song");
+  }
+  document.getElementById("song-card-" + id).classList.add("selected-song");
+  console.log("selected id " + id);
+  previd = id;
+};

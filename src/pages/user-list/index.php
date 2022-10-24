@@ -14,7 +14,7 @@
 <body>
     <div>
         <h1>
-            template. This page will be removed in the future
+            template
         </h1>
         <p>
             this is a page template. copy from this folder when you want to create a new page
