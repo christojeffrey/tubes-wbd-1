@@ -1,3 +1,40 @@
+body{
+    background-color: #121212;
+}
+
+.heading{
+    display: flex;
+    padding-left: 0.5rem;
+}
+
+.title{
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.title:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.see-all{
+    margin-left: auto;
+    font-size: 16px;
+    color: #aeaeae;
+    
+}
+
+.see-all:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.wiwiw{
+    max-width: 54rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+}
+
 .albums{
     display: flex;
     flex-wrap: wrap;

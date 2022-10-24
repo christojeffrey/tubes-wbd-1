@@ -12,14 +12,17 @@
 </head>
 
 <body>
-    <div>
-        <h1>
-            Album List
-        </h1>
-        
-        <section id="albums" class="albums">
-            
-        </section>
+    <div class="wiwiw">
+        <div class="heading">
+            <h1 class="title">
+                <b>Albums</b>
+            </h1>
+            <p class="see-all">
+                <a href="#">See All</a>
+            </p>
+        </div>
+        <div id="albums" class="albums">
+        </div>
     </div>
 </body>
 <?php
