@@ -11,8 +11,8 @@
         exitWithError(400, 'All song detail is needed');
     }
 
-    if (!validateKeyValueIsNotNull($body, array('song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
-        exitWithError(400, 'All song detail must be filled');
+    if (!validateKeyValueIsNotNull($body, array('song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration'))) {
+        exitWithError(400, 'All song detail except album must be filled');
     }
 
     // check if audio_path and image_path is started with "/public/"
@@ -28,19 +28,18 @@
         exitWithError(500, $map['err']);
     }
     
-    $stmt = $conn->prepare("SELECT album_id FROM Album WHERE album_id = ?");
-    $stmt->bind_param("i", $body['album_id']);
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        if ($result->num_rows == 0) {
+    // precondition: album_id is int or null
+    if (is_int($body['album_id'])) {
+        if (!validateRowExist($conn, 'Album', $body['album_id'])) {
             $conn->close();
-            exitWithError(400, "No album found");
+            exitWithError(400, 'Album with given id is not exist');
         }
-    } else {
-        $conn->close();
-        exitWithError(500, "Error while checking album");
+    
+        if (!validateSongAndAlbumHaveSameSinger($conn, 'Album', $body['album_id'], $body['singer'])) {
+            $conn->close();
+            exitWithError(400, 'Song and album must have the same singer');
+        }
     }
-    $stmt->close();
 
     $song_title = $body['song_title'];
     $singer = $body['singer'];

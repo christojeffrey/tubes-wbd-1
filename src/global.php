@@ -102,7 +102,24 @@
         // return
        return $result->num_rows != 0;
     }
+
+    // validate if song and album has the same singer. return true if same, else false
     // function that is used to return from the api. take status code and error message
+    function validateSongAndAlbumHaveSameSinger($conn, $table_to_be_checked, $id_to_be_checked, $singer){
+        // do query
+        if ($table_to_be_checked == 'Album') {
+            $sql = "SELECT * FROM Album WHERE album_id = ? and singer = ?";
+        } else if ($table_to_be_checked == 'Song') {
+            $sql = "SELECT * FROM Song WHERE song_id = ? and singer = ?";
+        }
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('is', $id_to_be_checked, $singer);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        // return
+       return $result->num_rows != 0;
+    }
+
     function exitWithError($status, $error_msg) {
         $result = array(
           "error" => $error_msg
