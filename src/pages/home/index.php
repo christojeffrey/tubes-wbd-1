@@ -16,7 +16,12 @@
         <h1>
             Home
         </h1>
+        <div class="move-page-button-container">
+            <button onclick="movePage(true)" class="move-page-button" id="back-button"><</button>
+            <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+        </div>
         <div id="cards">
+        </div>
         <div id="player-home">
         </div>
     </div>

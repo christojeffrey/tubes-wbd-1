@@ -46,7 +46,7 @@
                         <p>{$singer}</p>
                     </div>
                 </section>
-                <audio controls class="player-song-audio">
+                <audio controls autoplay class="player-song-audio">
                     <source src="$audio_path" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
