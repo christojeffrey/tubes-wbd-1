@@ -1,6 +1,6 @@
 <?php
     function player($args) {
-        // $id, $song_title, $singer, $audio_path, $img
+        // $id, $title, $singer, $audio_path, $img
        extract($args);
 
         $html = <<<"EOT"

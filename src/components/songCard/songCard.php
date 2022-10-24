@@ -1,6 +1,6 @@
 <?php
     function songCard($args) {
-        // $id, $title, $artist, $img, on_click
+        // $id, $title, $artist, $audio_path, $img, on_click
         extract($args);
 
     // titlecolor is green is the song is selected
@@ -24,7 +24,7 @@
                 <p>$artist</p>
             </section>
             <section>
-            <button onclick = "$on_click($id)" class = "border-2 rounded-lg border-green-500 h-12 ml-32">
+            <button onclick = "$on_click($id, $title, $artist, $audio_path, $img)" class = "border-2 rounded-lg border-green-500 h-12 ml-32">
                 play
             </button>
             </section>

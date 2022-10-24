@@ -17,13 +17,15 @@
             Home
         </h1>
         <div id="cards">
-        </div
+        <div id="player-home">
+        </div>
     </div>
 </body>
 <?php
     // add global js and styles
     require '../../global.php';
     require '../../components/songCard/songCard.php';
+    require '../../components/player/player.php';
     echoGlobal();
 ?>
 <!-- script -->
