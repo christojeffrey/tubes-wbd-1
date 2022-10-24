@@ -15,9 +15,18 @@
         exitWithError(400, 'All song detail except album must be filled');
     }
 
-    // check if audio_path and image_path is started with "/public/"
-    if (!preg_match('/^(\/public\/)/', $body['audio_path']) || !preg_match('/^(\/public\/)/', $body['image_path'])) {
-        exitWithError(400, 'File path must be a valid URL');
+    // // check if audio_path and image_path is started with "/public/"
+    // if (!preg_match('/^(\/public\/audio\/)/', $body['audio_path']) || !preg_match('/^(\/public\/image\/)/', $body['image_path'])) {
+    //     exitWithError(400, 'File path must be a valid URL');
+    // }
+
+    // check if audio_path and image_path contains /
+    // the path that is stored in the db should be only the file name
+    // actual file location will be on the src/assets folder
+    // for audio path, the file should be in src/assets/song-audio
+    // for image path, the file should be in src/assets/song-image
+    if (preg_match('/\//', $body['audio_path']) || preg_match('/\//', $body['image_path'])) {
+        exitWithError(400, 'File path must be a valid name');
     }
 
     // connect to database
