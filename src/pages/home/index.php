@@ -14,16 +14,16 @@
 <body>
     <div>
         <h1>
-            template
+            Home
         </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
+        <div id="cards">
+        </div
     </div>
 </body>
 <?php
     // add global js and styles
     require '../../global.php';
+    require '../../components/songCard/songCard.php';
     echoGlobal();
 ?>
 <!-- script -->
