@@ -3,6 +3,12 @@
     // Setup needed variables
     // check Auth in header
     $auth = getAuth();
+    $data = decodeToken($auth);
+    
+    if ($auth == null) {
+        exitWithError(401, 'Unauthorized');
+    }
+    
     // if there is no Auth in header
     if ($auth == null) {
         // return error
@@ -24,7 +30,7 @@
 
     // get usser_id, username, email from users
     // use prepare
-    $stmt = $conn->prepare("SELECT user_id, username, email FROM users");
+    $stmt = $conn->prepare("SELECT user_id, username, email FROM User");
 
 
 
@@ -39,7 +45,9 @@
         array_push($users, array(
             'user_id' => $row['user_id'],
             'username' => $row['username'],
-            'email' => $row['email']
+            'email' => $row['email'],
+            'name' => $row['name'],
+            'is_admin' => $row['is_admin']
         ));
     }
     // return

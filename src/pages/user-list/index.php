@@ -13,12 +13,14 @@
 
 <body>
     <div>
-        <h1>
-            template
-        </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
+        <!-- navbar -->
+        <div id="navbar"></div>
+        <div>
+            <!-- account info -->
+            <div id="account-info"></div>
+            <!-- content -->
+            <div id="user-list"></div>
+        </div>
     </div>
 </body>
 <?php
@@ -27,6 +29,6 @@
     echoGlobal();
 ?>
 <!-- script -->
-<script src="./script.js"></script>
+<script src="script.js"></script>
 
 </html>
