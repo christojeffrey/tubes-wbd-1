@@ -26,6 +26,7 @@
         </style>
     
         <div id ="song-card-$id" class="border-2 border-black flex flex-row m-2 rounded-md p-1 song-card">
+        <a href = "../song-detail/index.php/?song_id=$id">
             <section class ="m-1">
                 <img src="$img" alt="Album Cover" class = "h-12">
             </section>
@@ -33,12 +34,14 @@
                 <h3 class = "$titlestyle">$title</h3>
                 <p>$artist</p>
                 <p>
-                $genre
+                    $genre
                 </p>
             </section>
+        </a>    
+            
             <section>
-            <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "border-2 rounded-lg border-green-500 h-12 ml-32">
-                play
+        <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "border-2 rounded-lg border-green-500 h-12 ml-32">
+        play
             </button>
             $edit_button
             </section>

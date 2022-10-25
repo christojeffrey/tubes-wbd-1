@@ -18,8 +18,12 @@
         <div>
             <div id="account-info"></div>
             <div id="song-detail">
+                <div id="song-title"></div>
+                <div id="singer"></div>
+                <div id="publish-date"></div>
+                <div id="genre"></div>
             </div>
-            <div id="player-home">
+            <div id="player">
             </div>
         </div>
 </body>
