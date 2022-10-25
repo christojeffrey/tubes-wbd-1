@@ -12,18 +12,31 @@
 </head>
 
 <body>
-    <div>
-        <h1>
-            template
-        </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
-    </div>
+    <div class="flex">
+        <!-- navbar -->
+        <div id="navbar"></div>
+
+        <div>
+            <div id="account-info"></div>
+            <h1>
+                Home
+            </h1>
+            <div class="move-page-button-container">
+                <button onclick="movePage(true)" class="move-page-button" id="back-button">
+                    < </button>
+                        <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+            </div>
+            <div id="cards">
+            </div>
+            <div id="player-home">
+            </div>
+        </div>
 </body>
 <?php
     // add global js and styles
     require '../../global.php';
+    require '../../components/songCard/songCard.php';
+    require '../../components/player/player.php';
     echoGlobal();
 ?>
 <!-- script -->

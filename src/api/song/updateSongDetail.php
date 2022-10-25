@@ -15,7 +15,7 @@
         exitWithError(400, 'All song detail must be filled');
     }
 
-    if (!preg_match('/^(\/public\/)/', $body['audio_path']) || !preg_match('/^(\/public\/)/', $body['image_path'])) {
+    if (preg_match('/\//', $body['audio_path']) || preg_match('/\//', $body['image_path'])) {
         exitWithError(400, 'File path must be a valid URL');
     }
 

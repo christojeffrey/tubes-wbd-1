@@ -81,3 +81,13 @@ function LOAD_COMPONENT(jsonBodyData, callbackfn) {
   };
   xhr.send(JSON.stringify(jsonBodyData));
 }
+
+// navbar function. option 1, created globally, option two, passed by each page who called it. because navbar is used by almost all page, i think creating it globally is the better option
+function onLogout() {
+  // clear user_token, admin_token, username, from local storage
+  localStorage.removeItem("user_token");
+  localStorage.removeItem("admin_token");
+  localStorage.removeItem("username");
+  // redirect to login
+  window.location.href = "../login";
+}

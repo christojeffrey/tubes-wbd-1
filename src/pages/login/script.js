@@ -26,8 +26,10 @@ function formSubmit() {
       } else if (data.admin_token) {
         // set admin_token to local storage
         localStorage.setItem("admin_token", data.admin_token);
+        // set username to local storage
+        localStorage.setItem("username", username);
         // redirect to pages/home-admin
-        window.location.href = "../home";
+        window.location.href = "../home/index.php";
       }
     } else {
       // else, show error message

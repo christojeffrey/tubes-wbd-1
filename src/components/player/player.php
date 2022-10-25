@@ -1,6 +1,6 @@
 <?php
     function player($args) {
-        // $id, $song_title, $singer, $audio_path, $img
+        // $id, $title, $singer, $audio_path, $img
        extract($args);
 
         $html = <<<"EOT"
@@ -46,7 +46,7 @@
                         <p>{$singer}</p>
                     </div>
                 </section>
-                <audio controls class="player-song-audio">
+                <audio controls autoplay class="player-song-audio">
                     <source src="$audio_path" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
