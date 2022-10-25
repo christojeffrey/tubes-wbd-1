@@ -6,20 +6,20 @@
         exitWithError(401, 'You are not authorized to access song detail');
     };
 
-    // get the song id parameter from URL
-    if (!empty($_REQUEST["song_id"])) {
-        $song_id = intval($_REQUEST["song_id"]);
-    } else {
-        $conn->close();
-        exitWithError(400, "No song pspecified");
-    }
-
+    
     // connect to database
     $map = backendConnection();
     $conn = $map['conn'];
     if ($map['err'] != null) {      
         $conn->close();
         exitWithError(500, $map['err']);
+    }
+    // get the song id parameter from URL
+    if (!empty($_REQUEST["song_id"])) {
+        $song_id = intval($_REQUEST["song_id"]);
+    } else {
+        $conn->close();
+        exitWithError(400, "No song specified");
     }
 
     $sql = "SELECT * FROM Song WHERE song_id = ?";

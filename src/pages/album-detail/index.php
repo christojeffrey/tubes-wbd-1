@@ -12,13 +12,29 @@
 </head>
 
 <body>
-    <div>
-        <h1>
-            template
-        </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
+
+    <div class="flex">
+        <!-- navbar -->
+        <div id="navbar"></div>
+        <div>
+
+            <div id="account-info"></div>
+            <div id="album-detail">
+                <div id="album-title"></div>
+                <div id="singer"></div>
+                <div id="publish-date"></div>
+                <div id="total-duration"></div>
+            </div>
+            <div id="genre"></div>
+            <!-- image -->
+            <img id="album-image" src="" alt="">
+            <div id="song-count"></div>
+            <div id="song-list" class="mb-32">
+            </div>
+        </div>
+    </div>
+    <div id="player">
+    </div>
     </div>
 </body>
 <?php

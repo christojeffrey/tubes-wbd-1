@@ -51,6 +51,7 @@ const movePage = (isGoBack) => {
 // update card style
 let previd = null;
 const songCardOnClick = (id, title, singer, audio_path, img) => {
+  console.log("tewsting");
   // if there is no counter in local variable, set play counter to 1
   if (!localStorage.getItem("counter") || !localStorage.getItem("last_played")) {
     localStorage.setItem("counter", 1);
@@ -58,7 +59,7 @@ const songCardOnClick = (id, title, singer, audio_path, img) => {
   } else {
     const prevCounter = parseInt(localStorage.getItem("counter"));
     // check if the user is authenticated by checking user_token and admin_token in local storage
-    if (!localStorage.getItem("user_token") || !localStorage.getItem("admin_token")) {
+    if (!localStorage.getItem("user_token") && !localStorage.getItem("admin_token")) {
       // if the counter is more than 3, show alert
       if (prevCounter >= 3) {
         alert("You have played more than 3 songs today. Please login to continue listening");

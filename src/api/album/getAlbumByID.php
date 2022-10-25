@@ -7,11 +7,14 @@
     
     $album_id = intval($_REQUEST["album_id"]);
     
-    $song_detailed = !empty($_REQUEST["song_detailed"])? $_REQUEST["song_detailed"] == "true": false;
+    // check url params for song_detailed 1 or 0. 1 for true, 0 for false
+    $song_detailed = false;
+   
+    if (isset($_REQUEST["song_detailed"])) {
+        $song_detailed = $_REQUEST["song_detailed"] == "1";
+    }
 
-    
     $res = getAlbumByID($album_id, $song_detailed);
 
     exitWithDataReturned($res);
 ?>
-
