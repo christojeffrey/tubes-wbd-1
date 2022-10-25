@@ -1,9 +1,21 @@
 <?php
     function songCard($args) {
-        // $id, $title, $artist, $img, on_click
+        // $id, $title, $artist, $img, on_click, $is_admin, $genre
         extract($args);
 
     // titlecolor is green is the song is selected
+
+    // if is admin, show the edit button
+    $edit_button = "";
+    if ($is_admin) {
+        $edit_button = <<<EOT
+            <div class="edit-button border-2 border-black">
+                <a href="editsong.php?id=$id">
+                    <i class="">edit</i>
+                </a>
+            </div>
+        EOT;
+    }
     $html = 
     <<<"EOT"
 
@@ -22,11 +34,15 @@
             <section class ="m-1">
                 <h3 class = "$titlestyle">$title</h3>
                 <p>$artist</p>
+                <p>
+                $genre
+                </p>
             </section>
             <section>
             <button onclick = "$on_click($id)" class = "border-2 rounded-lg border-green-500 h-12 ml-32">
                 play
             </button>
+            $edit_button
             </section>
         </div>
     EOT;
