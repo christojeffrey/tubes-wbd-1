@@ -12,16 +12,28 @@
 </head>
 
 <body>
-    <div class="wiwiw">
-        <div class="heading">
-            <h1 class="title">
-                <b>Albums</b>
-            </h1>
-            <p class="see-all">
-                <a href="#">See All</a>
-            </p>
+    <div class="flex">
+        <div id="navbar">
+    
         </div>
-        <div id="albums" class="albums">
+        <div>
+            <div id="account-info">
+
+            </div>
+            <div class="wiwiw">
+                <div class="heading">
+                    <h1 class="title">
+                        <b>Albums</b>
+                    </h1>
+                    <p class="move-page-container">
+                    <button onclick="movePage(true)" class="move-page-button" id="back-button">
+                    < </button>
+                        <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+                    </p>
+                </div>
+                <div id="albums" class="albums">
+                </div>
+            </div>
         </div>
     </div>
 </body>

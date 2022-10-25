@@ -17,12 +17,7 @@ body{
     cursor: pointer;
 }
 
-.see-all{
-    margin-left: auto;
-    font-size: 16px;
-    color: #aeaeae;
-    
-}
+
 
 .see-all:hover{
     text-decoration: underline;
@@ -43,3 +38,40 @@ body{
     padding: 0;
 }
 
+.move-page-container{
+    margin-left: auto;
+    color: #aeaeae;
+    
+}
+
+.move-page-button {
+    border-radius: 50%;
+    color: #aeaeae;
+    background-color: #181818;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.move-page-button {
+    border-radius: 50%;
+    color: #aeaeae;
+    background-color: #181818;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transform: scale(0.95);
+}
+
+.move-page-button:disabled,
+.move-page-button:hover[disabled]{
+    opacity: 0.5;
+    transform: scale(0.95);
+    cursor: auto;
+}
+
+.move-page-button:hover {
+    transform: scale(1);
+}

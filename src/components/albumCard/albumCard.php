@@ -1,7 +1,16 @@
 <?php
     function albumCard($args){
-        // $id, $album_title, $singer, $year, $genre, on_click
+        // $id, $album_title, $singer, $year, $genre, on_click, $is_admin
         extract($args);
+
+        // if is admin, show the edit button
+        $edit_button = "";
+        if (true) {
+            $edit_button = 
+            <<<EOT
+            <img class="edit-button" src="../../assets/icons/pen-to-square-solid.svg" alt="Edit"/>
+            EOT;
+        }
 
         $html = 
         <<<"EOT"
@@ -47,6 +56,19 @@
                     font-size: 13px;
                     color: #B3B3B3;
                 }
+
+                .edit-button{
+                    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(115deg) brightness(113%) contrast(101%);
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    cursor: pointer;
+                    margin-left: auto;
+                    margin-top: auto;
+                }
+
+                .edit-button:hover{
+                    filter: invert(80%) sepia(60%) saturate(6179%) hue-rotate(99deg) brightness(97%) contrast(77%);
+                }
                 
                 .play-icon{
                     margin-left: auto;
@@ -87,7 +109,7 @@
                     display:flex;
                 }
             </style>
-            <div id="album-card-$id" class="albums_item">
+            <a href="../album-detail/index.php?album_id=$id" id="album-card-$id" class="albums_item">
                 <div class="album">
                     <img src="$img" alt="Album Thumbnail">
                     <div class="album-info">
@@ -97,6 +119,7 @@
                                 <p>$singer</p>
                                 <p>$year • $genre</p>
                             </div>
+                                $edit_button
                             <!--
                             <div class="play-icon">
                                 <div class="circle">
@@ -108,7 +131,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         EOT;
         return $html;
     }
