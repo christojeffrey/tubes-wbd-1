@@ -89,7 +89,7 @@ function onLogout() {
   localStorage.removeItem("admin_token");
   localStorage.removeItem("username");
   // redirect to login
-  window.location.href = "../login";
+  window.location.href = "../login/index.php";
 }
 
 // prevent reload on form submit

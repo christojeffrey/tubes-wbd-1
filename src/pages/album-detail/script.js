@@ -111,6 +111,7 @@ GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`,
             audio_path: "../../assets/song-audio/" + song.audio_path,
             img: "../../assets/song-image/" + song.image_path,
             on_click: "songCardOnClick",
+            genre: song.genre,
           },
         },
         (status, data) => {

@@ -12,11 +12,12 @@
 </head>
 
 <body>
+
     <div class="flex">
         <!-- navbar -->
         <div id="navbar"></div>
 
-        <div>
+        <div id="content">
             <div id="account-info"></div>
             <h1>
                 Home
@@ -28,15 +29,15 @@
             </div>
             <div id="cards">
             </div>
-            <div id="player-home">
-            </div>
         </div>
+
+    </div>
+    <div id="player-home">
+    </div>
 </body>
 <?php
     // add global js and styles
     require '../../global.php';
-    require '../../components/songCard/songCard.php';
-    require '../../components/player/player.php';
     echoGlobal();
 ?>
 <!-- script -->
