@@ -96,13 +96,14 @@ function onLogout() {
 // give alert and route to home if the user is not authenticated
 // return token and isadmin if the user is authenticated
 function checkTokenOnPageLoad(isCheckAdmin) {
+  let token;
   if (isCheckAdmin) {
     if (!localStorage.getItem("admin_token")) {
       window.location.href = "../home";
       alert("You are not authorized to access this page");
       return;
-    } else {
-      const token = localStorage.getItem("admin_token");
+    }  else {
+      token = localStorage.getItem("admin_token");
     }
   } else {
     if (!localStorage.getItem("user_token")) {
@@ -110,21 +111,16 @@ function checkTokenOnPageLoad(isCheckAdmin) {
       alert("You are not authorized to access this page");
       return;
     } else {
-      const token = localStorage.getItem("user_token");
+      token = localStorage.getItem("user_token");
     }
   }
 
   // call api to check if token is valid
   GET_API('../../api/auth/checkToken.php', token, (status, data) => {
-    if (status == 200) {
-      // token is valid
-      auth = { token: token, role: data.role }
-      return ;
-    } else {
+    if (status != 200) {
       // token is invalid
       window.location.href = "../home";
       alert("You are not authorized to access this page");
-      return;
     }
   });
 }
