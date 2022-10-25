@@ -23,10 +23,14 @@
             background-color: green;
         }
 
+        .song-card-detail-info {
+            display: flex;
+        }
+
         </style>
     
         <div id ="song-card-$id" class="border-2 border-black flex flex-row m-2 rounded-md p-1 song-card">
-        <a href = "../song-detail/index.php/?song_id=$id">
+        <a href = "../song-detail/index.php/?song_id=$id" class="song-card-detail-info">
             <section class ="m-1">
                 <img src="$img" alt="Album Cover" class = "h-12">
             </section>

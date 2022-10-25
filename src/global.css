@@ -12,6 +12,9 @@
   
 }
 
+.main-section {
+  width: 100%
+}
 .move-page-button {
   border-radius: 50%;
   color: #aeaeae;
