@@ -15,7 +15,7 @@
         exitWithError(400, 'All song detail must be filled');
     }
 
-    if (!preg_match('/^(\/public\/)/', $body['audio_path']) || !preg_match('/^(\/public\/)/', $body['image_path'])) {
+    if (preg_match('/\//', $body['audio_path']) || preg_match('/\//', $body['image_path'])) {
         exitWithError(400, 'File path must be a valid URL');
     }
 
@@ -31,9 +31,17 @@
         exitWithError(400, "No song found");
     }
 
-    if (!validateRowExist($conn, 'Album', $body['album_id'])) {
-        $conn->close();
-        exitWithError(400, "No album found");
+    // precondition: album_id is int or null
+    if (is_int($body['album_id'])) {
+        if (!validateRowExist($conn, 'Album', $body['album_id'])) {
+            $conn->close();
+            exitWithError(400, 'Album with given id is not exist');
+        }
+    
+        if (!validateSongAndAlbumHaveSameSinger($conn, 'Album', $body['album_id'], $body['singer'])) {
+            $conn->close();
+            exitWithError(400, 'Song and album must have the same singer');
+        }
     }
 
     $song_id = $body['song_id'];
