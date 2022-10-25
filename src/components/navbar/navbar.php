@@ -32,26 +32,25 @@
             // not logged in navbar
             $logged_in_navbar = <<<NOT_LOGGED_IN_NAVBAR
             <li class="nav-item">
-                <a class="nav-link" href="login/index.php">Login</a>
+                <a class="nav-link" href="../login/index.php">Login</a>
             </li>
             NOT_LOGGED_IN_NAVBAR;
         }
         $navbar = <<<NAVBAR
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.php">Music Database</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mx-8">
+        <div class = "font-bold text-xl">
+        supotifiy
+        </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="home/index.php">Home</a>
+                        <a class="nav-link" href="../home/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="album-list/index.php">Album List</a>
+                        <a class="nav-link" href="../album-list/index.php">Album List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="search.php">Search</a>
+                        <a class="nav-link" href="../search-song/index.php">Search</a>
                     </li>
                     $admin_navbar
                     $logged_in_navbar

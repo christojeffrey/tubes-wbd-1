@@ -22,15 +22,13 @@ function formSubmit() {
         // set user_token to local storage
         localStorage.setItem("user_token", data.user_token);
         // redirect to pages/home-user
-        window.location.href = "../home";
       } else if (data.admin_token) {
         // set admin_token to local storage
         localStorage.setItem("admin_token", data.admin_token);
         // set username to local storage
         localStorage.setItem("username", username);
-        // redirect to pages/home-admin
-        window.location.href = "../home/index.php";
       }
+      window.location.href = "../home/index.php";
     } else {
       // else, show error message
       document.getElementById("status").innerHTML = data.error;

@@ -13,12 +13,12 @@
 
 <body>
     <div>
-        <h1>
-            template
-        </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
+        <!-- textbox -->
+        <input type="text" id="search-text" placeholder="Search for songs">
+        <!-- search button -->
+        <button id="search-button">Search</button>
+        <!-- search result -->
+        <div id="search-result"></div>
     </div>
 </body>
 <?php
