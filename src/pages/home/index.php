@@ -17,7 +17,7 @@
             <aside id="navbar">
 
             </aside>
-            <section class="home-main-section">
+            <section class="main-section">
                 <div id="account-info">
 
                 </div>

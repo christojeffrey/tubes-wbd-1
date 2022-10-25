@@ -1,33 +1,3 @@
-// load navbar
-LOAD_COMPONENT(
-  {
-    name: "navbar",
-    args: {
-      is_admin: localStorage.getItem("admin_token") ? true : false,
-      is_logged_in: localStorage.getItem("user_token") || localStorage.getItem("admin_token") ? true : false,
-    },
-  },
-  (status, data) => {
-    if (status === 200) {
-      document.getElementById("navbar").innerHTML = data;
-    }
-  }
-);
-
-// load account info
-LOAD_COMPONENT(
-  {
-    name: "accountInfo",
-    args: {
-      username: localStorage.getItem("username"),
-    },
-  },
-  (status, data) => {
-    if (status === 200) {
-      document.getElementById("account-info").innerHTML = data;
-    }
-  }
-);
 // update card style
 let previd = null;
 const songCardOnClick = (id, title, singer, audio_path, img) => {
@@ -122,3 +92,6 @@ GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`,
     });
   }
 });
+
+LOAD_NAVBAR();
+LOAD_ACCOUNT_INFO();
