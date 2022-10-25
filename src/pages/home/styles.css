@@ -1,12 +1,8 @@
-.move-page-button {
-    border-radius: 50%;
-    color: white;
-    background-color: #010C19;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-}
+.song-list-content {
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+  }
 
-.move-page-button-container {
-    display: flex;
-}
+  .home-main-section {
+    width: 100%;
+  }

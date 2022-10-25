@@ -1,3 +1,64 @@
+.flex {
+  display: flex;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.move-page-button-container{
+  margin-left: auto;
+  color: #aeaeae;
+  
+}
+
+.move-page-button {
+  border-radius: 50%;
+  color: #aeaeae;
+  background-color: #181818;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.move-page-button {
+  border-radius: 50%;
+  color: #aeaeae;
+  background-color: #181818;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transform: scale(0.95);
+}
+
+.move-page-button:disabled,
+.move-page-button:hover[disabled]{
+  opacity: 0.5;
+  transform: scale(0.95);
+  cursor: auto;
+}
+
+.move-page-button:hover {
+  transform: scale(1);
+}
+
+
+.list-header-container {
+  display: flex;
+  padding-left: 0.5rem;
+}
+
+.list-title{
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.list-title:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
 /* css file to hold styles that spans across all page */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -4328,10 +4389,6 @@ video {
 
 .flow-root {
   display: flow-root;
-}
-
-.flex {
-  display: flex;
 }
 
 .inline-flex {
