@@ -51,7 +51,6 @@ const movePage = (isGoBack) => {
 // update card style
 let previd = null;
 const songCardOnClick = (id, title, singer, audio_path, img) => {
-  console.log("tewsting");
   // if there is no counter in local variable, set play counter to 1
   if (!localStorage.getItem("counter") || !localStorage.getItem("last_played")) {
     localStorage.setItem("counter", 1);

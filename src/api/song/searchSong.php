@@ -41,7 +41,7 @@
             exitWithError(400, 'Search key is not valid');
         }
     }
-
+    
     $stmt = $conn->prepare($sql);
 
     // loop, but for now only search for last search key (due to bind param constraints)
