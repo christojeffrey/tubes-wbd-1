@@ -25,14 +25,14 @@
             // logged in navbar
             $logged_in_navbar = <<<LOGGED_IN_NAVBAR
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
+                <button class="nav-link" onclick = "onLogout()" >Logout</button>
             </li>
             LOGGED_IN_NAVBAR;
         } else {
             // not logged in navbar
             $logged_in_navbar = <<<NOT_LOGGED_IN_NAVBAR
             <li class="nav-item">
-                <a class="nav-link" href="login.php">Login</a>
+                <a class="nav-link" href="login/index.php">Login</a>
             </li>
             NOT_LOGGED_IN_NAVBAR;
         }
@@ -45,10 +45,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="home/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="album_list.php">Album List</a>
+                        <a class="nav-link" href="album-list/index.php">Album List</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="search.php">Search</a>

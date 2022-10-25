@@ -17,6 +17,7 @@
         <div id="navbar"></div>
 
         <div>
+            <div id="account-info"></div>
             <h1>
                 Home
             </h1>

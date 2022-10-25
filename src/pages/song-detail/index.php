@@ -13,13 +13,15 @@
 
 <body>
     <div>
-        <h1>
-            template
-        </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
-    </div>
+        <!-- navbar -->
+        <div id="navbar"></div>
+        <div>
+            <div id="account-info"></div>
+            <div id="song-detail">
+            </div>
+            <div id="player-home">
+            </div>
+        </div>
 </body>
 <?php
     // add global js and styles

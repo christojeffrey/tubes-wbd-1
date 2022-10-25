@@ -144,8 +144,10 @@ function formSubmit() {
     if (status === 200) {
       //   set user_token to local storage
       localStorage.setItem("user_token", data.token);
+      //  set username to local storage
+      localStorage.setItem("username", username);
       //   redirect to pages/home-user
-      window.location.href = "../home-user";
+      window.location.href = "../home/index.php";
     } else {
       // else, show error message
       document.getElementById("status").innerHTML = data.error;

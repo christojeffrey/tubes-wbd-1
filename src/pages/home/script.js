@@ -1,3 +1,4 @@
+// === function ===
 const fetchSongs = () => {
   const urlParams = new URLSearchParams(window.location.search);
   if (!urlParams.has("page") || !urlParams.has("limit")) {
@@ -107,6 +108,7 @@ if (localStorage.getItem("last_played")) {
     localStorage.setItem("counter", 0);
   }
 }
+// === load component ===
 
 // load navbar
 LOAD_COMPONENT(
@@ -124,5 +126,19 @@ LOAD_COMPONENT(
   }
 );
 
+// load account info
+LOAD_COMPONENT(
+  {
+    name: "accountInfo",
+    args: {
+      username: localStorage.getItem("username"),
+    },
+  },
+  (status, data) => {
+    if (status === 200) {
+      document.getElementById("account-info").innerHTML = data;
+    }
+  }
+);
 // fetch initial songs
 fetchSongs();
