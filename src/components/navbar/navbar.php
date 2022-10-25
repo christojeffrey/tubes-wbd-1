@@ -12,10 +12,10 @@
             // admin navbar
             $admin_navbar = <<<ADMIN_NAVBAR
             <li class="nav-item">
-                <a class="nav-link" href="add_song.php">Add Song</a>
+                <a class="nav-link" href="add_song.php">ADMIN Add Song</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="add_album.php">Add Album</a>
+                <a class="nav-link" href="add_album.php">ADMIN Add Album</a>
             </li>
             ADMIN_NAVBAR;
         } else {
