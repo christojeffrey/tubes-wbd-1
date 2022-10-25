@@ -157,3 +157,14 @@ function LOAD_ACCOUNT_INFO() {
     }
   );
 }
+// prevent reload on form submit
+function preventReloadOnFormSubmit() {
+  let forms = document.getElementsByTagName("form");
+  for (let i = 0; i < forms.length; i++) {
+    forms[i].addEventListener("submit", function (event) {
+      event.preventDefault();
+    });
+  }
+}
+
+preventReloadOnFormSubmit();

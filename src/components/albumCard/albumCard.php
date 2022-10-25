@@ -8,7 +8,11 @@
         if (true) {
             $edit_button = 
             <<<EOT
-            <img class="edit-button" src="../../assets/icons/pen-to-square-solid.svg" alt="Edit"/>
+            <div class = "absolute bottom-0 right-0 m-4">
+                <a href= "../home/index.php">
+                    <img class="edit-button" src="../../assets/icons/pen-to-square-solid.svg" alt="Edit"/>
+                </a>
+            </div>
             EOT;
         }
 
@@ -109,29 +113,34 @@
                     display:flex;
                 }
             </style>
-            <a href="../album-detail/index.php?album_id=$id" id="album-card-$id" class="albums_item">
-                <div class="album">
-                    <img src="$img" alt="Album Thumbnail">
-                    <div class="album-info">
-                        <h4><b>$album_title</b></h4>
-                        <div class="container">
-                            <div>
-                                <p>$singer</p>
-                                <p>$year • $genre</p>
-                            </div>
-                                $edit_button
-                            <!--
-                            <div class="play-icon">
-                                <div class="circle">
-                                    <div class="triangle">
+            <div class="relative">
+                <div>
+                    <a href="../album-detail/index.php?album_id=$id" id="album-card-$id" class="albums_item">
+                        <div class="album">
+                            <img src="$img" alt="Album Thumbnail">
+                            <div class="album-info">
+                                <h4><b>$album_title</b></h4>
+                                <div class="container">
+                                    <div>
+                                        <p>$singer</p>
+                                        <p>$year • $genre</p>
                                     </div>
+                                    <!--
+                                        <div class="play-icon">
+                                            <div class="circle">
+                                                <div class="triangle">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    -->
                                 </div>
                             </div>
-                            -->
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </a>
+
+                $edit_button
+            </div>
         EOT;
         return $html;
     }

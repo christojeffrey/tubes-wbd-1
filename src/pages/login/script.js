@@ -1,7 +1,4 @@
 function formSubmit() {
-  // prevent reload
-  event.preventDefault();
-
   // get username from id username
   const username = document.getElementById("username").value;
   // get password from id password
