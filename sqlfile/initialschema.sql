@@ -63,3 +63,24 @@ INSERT INTO `User` (`name`, `email`, `password`, `username`, `is_admin`) VALUES
 -- insert user
 INSERT INTO `User` (`name`, `email`, `password`, `username`, `is_admin`) VALUES
 ('user', 'email@user.com', 'user', 'user', false);
+
+-- add album
+-- i met you when i was 18
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('I Met You When I Was 18', 'lauv', 0, 'i_met_you_when_i_was_18.jpg', '2018-01-01', 'pop');
+-- how im feeling
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('How Im Feeling', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'pop');
+
+-- add song
+-- i like me better
+INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
+('I Like Me Better', 'lauv', '2018-01-01', 'pop', 197, 'i_like_me_better.mp3', 'i_like_me_better.jpg', 1);
+
+-- the other
+INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
+('The Other', 'lauv', '2018-01-01', 'pop', 309, 'the_other.mp3', 'the_other.jpg', 1);
+
+-- mean it
+INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
+('Mean It', 'lauv', '2020-01-01', 'pop', 243, 'mean_it.mp3', 'mean_it.jpg', 2);

@@ -27,7 +27,7 @@ function formSubmit() {
         // set admin_token to local storage
         localStorage.setItem("admin_token", data.admin_token);
         // redirect to pages/home-admin
-        window.location.href = "../home";
+        window.location.href = "../home/index.php";
       }
     } else {
       // else, show error message

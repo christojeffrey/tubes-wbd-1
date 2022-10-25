@@ -13,16 +13,16 @@
 
 <body>
     <div class="flex justify-center items-center h-screen bg-black">
-        <div class="container w-1/2 md:w-1/4 bg-white p-12 rounded-lg">
+        <div class="container w-1/2 md:w-1/4 bg-gray-800 p-12 rounded-lg">
             <form onsubmit="formSubmit()" class="flex flex-col" onchange="onFormChange()">
 
                 <label for="username"><b>Username</b></label>
-                <input id="username" type="text" placeholder="Enter Username" name="username" required class="border-2"
-                    oninput="updateUsername(this.value)">
+                <input id="username" type="text" placeholder="Enter Username" name="username" required
+                    class="border-2 bg-black" oninput="updateUsername(this.value)">
 
                 <label for="password"><b>Password</b></label>
                 <input id="password" type="password" placeholder="Enter Password" name="password" required
-                    class="border-2">
+                    class="border-2 bg-black">
 
                 <button type="submit"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Login</button>
