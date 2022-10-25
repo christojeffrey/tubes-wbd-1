@@ -91,3 +91,73 @@ function onLogout() {
   // redirect to login
   window.location.href = "../login";
 }
+
+// function that is called when the page with admin token is loaded
+// give alert and route to home if the user is not authenticated
+// return token and isadmin if the user is authenticated
+function checkTokenOnPageLoad(isCheckAdmin) {
+  if (isCheckAdmin) {
+    if (!localStorage.getItem("admin_token")) {
+      window.location.href = "../home";
+      alert("You are not authorized to access this page");
+      return;
+    } else {
+      const token = localStorage.getItem("admin_token");
+    }
+  } else {
+    if (!localStorage.getItem("user_token")) {
+      window.location.href = "../home";
+      alert("You are not authorized to access this page");
+      return;
+    } else {
+      const token = localStorage.getItem("user_token");
+    }
+  }
+
+  // call api to check if token is valid
+  GET_API('../../api/auth/checkToken.php', token, (status, data) => {
+    if (status == 200) {
+      // token is valid
+      auth = { token: token, role: data.role }
+      return ;
+    } else {
+      // token is invalid
+      window.location.href = "../home";
+      alert("You are not authorized to access this page");
+      return;
+    }
+  });
+}
+
+function LOAD_NAVBAR() {
+  LOAD_COMPONENT(
+    {
+      name: "navbar",
+      args: {
+        is_admin: localStorage.getItem("admin_token") ? true : false,
+        is_logged_in: localStorage.getItem("user_token") || localStorage.getItem("admin_token") ? true : false,
+      },
+    },
+    (status, data) => {
+      if (status === 200) {
+        document.getElementById("navbar").innerHTML = data;
+      }
+    }
+  );
+}
+
+function LOAD_ACCOUNT_INFO() {
+  LOAD_COMPONENT(
+    {
+      name: "accountInfo",
+      args: {
+        username: localStorage.getItem("username"),
+      },
+    },
+    (status, data) => {
+      if (status === 200) {
+        document.getElementById("account-info").innerHTML = data;
+      }
+    }
+  );
+}
