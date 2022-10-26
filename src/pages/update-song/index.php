@@ -48,6 +48,7 @@
                     </select>
                     <input type="submit" value="Update Song">
                 </form>
+                <button onclick = "deleteSong()">Delete</button>
             </div>
             
         </section>

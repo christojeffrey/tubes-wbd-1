@@ -6,7 +6,6 @@ const song_id = urlParams.get("song_id");
 // function to fill the form with the song data to be updated
 // song data are fetched from backend
 const prefillForm = () => {
-    const token =  localStorage.getItem("admin_token");
     GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, data) => {
         // fill the form fields with the song data
         if (status === 200) {
@@ -36,7 +35,6 @@ const updateSong = () => {
     const genre = document.getElementById("genre").value;
     const duration = 10;
     
-    const token = localStorage.getItem("admin_token");
     const unique_file_name = Date.now()
 
     var audio_file_name;
@@ -98,6 +96,18 @@ const updateSong = () => {
         }
     })
 }
+
+const deleteSong = () => {
+    GET_API(`../../api/song/deleteSong.php?song_id=${song_id}`, token, (status, data) => {
+        if (status === 200) {
+            alert("Song deleted successfully");
+            window.location.href = "../home/index.php";
+        } else {
+            alert(data.error);
+        }
+    })
+}
+
 checkTokenOnPageLoad(true);
 getAlbumList();
 getGenreList();
