@@ -7,13 +7,27 @@
     };
 
     $body = json_decode(file_get_contents('php://input'), true);
-    if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
-        exitWithError(400, 'All song detail is needed');
+
+    if (isset($_REQUEST["delete-album"]) && $_REQUEST["delete-album"] == "1") {
+        if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration'))) {
+            exitWithError(400, 'All song detail is needed');
+        }
+    } else{
+        if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
+            exitWithError(400, 'All song detail is needed');
+        }
     }
 
-    if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
-        exitWithError(400, 'All song detail must be filled');
+    if (isset($_REQUEST["delete-album"]) && $_REQUEST["delete-album"] == "1") {
+        if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration'))) {
+            exitWithError(400, 'All song detail must be filled');
+        }
+    } else {
+        if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
+            exitWithError(400, 'All song detail must be filled');
+        }
     }
+   
 
     if (preg_match('/\//', $body['audio_path']) || preg_match('/\//', $body['image_path'])) {
         exitWithError(400, 'File path must be a valid URL');
@@ -52,7 +66,13 @@
     $audio_path = $body['audio_path'];
     $image_path = $body['image_path'];
     $duration = $body['duration'];
-    $album_id = $body['album_id'];
+    
+    if (isset($_REQUEST["delete-album"]) && $_REQUEST["delete-album"] == "1") {
+        $album_id = null;
+    } else {
+        $album_id = $body['album_id'];
+
+    }
      
 
     $sql = "UPDATE Song SET song_title = ?, singer = ?, publish_date = ?, genre = ?, audio_path = ?, image_path = ?, duration = ?, album_id = ? WHERE song_id = ?";

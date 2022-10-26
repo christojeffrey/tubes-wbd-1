@@ -12,6 +12,17 @@
 </head>
 
 <body>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>
+                <h2><span id="singer_modal"></span>'s Songs</h2>
+                <div id="song-list-modal">
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="flex">
         <div id="navbar">
         
@@ -27,6 +38,7 @@
                     </h1>
                 </div>
                 <div>
+                
                     <h2>Album Info</h2>
                     <div class="album-info">
                         <img id="album-image" src="" alt="">
@@ -49,7 +61,10 @@
                             <button class="submit" type="submit">Submit</button>
                         </form>
                     </div>
-                  <h2>Album's songs</h2>
+                    <div class="album-song-heading">
+                        <h2>Album's songs</h2>
+                        <button class="move-page-button" id="plus-button">+</button>
+                    </div>
                     <div id="song-list">
                     </div>
                 </div>
