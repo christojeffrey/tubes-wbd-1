@@ -2,7 +2,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const song_id = urlParams.get("song_id");
 
-const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
 // load song detail from getSongDetail
 GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, data) => {
   if (status === 200) {

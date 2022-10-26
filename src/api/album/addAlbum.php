@@ -20,7 +20,7 @@
 
     if (!validateNeededKeys($body, array('album_title','singer','image_path','publish_date','genre'))) {
         $conn->close();
-        exitWithError(400, 'Bad Request');
+        exitWithError(400, 'All album detail is required');
     }
 
     $album_title = $body['album_title'];

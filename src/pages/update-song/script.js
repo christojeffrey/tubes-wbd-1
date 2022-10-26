@@ -47,7 +47,7 @@ const updateSong = () => {
         formData.append('file', audio_file);
         audio_file_name = unique_file_name + "." + auio_file_ext
 
-        UPLOAD_API('../../api/upload/fileUpload.php?type=audio&name=' +  audio_file_name, token, formData,  (status, data) => {
+        UPLOAD_API('../../api/upload/fileUpload.php?type=song-audio&name=' +  audio_file_name, token, formData,  (status, data) => {
             if (status !== 200) {
                 alert("error uploading audio");
                 return;
@@ -65,7 +65,7 @@ const updateSong = () => {
         formData.append("file", image_files[0]);
         image_file_name = unique_file_name + "." + image_file_ext
 
-        UPLOAD_API('../../api/upload/fileUpload.php?type=image&name=' + image_file_name, token, formData,(status, data) => {
+        UPLOAD_API('../../api/upload/fileUpload.php?type=song-image&name=' + image_file_name, token, formData,(status, data) => {
             if (status !== 200) {
                 alert("error uploading image");
                 return;
@@ -90,7 +90,7 @@ const updateSong = () => {
     POST_API("../../api/song/updateSongDetail.php", token, body, (status, data) => {
         if (status === 200) {
             alert("Song updated successfully");
-            window.location.href = "../song-detail?song_id=" + song_id;
+            window.location.href = "../song-detail/index.php?song_id=" + song_id;
         } else {
             alert("Error updating song");
         }

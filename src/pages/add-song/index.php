@@ -21,7 +21,7 @@
 
             </div>
             <div>
-                <form onsubmit="addSong()" class="add-song-form-container" method="POST" and enctype="multipart/form-data">
+                <form onsubmit="addSong()" class="song-album-form-container" method="POST" and enctype="multipart/form-data">
                     <label for="song-title" class="form-label">Song Title</label>
                     <input type="text" name="song-title" id="song-title" required>
 

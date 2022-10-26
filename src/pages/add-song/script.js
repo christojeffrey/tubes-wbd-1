@@ -18,7 +18,7 @@ const addSong = () => {
         formData.append('file', audio_file);
         audio_file_name = unique_file_name + "." + auio_file_ext
 
-        UPLOAD_API('../../api/upload/fileUpload.php?type=audio&name=' +  audio_file_name, token, formData,  (status, data) => {
+        UPLOAD_API('../../api/upload/fileUpload.php?type=song-audio&name=' +  audio_file_name, token, formData,  (status, data) => {
             if (status !== 200) {
                 alert("error uploading audio");
                 return;
@@ -36,7 +36,7 @@ const addSong = () => {
         formData.append("file", image_files[0]);
         image_file_name = unique_file_name + "." + image_file_ext
 
-        UPLOAD_API('../../api/upload/fileUpload.php?type=image&name=' + image_file_name, token, formData,(status, data) => {
+        UPLOAD_API('../../api/upload/fileUpload.php?type=song-image&name=' + image_file_name, token, formData,(status, data) => {
             if (status !== 200) {
                 alert("error uploading image");
                 return;
@@ -55,10 +55,11 @@ const addSong = () => {
         "album_id": album_id
     }
 
-    POST_API('../../api/song/addSong.php', token, body, formData, (status, data) => {
+    POST_API('../../api/song/addSong.php', token, body,  (status, data) => {
         if (status === 200) {
             // if success, show success message
             alert("success")
+            window.location.href = "../home/index.php";
             // document.getElementById('add-song-form-container').reset();
         } else {
             // else, show error message
@@ -69,7 +70,6 @@ const addSong = () => {
 
 
 checkTokenOnPageLoad(true);
-const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
 getAlbumList();

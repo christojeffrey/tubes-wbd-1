@@ -144,11 +144,11 @@ function onLogout() {
 // function that is called when the page with admin token is loaded
 // give alert and route to home if the user is not authenticated
 // return token and isadmin if the user is authenticated
+let token;
 function checkTokenOnPageLoad(isCheckAdmin) {
-  let token;
   if (isCheckAdmin) {
     if (!localStorage.getItem("admin_token")) {
-      window.location.href = "../home";
+      window.location.href = "../home/index.php";
       alert("You are not authorized to access this page");
       return;
     } else {
@@ -156,7 +156,7 @@ function checkTokenOnPageLoad(isCheckAdmin) {
     }
   } else {
     if (!localStorage.getItem("user_token")) {
-      window.location.href = "../home";
+      window.location.href = "../home/index.php";
       alert("You are not authorized to access this page");
       return;
     } else {
@@ -217,7 +217,6 @@ function preventReloadOnFormSubmit() {
   }
 }
 
-const token = localStorage.getItem("admin_token") || localStorage.getItem("user_token");
 // get album list from backend to display album title and singer in dropdown
 const getAlbumList = () => {
   GET_API('../../api/album/getAlbumList.php?with_song=false&get_all=true', token, (status, data) => {

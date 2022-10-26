@@ -12,13 +12,38 @@
 </head>
 
 <body>
-    <div>
-        <h1>
-            template
-        </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
+<div class="flex">
+        <aside id="navbar">
+
+        </aside>
+        <section class="main-section">
+            <div id="account-info">
+
+            </div>
+            <div>
+                <form onsubmit="addAlbum()" class="song-album-form-container" method="POST" and enctype="multipart/form-data">
+                   <!-- form to add album with needed variable: album_title, singer, image_path, publish_date, genre -->
+                    <label for="album-title" class="form-label">Album Title</label>
+                    <input type="text" name="album-title" id="album-title" required>
+
+                    <label for="singer" class="form-label">Singer</label>
+                    <input type="text" name="singer" id="singer" required>
+
+                    <label for="publish-date" class="form-label">Publish Date</label>
+                    <input type="date" name="publish-date" id="publish-date" required>
+
+                    <label for="genre" class="form-label">Genre</label>
+                    <select id="genre" required>
+                    </select>
+
+                    <label for="image-file"  class="form-label>Image File</label>
+                    <input type="file" name="image-file" id="image-file" required>
+
+                    <input type="submit" value="Add Album">
+                </form>
+            </div>
+            
+        </section>
     </div>
 </body>
 <?php
