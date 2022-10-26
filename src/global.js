@@ -217,4 +217,38 @@ function preventReloadOnFormSubmit() {
   }
 }
 
+const token = localStorage.getItem("admin_token") || localStorage.getItem("user_token");
+// get album list from backend to display album title and singer in dropdown
+const getAlbumList = () => {
+  GET_API('../../api/album/getAlbumList.php?with_song=false&get_all=true', token, (status, data) => {
+      document.getElementById("album-id").innerHTML = "";
+      if (status === 200) {
+          // if success, render dropdown
+          data["albums"].forEach(song => {
+              let albumOption = document.createElement("option");
+              albumOption.setAttribute("id", `album-option-${song.song_id}`);
+              albumOption.value = song.album_id;
+              albumOption.innerHTML = song.album_title + " - " + song.singer;
+              document.getElementById("album-id").appendChild(albumOption);
+          });
+      } 
+      let albumOption = document.createElement("option");
+      albumOption.setAttribute("id", "album-option-none");
+      albumOption.value = null;
+      albumOption.innerHTML = "None";
+      document.getElementById("album-id").appendChild(albumOption);
+  })
+}
+
+const getGenreList = () => {
+  document.getElementById("genre").innerHTML = "";
+  genre_list.forEach(genre => {
+      let genreOption = document.createElement("option");
+      genreOption.setAttribute("id", `genre-option-${genre}`);
+      genreOption.value = genre;
+      genreOption.innerHTML = genre;
+      document.getElementById("genre").appendChild(genreOption);
+  });
+}
+
 preventReloadOnFormSubmit();

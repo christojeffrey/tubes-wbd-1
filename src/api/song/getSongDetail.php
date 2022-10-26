@@ -45,6 +45,7 @@
             "audio_path" => $song["audio_path"],
             "image_path" => $song["image_path"],
             "duration" => $song["duration"],
+            "album_id" => $song["album_id"]
         );
         exitWithDataReturned($data);
     } else {
