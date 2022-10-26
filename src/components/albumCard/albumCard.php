@@ -9,7 +9,7 @@
             $edit_button = 
             <<<EOT
             <div class = "edit-icon m-4">
-                <a ref= "../update-album/index.php?album_id=$id">
+                <a href= "../update-album/index.php?album_id=$id">
                     <img class="edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
                 </a>
             </div>
