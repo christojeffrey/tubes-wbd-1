@@ -12,13 +12,23 @@
 </head>
 
 <body>
-    <div>
-        <h1>
-            template
-        </h1>
-        <p>
-            this is a page template. copy from this folder when you want to create a new page
-        </p>
+    <div class="flex">
+        <div id="navbar">
+        
+        </div>
+        <div>
+            <div id="account-info">
+
+            </div>
+            <div class="wiwiw">
+                <div class="heading">
+                    <h1 class="title">
+                        <b>Update Album</b>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </body>
 <?php

@@ -73,6 +73,20 @@ LOAD_COMPONENT(
     }
   );
 
+  LOAD_COMPONENT(
+    {
+      name: "accountInfo",
+      args: {
+        username: localStorage.getItem("username"),
+      },
+    },
+    (status, data) => {
+      if (status === 200) {
+        document.getElementById("account-info").innerHTML = data;
+      }
+    }
+  );
+
 
 
 
