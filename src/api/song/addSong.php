@@ -7,26 +7,12 @@
     };
 
     $body = json_decode(file_get_contents('php://input'), true);
-    if (!validateNeededKeys($body, array('song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
+    if (!validateNeededKeys($body, array('song_title', 'singer', 'publish_date', 'genre', 'duration', 'audio_path', 'image_path', 'album_id'))) {
         exitWithError(400, 'All song detail is needed');
     }
 
     if (!validateKeyValueIsNotNull($body, array('song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration'))) {
         exitWithError(400, 'All song detail except album must be filled');
-    }
-
-    // // check if audio_path and image_path is started with "/public/"
-    // if (!preg_match('/^(\/public\/audio\/)/', $body['audio_path']) || !preg_match('/^(\/public\/image\/)/', $body['image_path'])) {
-    //     exitWithError(400, 'File path must be a valid URL');
-    // }
-
-    // check if audio_path and image_path contains /
-    // the path that is stored in the db should be only the file name
-    // actual file location will be on the src/assets folder
-    // for audio path, the file should be in src/assets/song-audio
-    // for image path, the file should be in src/assets/song-image
-    if (preg_match('/\//', $body['audio_path']) || preg_match('/\//', $body['image_path'])) {
-        exitWithError(400, 'File path must be a valid name');
     }
 
     // connect to database
@@ -57,7 +43,7 @@
     $audio_path = $body['audio_path'];
     $image_path = $body['image_path'];
     $duration = $body['duration'];
-    $album_id = $body['album_id'];
+    $album_id = ($body['album_id'] == 'null' || 'NULL') ? null : $body['album_id'];
      
 
     $sql = "INSERT INTO Song (song_title, singer, publish_date, genre, audio_path, image_path, duration, album_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";

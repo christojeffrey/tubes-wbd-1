@@ -3,7 +3,29 @@
     // ===CONSTANTS===
     // encryption key
     define('ENCRYPTION_KEY', 'this is a key');
-        
+    // genre list
+    define('GENRE_LIST', array("Alternative",
+    "Blues",
+    "Children",
+    "Classical",
+    "Country",
+    "EDM",
+    "Electronic",
+    "Folk",
+    "Hip-Hop/Rap",
+    "Indie",
+    "Jazz",
+    "J-Pop",
+    "K-Pop",
+    "Latin",
+    "Metal",
+    "Opera",
+    "Pop",
+    "RnB",
+    "Reggae",
+    "Rock",
+    "Traditional",
+    "Others"));
 
     // ===FUNCTIONS===
 

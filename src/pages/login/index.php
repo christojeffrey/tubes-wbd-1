@@ -18,7 +18,7 @@
 
                 <label for="username"><b>Username</b></label>
                 <input id="username" type="text" placeholder="Enter Username" name="username" required
-                    class="border-2 bg-black" oninput="updateUsername(this.value)">
+                    class="border-2 bg-black">
 
                 <label for="password"><b>Password</b></label>
                 <input id="password" type="password" placeholder="Enter Password" name="password" required
@@ -39,6 +39,6 @@
     echoGlobal();
 ?>
 <!-- script -->
-<script src="./script.js"></script>
+<script src="script.js"></script>
 
 </html>

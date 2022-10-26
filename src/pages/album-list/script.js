@@ -102,5 +102,6 @@ LOAD_COMPONENT(
 // previd = id;
 // };
 
-
+LOAD_NAVBAR();
+LOAD_ACCOUNT_INFO();
 fetchAlbum();

@@ -27,6 +27,7 @@ const fetchSongs = () => {
               audio_path: "../../assets/song-audio/" + song.audio_path,
               img: "../../assets/song-image/" + song.image_path,
               on_click: "songCardOnClick",
+              genre: song.genre,
             },
           },
           (status, data) => {
@@ -110,35 +111,7 @@ if (localStorage.getItem("last_played")) {
 }
 // === load component ===
 
-// load navbar
-LOAD_COMPONENT(
-  {
-    name: "navbar",
-    args: {
-      is_admin: localStorage.getItem("admin_token") ? true : false,
-      is_logged_in: localStorage.getItem("user_token") || localStorage.getItem("admin_token") ? true : false,
-    },
-  },
-  (status, data) => {
-    if (status === 200) {
-      document.getElementById("navbar").innerHTML = data;
-    }
-  }
-);
+LOAD_NAVBAR();
+LOAD_ACCOUNT_INFO();
 
-// load account info
-LOAD_COMPONENT(
-  {
-    name: "accountInfo",
-    args: {
-      username: localStorage.getItem("username"),
-    },
-  },
-  (status, data) => {
-    if (status === 200) {
-      document.getElementById("account-info").innerHTML = data;
-    }
-  }
-);
-// fetch initial songs
 fetchSongs();
