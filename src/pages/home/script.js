@@ -27,6 +27,7 @@ const fetchSongs = () => {
               audio_path: "../../assets/song-audio/" + song.audio_path,
               img: "../../assets/song-image/" + song.image_path,
               on_click: "songCardOnClick",
+              genre: song.genre,
             },
           },
           (status, data) => {
@@ -112,4 +113,5 @@ if (localStorage.getItem("last_played")) {
 
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
+
 fetchSongs();
