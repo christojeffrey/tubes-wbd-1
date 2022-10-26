@@ -26,6 +26,33 @@
                         <b>Update Album</b>
                     </h1>
                 </div>
+                <div>
+                    <h2>Album Info</h2>
+                    <div class="album-info">
+                        <img id="album-image" src="" alt="">
+                        <form onsubmit="addAlbum()" method="POST" and enctype="multipart/form-data">
+                            
+                            <label for="album-title">Name</label>  
+                            <input type="text" name="album-title" id="album-title" placeholder="Add a name" required>
+                        
+                            <label for="singer">Singer</label>  
+                            <input type="text" name="singer" id="singer">
+                        
+                            <label for="genre" class="">Genre</label>
+                            <select id="genre">
+                            </select>
+                        
+                            <label for="publish-date">Publish Date</label>  
+                            <input type="date" name="publish-date" id="publish-date">
+                            <label for="image-file">Image File</label>
+                            <input onchange="onChange()" type="file" name="image-file" id="image-file">
+                            <button class="submit" type="submit">Submit</button>
+                        </form>
+                    </div>
+                  <h2>Album's songs</h2>
+                    <div id="song-list">
+                    </div>
+                </div>
             </div>
         </div>
         

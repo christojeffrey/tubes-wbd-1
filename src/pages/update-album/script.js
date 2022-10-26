@@ -1,3 +1,137 @@
+let prev_image_path = "";
+let album_id = 0;
+
+const fetchAlbum = () => {
+  // get album id from query
+  const urlParams = new URLSearchParams(window.location.search);
+  album_id = urlParams.get("album_id");
+  
+  const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
+  
+  // load song detail from getSongDetail
+  GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`,token, (status, data) => {
+    if (status === 200) {
+      prev_image_path = data.image_path;
+
+      // image_path
+      document.getElementById("album-image").src = "../../assets/album-image/" + data.image_path;
+  
+      // album_title
+      document.getElementById("album-title").value = data.album_title;
+  
+      // singer
+      document.getElementById("singer").value = data.singer;
+  
+      // publish_date
+      document.getElementById("publish-date").value = new Date(data.publish_date).toDateInputValue();
+
+      // genre
+      console.log(data.genre);
+      document.getElementById("genre").value = capitalizeFirstLetter(data.genre);
+
+      // for each song in album, show songCard
+      data.songs.forEach((song) => {
+        LOAD_COMPONENT(
+          {
+            name: "songCard",
+            args: {
+              id: song.song_id,
+              title: song.song_title,
+              artist: song.singer,
+              audio_path: "../../assets/song-audio/" + song.audio_path,
+              img: "../../assets/song-image/" + song.image_path,
+              on_click: "songCardOnClick",
+              genre: song.genre,
+            },
+          },
+          (status, data) => {
+            if (status === 200) {
+              document.getElementById("song-list").innerHTML += data;
+            }
+          }
+        );
+      });
+    }
+  });
+  
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const getGenreList = () => {
+  document.getElementById("genre").innerHTML = "";
+  genre_list.forEach(genre => {
+      let genreOption = document.createElement("option");
+      genreOption.value = genre;
+      genreOption.innerHTML = genre;
+      document.getElementById("genre").appendChild(genreOption);
+  });
+}
+
+// Timezone support
+Date.prototype.toDateInputValue = (function() {
+  var local = new Date(this);
+  local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+  return local.toJSON().slice(0,10);
+});
+
+const onChange = () => {
+  const [file] = document.getElementById("image-file").files;
+  if (file) {
+    document.getElementById("album-image").src = URL.createObjectURL(file);
+  }
+}
+
+const addAlbum = () => {
+  const album_title = document.getElementById("album-title").value;
+  const singer = document.getElementById("singer").value;
+  const publish_date = document.getElementById("publish-date").value;
+  const genre = document.getElementById("genre").value;
+
+  const image_files = document.getElementById("image-file").files;
+
+  let image_path = prev_image_path
+
+  if (image_files.length > 0 ){
+    image_path = image_files[0].name;
+    let formData = new FormData();
+
+    formData.append("file", image_files[0]);
+    UPLOAD_API('../../api/upload/fileUpload.php?type=album&name=' + image_path, token, formData,(status, data) => {
+      if (status !== 200) {
+          alert("error uploading image");
+          return;
+      }
+  })
+  }
+  const body = {
+    "album_id": album_id,
+    "album_title": album_title,
+    "singer": singer,
+    "publish_date": publish_date,
+    "genre": genre,
+    "image_path": image_path,
+  }
+
+  POST_API('../../api/album/updateAlbum.php', token, body, (status, data) => {
+    if (status === 200) {
+        // if success, show success message
+        alert("success")
+        // document.getElementById('add-song-form-container').reset();
+    } else {
+        // else, show error message
+        alert("error")
+    }
+});
+
+
+
+
+
+}
+
 
 LOAD_COMPONENT(
     {
@@ -27,3 +161,9 @@ LOAD_COMPONENT(
       }
     }
   );
+
+  
+fetchAlbum(); 
+checkTokenOnPageLoad(true);
+const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
+getGenreList();
