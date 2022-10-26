@@ -16,26 +16,28 @@
         <div id="navbar">
     
         </div>
-        <div>
+
+        <div class="album-list-main-section">
             <div id="account-info">
 
             </div>
-            <div class="wiwiw">
-                <div class="heading">
-                    <h1 class="title">
+
+            <div class="album-list-content">
+                <div class="list-header-container">
+                    <h1 class="list-title">
                         <b>Albums</b>
                     </h1>
-                    <p class="move-page-container">
-                    <button onclick="movePage(true)" class="move-page-button" id="back-button">
-                    < </button>
+                    <div class="move-page-button-container">
+                        <button onclick="movePage(true)" class="move-page-button" id="back-button"><</button>
                         <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
-                    </p>
+                    </div>
                 </div>
                 <div id="albums" class="albums">
+                    
                 </div>
             </div>
         </div>
-    </div>
+        
 </body>
 <?php
     // add global js and styles
@@ -43,6 +45,6 @@
     echoGlobal();
 ?>
 <!-- script -->
-<script src="./script.js"></script>
+<script src="script.js"></script>
 
 </html>

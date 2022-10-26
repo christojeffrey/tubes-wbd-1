@@ -12,10 +12,13 @@
             // admin navbar
             $admin_navbar = <<<ADMIN_NAVBAR
             <li class="nav-item">
-                <a class="nav-link" href="add_song.php">ADMIN Add Song</a>
+                <a class="nav-link" href="../add-song/index.php">ADMIN Add Song</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="add_album.php">ADMIN Add Album</a>
+                <a class="nav-link" href="../add-album/index.php">ADMIN Add Album</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../user-list/index.php">ADMIN User List</a>
             </li>
             ADMIN_NAVBAR;
         } else {
@@ -37,6 +40,8 @@
             NOT_LOGGED_IN_NAVBAR;
         }
         $navbar = <<<NAVBAR
+        <style>
+        </style>
         <nav class="navbar navbar-expand-lg navbar-light bg-light mx-8">
         <div class = "font-bold text-xl">
         supotifiy

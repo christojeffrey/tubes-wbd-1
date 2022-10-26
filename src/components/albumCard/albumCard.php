@@ -8,9 +8,9 @@
         if (true) {
             $edit_button = 
             <<<EOT
-            <div class = "absolute bottom-0 right-0 m-4">
-                <a href= "../update-album/index.php?album_id=$id">
-                    <img class="edit-button" src="../../assets/icons/pen-to-square-solid.svg" alt="Edit"/>
+            <div class = "edit-icon m-4">
+                <a ref= "../update-album/index.php?album_id=$id">
+                    <img class="edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
                 </a>
             </div>
             EOT;
@@ -18,7 +18,14 @@
 
         $html = 
         <<<"EOT"
+
             <style>
+                .edit-icon{    
+                    position: absolute;
+                    right: 0px;
+                    bottom: 0px;
+                }
+                
                 .albums_item {
                     display: flex;
                     padding: 0.5rem;

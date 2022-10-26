@@ -12,34 +12,45 @@
 </head>
 
 <body>
-    <div class="flex">
-        <!-- navbar -->
-        <div id="navbar"></div>
+    <div class="flex-column">
+        <div class="flex">
+            <aside id="navbar">
 
-        <div>
-            <div id="account-info"></div>
-            <h1>
-                Home
-            </h1>
-            <div class="move-page-button-container">
-                <button onclick="movePage(true)" class="move-page-button" id="back-button">
-                    < </button>
-                        <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
-            </div>
-            <div id="cards">
-            </div>
-            <div id="player-home">
-            </div>
+            </aside>
+            <section class="main-section">
+                <div id="account-info">
+
+                </div>
+                <div class="list-header-container">
+                    <h1 class="list-title">
+                        <b>Songs</b>
+                    </h1>
+                    <div class="move-page-button-container">
+                        <button onclick="movePage(true)" class="move-page-button" id="back-button">
+                            < </button>
+                                <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+                    </div>
+                </div>
+                <div class="song-list-content">
+
+                    <div id="cards">
+
+                    </div>
+                </div>
+            </section>
         </div>
+
+        <footer id="player-home">
+
+        </footer>
+    </div>
 </body>
 <?php
     // add global js and styles
     require '../../global.php';
-    require '../../components/songCard/songCard.php';
-    require '../../components/player/player.php';
     echoGlobal();
 ?>
 <!-- script -->
-<script src="./script.js"></script>
+<script src="script.js"></script>
 
 </html>

@@ -42,6 +42,23 @@
         }
     }
     
+     // add sort if exist, can be asc or desc   
+     if (isset($_GET['sort'])) {
+        $sort = $_GET['sort'];
+        if ($sort == 'title-asc') {
+            $sql .= " ORDER BY song_title ASC";
+        } else if ($sort == 'title-desc') {
+            $sql .= " ORDER BY song_title DESC";
+        } else if ($sort == 'year-asc') {
+            $sql .= " ORDER BY publish_date ASC";
+        } else if ($sort == 'year-desc') {
+            $sql .= " ORDER BY publish_date DESC";
+        } else {
+            $conn->close();
+            exitWithError(400, 'Sort key is not valid');
+        }
+    }
+    
     $stmt = $conn->prepare($sql);
 
     // loop, but for now only search for last search key (due to bind param constraints)
@@ -49,6 +66,7 @@
         $search_value = $search_key_value['search_value'];
         $stmt->bind_param('s', $search_value);
     }
+
 
     if ($stmt->execute()) {
         $result = $stmt->get_result();
@@ -66,8 +84,37 @@
             );
             array_push($data, $song);
         }
+        // filter and sort
+        // api/searchSong.php?song_id=12&filter_by=Pop&sort_by=year-asc&page=1&limit=10
+        // filter by genre
+        
+        if (isset($_GET['filter_by'])) {
+            $filter_by = $_GET['filter_by'];
+            $data = array_filter($data, function($song) use ($filter_by) {
+                return $song['genre'] == $filter_by;
+            });
+        }
+        $limit = $_GET['limit'];
+        // total_page
+        $total_page = ceil(count($data) / $limit);
+        
+        // pagination
+        if (isset($_GET['page']) && isset($_GET['limit'])) {
+            $page = $_GET['page'];
+            $limit = $_GET['limit'];
+            $offset = ($page - 1) * $limit;
+            $data = array_slice($data, $offset, $limit);
+        }
+
+   
+        $response = array(
+            "data" => $data,
+            "total_page" => $total_page
+        );
+          
         $conn->close();
-        exitWithDataReturned($data);
+        
+        exitWithDataReturned($response);
     } else {
         $conn->close();
         exitWithError(500, 'Error executing query');

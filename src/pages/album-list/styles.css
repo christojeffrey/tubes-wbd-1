@@ -2,32 +2,9 @@ body{
     background-color: #121212;
 }
 
-.heading{
-    display: flex;
-    padding-left: 0.5rem;
-}
-
-.title{
-    font-size: 24px;
-    color: #FFFFFF;
-}
-
-.title:hover{
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-
-
 .see-all:hover{
     text-decoration: underline;
     cursor: pointer;
-}
-
-.wiwiw{
-    max-width: 54rem;
-    padding: 0 1rem;
-    margin: 3rem auto 6rem;
 }
 
 .albums{
@@ -38,40 +15,15 @@ body{
     padding: 0;
 }
 
-.move-page-container{
-    margin-left: auto;
-    color: #aeaeae;
-    
-}
 
-.move-page-button {
-    border-radius: 50%;
-    color: #aeaeae;
-    background-color: #181818;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+.album-list-content {
+    max-width: 54rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+  }
 
-.move-page-button {
-    border-radius: 50%;
-    color: #aeaeae;
-    background-color: #181818;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transform: scale(0.95);
-}
-
-.move-page-button:disabled,
-.move-page-button:hover[disabled]{
-    opacity: 0.5;
-    transform: scale(0.95);
-    cursor: auto;
-}
-
-.move-page-button:hover {
-    transform: scale(1);
-}
+  
+.album-list-main-section {
+    display: flex;
+    flex-direction: column;
+  }
