@@ -23,22 +23,22 @@
             <div>
                 <form onsubmit="addSong()" class="add-song-form-container" method="POST" and enctype="multipart/form-data">
                     <label for="song-title" class="form-label">Song Title</label>
-                    <input type="text" name="song-title" id="song-title" required>
+                    <input type="text" name="song-title" id="song-title">
 
                     <label for="singer class="form-label"">Singer</label>
-                    <input type="text" name="singer" id="singer" required>
+                    <input type="text" name="singer" id="singer">
 
                     <label for="publish-date" class="form-label">Publish Date</label>
-                    <input type="date" name="publish_date" id="publish-date" required>
+                    <input type="date" name="publish-date" id="publish-date">
 
                     <label for="genre" class="form-label">Genre</label>
-                    <input type="text" name="genre" id="genre" required>
+                    <input type="text" name="genre" id="genre">
 
-                    <!-- <label for="audio-path">Audio Path</label>
-                    <input type="file" name="audio-path" id="audio-path" required>
+                    <label for="audio-file">Audio File</label>
+                    <input type="file" name="audio-file" id="audio-file" required>
 
-                    <label for="image-path">Image Path</label>
-                    <input type="file" name="image-path" id="image-path" required> -->
+                    <label for="image-file">Image File</label>
+                    <input type="file" name="image-file" id="image-file">
 
 
 

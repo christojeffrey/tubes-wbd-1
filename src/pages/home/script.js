@@ -112,3 +112,4 @@ if (localStorage.getItem("last_played")) {
 
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
+fetchSongs();

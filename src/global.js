@@ -40,6 +40,7 @@ function POST_API(apiLoc, authHeader = null, jsonBodyData, callbackfn) {
   let xhr = new XMLHttpRequest();
   xhr.open("POST", apiLoc, true);
   xhr.setRequestHeader("Content-Type", "application/json");
+
   if (authHeader != null) {
     xhr.setRequestHeader("Authorization", authHeader);
   }
@@ -58,6 +59,30 @@ function POST_API(apiLoc, authHeader = null, jsonBodyData, callbackfn) {
   };
   xhr.timeout = TIMEOUT_TIME;
   xhr.send(JSON.stringify(jsonBodyData));
+}
+
+function UPLOAD_API(apiLoc, authHeader = null, formData, callbackfn) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", apiLoc, true);
+
+  if (authHeader != null) {
+    xhr.setRequestHeader("Authorization", authHeader);
+  }
+
+  xhr.onload = (e) => {
+    if (xhr.readyState === 4) {
+      console.log(xhr.responseText);
+      callbackfn(xhr.status, JSON.parse(xhr.responseText));
+    }
+  };
+  xhr.onerror = (e) => {
+    console.error(xhr.statusText);
+  };
+  xhr.ontimeout = () => {
+    console.error(`The request timed out.`);
+  };
+  xhr.timeout = TIMEOUT_TIME;
+  xhr.send(formData)
 }
 
 function LOAD_COMPONENT(jsonBodyData, callbackfn) {
