@@ -32,7 +32,8 @@
                     <input type="date" name="publish-date" id="publish-date">
 
                     <label for="genre" class="form-label">Genre</label>
-                    <input type="text" name="genre" id="genre">
+                    <select id="genre">
+                    </select>
 
                     <label for="audio-file">Audio File</label>
                     <input type="file" name="audio-file" id="audio-file" required>

@@ -18,6 +18,16 @@ const getAlbumList = () => {
     })
 }
 
+const getGenreList = () => {
+    document.getElementById("genre").innerHTML = "";
+    genre_list.forEach(genre => {
+        let genreOption = document.createElement("option");
+        genreOption.value = genre;
+        genreOption.innerHTML = genre;
+        document.getElementById("genre").appendChild(genreOption);
+    });
+}
+
 const addSong = () => {
     const song_title = document.getElementById('song-title').value;
     const singer = document.getElementById('singer').value;
@@ -93,3 +103,4 @@ const token = localStorage.getItem("user_token") || localStorage.getItem("admin_
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
 getAlbumList();
+getGenreList();

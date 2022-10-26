@@ -4,11 +4,11 @@
 const TIMEOUT_TIME = 10000;
 const BASE_URL = "/../../";
 const genre_list = [
-  "alternative",
-  "blues",
-  "children",
-  "classical",
-  "country",
+  "Alternative",
+  "Blues",
+  "Children",
+  "Classical",
+  "Country",
   "EDM",
   "Electronic",
   "Folk",
@@ -25,7 +25,7 @@ const genre_list = [
   "Reggae",
   "Rock",
   "Traditional",
-  "Others",
+  "Others"
 ];
 
 // ===FUNCTION===

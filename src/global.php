@@ -4,11 +4,11 @@
     // encryption key
     define('ENCRYPTION_KEY', 'this is a key');
     // genre list
-    define('GENRE_LIST', array("alternative",
-    "blues",
-    "children",
-    "classical",
-    "country",
+    define('GENRE_LIST', array("Alternative",
+    "Blues",
+    "Children",
+    "Classical",
+    "Country",
     "EDM",
     "Electronic",
     "Folk",
