@@ -59,10 +59,10 @@ WHERE Album.album_id = OLD.album_id;
 -- insert intial data
 -- insert admin
 INSERT INTO `User` (`name`, `email`, `password`, `username`, `is_admin`) VALUES
-('admin', 'email@example.com', 'admin', 'admin', true);
+('andika', 'email@example.com', 'admin', 'admin', true);
 -- insert user
 INSERT INTO `User` (`name`, `email`, `password`, `username`, `is_admin`) VALUES
-('user', 'email@user.com', 'user', 'user', false);
+('budi', 'email@user.com', 'user', 'user', false);
 
 -- add album
 -- i met you when i was 18

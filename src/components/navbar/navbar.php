@@ -40,6 +40,8 @@
             NOT_LOGGED_IN_NAVBAR;
         }
         $navbar = <<<NAVBAR
+        <style>
+        </style>
         <nav class="navbar navbar-expand-lg navbar-light bg-light mx-8">
         <div class = "font-bold text-xl">
         supotifiy

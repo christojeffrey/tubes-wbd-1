@@ -30,7 +30,7 @@
 
     // get usser_id, username, email from users
     // use prepare
-    $stmt = $conn->prepare("SELECT user_id, username, email FROM User");
+    $stmt = $conn->prepare("SELECT * FROM User");
 
 
 

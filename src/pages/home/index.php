@@ -26,12 +26,13 @@
                         <b>Songs</b>
                     </h1>
                     <div class="move-page-button-container">
-                        <button onclick="movePage(true)" class="move-page-button" id="back-button"><</button>
-                        <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+                        <button onclick="movePage(true)" class="move-page-button" id="back-button">
+                            < </button>
+                                <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
                     </div>
                 </div>
                 <div class="song-list-content">
-                    
+
                     <div id="cards">
 
                     </div>
@@ -40,8 +41,8 @@
         </div>
 
         <footer id="player-home">
-                    
-</footer>
+
+        </footer>
     </div>
 </body>
 <?php
