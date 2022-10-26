@@ -15,7 +15,6 @@ LOAD_COMPONENT(
 );
 
 // load account info
-
 LOAD_COMPONENT(
   {
     name: "accountInfo",
@@ -35,11 +34,30 @@ function onSearchClick() {
   let option = document.getElementById("search-option").value;
   // get search text
   let search_text = document.getElementById("search-text").value;
-  POST_API("../../api/song/searchSong.php", null, [{ search_key: option, search_value: search_text }], (status, data) => {
+
+  // get filter
+  let filter = document.getElementById("filter").value;
+  let filterText = "";
+  if (filter !== "") {
+    filterText = "&filter_by=" + filter;
+  }
+
+  // get sort
+  let sort = document.getElementById("sort").value;
+  let sortText = "";
+  if (sort !== "") {
+    sortText = "&sort=" + sort;
+  }
+  POST_API(`../../api/song/searchSong.php?page=1&limit=10${sortText}${filterText}`, null, [{ search_key: option, search_value: search_text }], (status, data) => {
     if (status === 200) {
       let song_list = document.getElementById("song-list");
+      // append child song_list
       song_list.innerHTML = "";
-      data.forEach((song) => {
+      for (let i = 0; i < data.data.length; i++) {
+        // append child song_list
+        song_list.innerHTML += `<div id="song-card-container-${i}"></div>`;
+      }
+      data.data.forEach((song, index) => {
         LOAD_COMPONENT(
           {
             name: "songCard",
@@ -53,13 +71,21 @@ function onSearchClick() {
               genre: song.genre,
             },
           },
-          (status, data) => {
+          (status, res) => {
             if (status === 200) {
-              song_list.innerHTML += data;
+              console.log("index", index);
+              document.getElementById("song-card-container-" + index).innerHTML = res;
             }
           }
         );
       });
+
+      // if total page > 0, show pagination
+      if (data.total_page > 0) {
+        document.getElementById("pagination").innerHTML = "";
+        // add left right button
+        document.getElementById("pagination").innerHTML += `<li class="page-item" id="left-button"><a class="page-link" href="#" onclick="onLeftClick()">Previous</a></li>`;
+      }
     }
   });
 }

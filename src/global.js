@@ -3,6 +3,30 @@
 // ===CONSTANT===
 const TIMEOUT_TIME = 10000;
 const BASE_URL = "/../../";
+const genre_list = [
+  "alternative",
+  "blues",
+  "children",
+  "classical",
+  "country",
+  "EDM",
+  "Electronic",
+  "Folk",
+  "Hip-Hop/Rap",
+  "Indie",
+  "Jazz",
+  "J-Pop",
+  "K-Pop",
+  "Latin",
+  "Metal",
+  "Opera",
+  "Pop",
+  "RnB",
+  "Reggae",
+  "Rock",
+  "Traditional",
+  "Others",
+];
 
 // ===FUNCTION===
 
@@ -102,7 +126,7 @@ function checkTokenOnPageLoad(isCheckAdmin) {
       window.location.href = "../home";
       alert("You are not authorized to access this page");
       return;
-    }  else {
+    } else {
       token = localStorage.getItem("admin_token");
     }
   } else {
@@ -116,7 +140,7 @@ function checkTokenOnPageLoad(isCheckAdmin) {
   }
 
   // call api to check if token is valid
-  GET_API('../../api/auth/checkToken.php', token, (status, data) => {
+  GET_API("../../api/auth/checkToken.php", token, (status, data) => {
     if (status != 200) {
       // token is invalid
       window.location.href = "../home";
@@ -157,6 +181,7 @@ function LOAD_ACCOUNT_INFO() {
     }
   );
 }
+
 // prevent reload on form submit
 function preventReloadOnFormSubmit() {
   let forms = document.getElementsByTagName("form");
