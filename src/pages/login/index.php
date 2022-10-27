@@ -27,6 +27,7 @@
                 <button type="submit"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Login</button>
                 <div id="status" class="h-6"></div>
+                <div>don't have an account? click <a href="/pages/register">here</a></div>
             </form>
 
         </div>
@@ -39,6 +40,6 @@
     echoGlobal();
 ?>
 <!-- script -->
-<script src="script.js"></script>
+<script src=" script.js"></script>
 
 </html>
