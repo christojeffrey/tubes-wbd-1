@@ -34,6 +34,8 @@ const fetchSongs = () => {
               img: SONG_IMAGE_PATH + song.image_path,
               on_click: "songCardOnClick",
               is_admin: localStorage.getItem("admin_token"),
+              // get year from date format "YYYY--MM-DD"
+              year: song.publish_date.split("-")[0],
               genre: song.genre,
               delete_from_album: false,
               add_to_album: false,
