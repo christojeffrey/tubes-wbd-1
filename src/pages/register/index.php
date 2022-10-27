@@ -18,23 +18,23 @@
                 <!-- name -->
                 <label for="name"><b>Name</b></label>
                 <input id="name" type="text" placeholder="Enter Name" name="name" required class="border-2 p-1">
-                <span class="h-6 mb-2"></span>
+                <span class="status-span"></span>
 
 
                 <label for="username"><b>Username</b></label>
                 <input id="username" type="text" placeholder="Enter Username" name="username" required
                     class="border-2 p-1 " oninput="updateUsername(this.value)">
-                <span class="h-6 mb-2" id="usernameStatus">status</span>
+                <span class="status-span" id="usernameStatus"></span>
 
                 <label for="email"><b>email</b></label>
                 <input id="email" type="email" placeholder="Enter Email" name="email" required class="border-2 p-1"
                     oninput="updateEmail(this.value)">
-                <span class="h-6 mb-2" id="emailStatus">status</span>
+                <span class="status-span" id="emailStatus"></span>
 
                 <label for="password"><b>Password</b></label>
                 <input id="password" type="password" placeholder="Enter Password" name="password" required
                     class="border-2 p-1">
-                <span class="h-6 mb-2"></span>
+                <span class="status-span"></span>
 
                 <label for="password2"><b>Confirm Password</b></label>
                 <input id="password2" type="password" placeholder="Confirm Password" name="password2" required
@@ -44,6 +44,8 @@
                 <button type="submit"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Register</button>
                 <span id="status" class="h-6 mb-1"></span>
+                <div>already have an account? click <a href="/pages/login">here</a></div>
+
             </form>
 
         </div>
