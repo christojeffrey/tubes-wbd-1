@@ -46,5 +46,5 @@
     );
     $token = encodeToken($data);
     $conn->close();
-    exitWithDataReturned(array('user_token' => $token));
+    exitWithDataReturned(array('token' => $token));
 ?>
