@@ -20,26 +20,41 @@
             <div id="account-info">
 
             </div>
-            <div>
-                <form onsubmit="addAlbum()" class="song-album-form-container" method="POST" and enctype="multipart/form-data">
-                   <!-- form to add album with needed variable: album_title, singer, image_path, publish_date, genre -->
-                    <label for="album-title" class="form-label">Album Title</label>
-                    <input type="text" name="album-title" id="album-title" required>
+            <div class="song-album-form-container">
+                <form onsubmit="addAlbum()" class="song-album-form" method="POST" and enctype="multipart/form-data">
+                    <h1 class="form-header">Add Album</h1>
+                        <div class="label-input-form-container">
+                        <label for="album-title" class="form-label">Album Title</label>
+                        <input type="text" name="album-title" id="album-title" required class="form-input">
+                    </div>
 
-                    <label for="singer" class="form-label">Singer</label>
-                    <input type="text" name="singer" id="singer" required>
+                    <div class="label-input-form-container">
+                        <label for="singer" class="form-label">Singer</label>
+                        <input type="text" name="singer" id="singer" required class="form-input">
+                        
+                    </div>
 
-                    <label for="publish-date" class="form-label">Publish Date</label>
-                    <input type="date" name="publish-date" id="publish-date" required>
+                    
+                    <div class="label-input-form-container">
+                        <label for="publish-date" class="form-label">Publish Date</label>
+                        <input type="date" name="publish-date" id="publish-date" required class="form-input">
+                    </div>
 
-                    <label for="genre" class="form-label">Genre</label>
-                    <select id="genre" required>
-                    </select>
 
-                    <label for="image-file"  class="form-label>Image File</label>
-                    <input type="file" name="image-file" id="image-file" required>
 
-                    <input type="submit" value="Add Album">
+                    <div class="label-input-form-container">
+                        <label for="genre" class="form-label">Genre</label>
+                        <select id="genre" required class="form-input">
+                        </select>
+                    </div>
+
+                    <div class="label-input-form-container">
+                        <label for="image-file"  class="form-label">Image File</label>
+                        <input type="file" name="image-file" id="image-file" required class="form-input">
+
+                    </div>
+
+                    <input type="submit" value="Add Album" class="form-submit">
                 </form>
             </div>
             

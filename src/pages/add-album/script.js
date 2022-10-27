@@ -1,5 +1,5 @@
 const addAlbum = () => {
-    const song_title = document.getElementById('album-title').value;
+    const album_title = document.getElementById('album-title').value;
     const singer = document.getElementById('singer').value;
     const publish_date = document.getElementById('publish-date').value;
     const genre = document.getElementById('genre').value;
@@ -23,7 +23,7 @@ const addAlbum = () => {
     }
 
     const body = {
-        "album_title": song_title,
+        "album_title": album_title,
         "singer": singer,
         "publish_date": publish_date,
         "genre": genre,
