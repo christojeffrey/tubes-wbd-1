@@ -27,7 +27,7 @@ const genre_list = [
   "Traditional",
   "Others"
 ];
-
+const SONG_IMAGE_PATH = "../../assets/song-image/";
 // ===FUNCTION===
 
 // callback function for the API have two args: status and respondData
@@ -155,12 +155,12 @@ function checkTokenOnPageLoad(isCheckAdmin) {
       token = localStorage.getItem("admin_token");
     }
   } else {
-    if (!localStorage.getItem("user_token")) {
+    if (!(localStorage.getItem("admin_token") || localStorage.getItem("user_token"))) {
       window.location.href = "../home/index.php";
       alert("You are not authorized to access this page");
       return;
     } else {
-      token = localStorage.getItem("user_token");
+      token = localStorage.getItem("admin_token") || localStorage.getItem("user_token");
     }
   }
 

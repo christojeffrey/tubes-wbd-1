@@ -41,11 +41,14 @@
         }
         $navbar = <<<NAVBAR
         <style>
+            .navbar {
+                overflow: hidden
+            }
         </style>
         <nav class="navbar navbar-expand-lg navbar-light bg-light mx-8">
-        <div class = "font-bold text-xl">
-        supotifiy
-        </div>
+            <div class = "font-bold text-xl">
+            supotifiy
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">

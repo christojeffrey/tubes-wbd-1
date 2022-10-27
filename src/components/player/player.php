@@ -34,16 +34,29 @@
             .player-song-detail {
                 display: flex;
                 flex-direction: column;
-                margin-left: 5px;
+                margin-left: 10px;
                 justify-content: center;
             }
+
+            .player-song-title {
+                font-size: 1rem;
+                font-weight: 600;
+                margin: 0;
+            }
+
+            .player-song-singer {
+                font-size: 0.8rem;
+                font-weight: 400;
+                margin: 0
+            }
+
             </style>
             <div id="player-$id" class="player-container">
                 <section class="player-song-information">
                     <img src="$img" alt="Song Cover" class = "player-song-image">
                     <div class ="player-song-detail">
-                        <h3>{$title}</h3>
-                        <p>{$singer}</p>
+                        <h3 class="player-song-title">{$title}</h3>
+                        <p class="player-song-singer">{$singer}</p>
                     </div>
                 </section>
                 <audio controls autoplay class="player-song-audio">

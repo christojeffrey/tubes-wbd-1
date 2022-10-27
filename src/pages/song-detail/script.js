@@ -1,3 +1,7 @@
+checkTokenOnPageLoad(false);
+LOAD_NAVBAR();
+LOAD_ACCOUNT_INFO();
+
 // get song id from query
 const urlParams = new URLSearchParams(window.location.search);
 const song_id = urlParams.get("song_id");
@@ -14,6 +18,9 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
     // set song genre
     document.getElementById("genre").innerText = data.genre;
 
+    document.getElementById("song-image").setAttribute("src", SONG_IMAGE_PATH + data.image_path);
+
+    document.getElementById("ref-to-album-detail-page").setAttribute("href", `../album-detail?album_id=${data.album_id}`);
     // load song player
     LOAD_COMPONENT(
       {
@@ -23,7 +30,7 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
           title: data.song_title,
           singer: data.singer,
           audio_path: "../../assets/song-audio/" + data.audio_path,
-          img: "../../assets/song-image/" + data.image_path,
+          img: SONG_IMAGE_PATH + data.image_path,
         },
       },
       (status, data) => {
@@ -34,6 +41,3 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
     );
   }
 });
-
-LOAD_NAVBAR();
-LOAD_ACCOUNT_INFO();
