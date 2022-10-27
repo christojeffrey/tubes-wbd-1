@@ -106,17 +106,6 @@ const updateSong = () => {
     })
 }
 
-const deleteSong = () => {
-    GET_API(`../../api/song/deleteSong.php?song_id=${song_id}`, token, (status, data) => {
-        if (status === 200) {
-            alert("Song deleted successfully");
-            window.location.href = "../home/index.php";
-        } else {
-            alert(data.error);
-        }
-    })
-}
-
 checkTokenOnPageLoad(true);
 getAlbumList();
 getGenreList();

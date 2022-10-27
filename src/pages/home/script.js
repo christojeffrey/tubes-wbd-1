@@ -15,14 +15,14 @@ const fetchSongs = () => {
       song_list.innerHTML = "";
 
       // disable next page button if there is no more song
-      data.length < limit ? document.getElementById("next-button").setAttribute("disabled", true) : document.getElementById("next-button").removeAttribute("disabled");
+      page < data.total_page  ? document.getElementById("next-button").removeAttribute("disabled") : document.getElementById("next-button").setAttribute("disabled", true) ;
 
       // create div song-card-container-id
-      for (let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.data.length; i++) {
         // append child song_list
         song_list.innerHTML += `<div id="song-card-container-${i}"></div>`;
       }
-      data.forEach((song, index) => {
+      data.data.forEach((song, index) => {
         LOAD_COMPONENT(
           {
             name: "songCard",
@@ -33,7 +33,6 @@ const fetchSongs = () => {
               audio_path: "../../assets/song-audio/" + song.audio_path,
               img: SONG_IMAGE_PATH + song.image_path,
               on_click: "songCardOnClick",
-              is_admin: localStorage.getItem("admin_token"),
               // get year from date format "YYYY--MM-DD"
               year: song.publish_date.split("-")[0],
               genre: song.genre,
@@ -117,6 +116,7 @@ if (localStorage.getItem("last_played")) {
   const lastPlayed = parseInt(localStorage.getItem("last_played"));
   const now = Date.now();
   const diff = now - lastPlayed;
+  console.log(diff);
   if (diff > 86400000) {
     localStorage.setItem("counter", 0);
   }

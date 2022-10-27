@@ -67,28 +67,33 @@ function fetchSongs() {
         // append child song_list
         song_list.innerHTML += `<div id="song-card-container-${i}"></div>`;
       }
-      data.data.forEach((song, index) => {
-        LOAD_COMPONENT(
-          {
-            name: "songCard",
-            args: {
-              id: `${song.song_id}`,
-              title: `${song.song_title}`,
-              artist: `${song.singer}`,
-              audio_path: "../../assets/song-audio/" + song.audio_path,
-              img: SONG_IMAGE_PATH + song.image_path,
-              on_click: "songCardOnClick",
-              genre: song.genre,
-            },
-          },
-          (status, res) => {
-            if (status === 200) {
-              console.log("index", index);
-              document.getElementById("song-card-container-" + index).innerHTML = res;
-            }
-          }
-        );
-      });
+      if (data.data.length === 0) {
+        song_list.innerHTML += `<div class="no-result-text">No result found</div>`;
+      } else{
+          data.data.forEach((song, index) => {
+            LOAD_COMPONENT(
+              {
+                name: "songCard",
+                args: {
+                  id: `${song.song_id}`,
+                  title: `${song.song_title}`,
+                  artist: `${song.singer}`,
+                  audio_path: "../../assets/song-audio/" + song.audio_path,
+                  img: SONG_IMAGE_PATH + song.image_path,
+                  on_click: "songCardOnClick",
+                  genre: song.genre,
+                },
+              },
+              (status, res) => {
+                if (status === 200) {
+                  console.log("index", index);
+                  document.getElementById("song-card-container-" + index).innerHTML = res;
+                }
+              }
+            );
+          });
+      }
+
 
       // if total page > 0, show pagination
       if (data.total_page > 0) {

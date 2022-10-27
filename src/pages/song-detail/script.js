@@ -22,7 +22,8 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
     document.getElementById("song-image").setAttribute("src", SONG_IMAGE_PATH + data.image_path);
 
     document.getElementById("ref-to-album-detail-page").setAttribute("href", `../album-detail/index.php?album_id=${data.album_id}`);
-    
+    document.getElementById("edit-hyperlink").href = `../update-song/index.php?song_id=${data.song_id}`
+
     data.album_id?
       document.getElementById("ref-to-album-detail-page").innerHTML = data.album_title
       :
@@ -47,3 +48,14 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
     );
   }
 });
+
+const deleteSong = () => {
+  GET_API(`../../api/song/deleteSong.php?song_id=${song_id}`, token, (status, data) => {
+      if (status === 200) {
+          alert("Song deleted successfully");
+          window.location.href = "../home/index.php";
+      } else {
+          alert(data.error);
+      }
+  })
+}

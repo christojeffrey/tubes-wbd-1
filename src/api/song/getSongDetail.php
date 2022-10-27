@@ -50,6 +50,7 @@
             "album_id" => $song["album_id"],
             "album_title" => $song["album_title"]
         );
+        $conn->close();
         exitWithDataReturned($data);
     } else {
         $conn->close();

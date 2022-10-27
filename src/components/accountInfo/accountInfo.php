@@ -1,7 +1,13 @@
 <?php
   function accountInfo($args){
     // $username
+
     extract($args);
+    if ($username) {
+      $content = "Hi, " . $username . "!";
+    } else {
+      $content = "Guest";
+    }
     $html = <<<EOT
     <style>
     .account-info-container{
@@ -19,7 +25,7 @@
     </style>
     <div class="account-info-container">
       <p class="account-info-label">
-        Hi, $username!
+        $content
       </p>
     </div>
     EOT;

@@ -24,13 +24,25 @@
             <div class="song-detail-container">
                 <img id="song-image" class="song-image-detail"/>
                 <div class = "song-information-detail">
-                    <div id="song-title" class="song-title-detail"></div>
+                    <div class="song-title-and-edit-delete-button-container">
+                        <div id="song-title" class="song-title-detail"></div>
+                        <div id="button-container" class="button-container">
+                            <a href= "" id="edit-hyperlink">
+                                <img class="update-album-song-edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
+                            </a>
+                            <button onclick="deleteSong()" class="update-album-song-erase-button">
+                                <img class="" src="../../assets/icons/trash.svg" alt="Edit"/>
+                            </button>
+                        </div>
+                    </div>
                     <div id="singer" class="song-detail-fields"></div>
                     <div id="date-genre" class="song-detail-fields"></div>
                     <div id="duration" class="song-duration-detail"></div>
                     <button class="ref-to-album-detail-page-button"> <a id="ref-to-album-detail-page"></a></button>
+
                 </div>
             </div>
+
        </section>
        <footer id="player" class="player-container">
 

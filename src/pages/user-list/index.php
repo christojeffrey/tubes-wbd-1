@@ -20,6 +20,7 @@
                 <!-- account info -->
                 <div id="account-info"></div>
                 <!-- content -->
+                <h1 class="list-title">User List</h1>
                 <div id="user-list"></div>
             </section>
         </div>

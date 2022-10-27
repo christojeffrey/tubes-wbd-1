@@ -2,22 +2,22 @@
     function songCard($args) {
 
     // titlecolor is green is the song is selected
-        // $id, $title, $artist, $audio_path, $img, on_click, $is_admin, $genre, $delete_from_album, $add_to_album, $year
+        // $id, $title, $artist, $audio_path, $img, on_click, $genre, $delete_from_album, $add_to_album, $year
         extract($args);
     // titlecolor is green is the song is selected
         
  
-    // if is admin, show the edit button
-    $edit_button = "";
-    if ($is_admin) {
-        $edit_button = <<<EOT
-            <div class="song-card-button">
-                <a href="../update-song/index.php?song_id=$id">
-                    <img class="play-edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
-                </a>
-            </div>
-        EOT;
-    }
+    // // if is admin, show the edit button
+    // $edit_button = "";
+    // if ($is_admin) {
+    //     $edit_button = <<<EOT
+    //         <div class="song-card-button">
+    //             <a href="../update-song/index.php?song_id=$id">
+    //                 <img class="play-edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
+    //             </a>
+    //         </div>
+    //     EOT;
+    // }
 
     $play_button = <<<EOT
     <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "button">

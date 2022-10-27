@@ -149,6 +149,7 @@ img {
 .list-title {
   font-size: 30px;
   margin: 0;
+  margin-left: 30px;
 }
 
 .list-title:hover {
@@ -194,6 +195,33 @@ img {
   cursor: not-allowed;
   opacity: 0.5;
   transform: scale(0.95);
+}
+
+
+.update-album-song-edit-button{
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(115deg) brightness(113%) contrast(101%);
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 1em;
+  cursor: auto;
+}
+
+.update-album-song-edit-button:hover{
+  filter: invert(65%) sepia(68%) saturate(473%) hue-rotate(179deg) brightness(98%) contrast(103%);
+  cursor: pointer;
+
+}
+
+.update-album-song-erase-button img{
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(115deg) brightness(113%) contrast(101%);
+}
+
+.update-album-song-erase-button img:hover{
+  filter: invert(15%) sepia(80%) saturate(6424%) hue-rotate(358deg) brightness(110%) contrast(115%)
 }
 
 /* Forms

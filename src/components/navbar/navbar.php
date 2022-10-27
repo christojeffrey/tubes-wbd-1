@@ -37,6 +37,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="../login/index.php">Login</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../register/index.php">Register</a>
+            </li>
             NOT_LOGGED_IN_NAVBAR;
         }
         $navbar = <<<NAVBAR

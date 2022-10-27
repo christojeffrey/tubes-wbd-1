@@ -19,9 +19,11 @@
         $stmt = $conn->prepare("SELECT * FROM Song ORDER BY song_title");
     }
 
+    
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         $data = array();
+        $total_page = ceil(count($data) / $limit);
         while ($row = $result->fetch_assoc()) {
             $song = array(
                 "song_id" => $row["song_id"],
@@ -35,7 +37,15 @@
             );
             array_push($data, $song);
         }
-        exitWithDataReturned($data);
+        
+        $response = array(
+            "data" => $data,
+            "total_page" => $total_page
+        );
+          
+        $conn->close();
+        
+        exitWithDataReturned($response);
     } else {
         $conn->close();
         exitWithError(500, "Error while fetching songs");

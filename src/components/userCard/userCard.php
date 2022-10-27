@@ -1,6 +1,6 @@
 <?php
     function userCard($args){
-        // $id, $username, $email, $is_admin, $name
+        // $username, $email, $is_admin, $name
 
         extract($args);
         $role  = $is_admin ? "Admin" : "User";
@@ -20,7 +20,6 @@
         }
         </style>
             <div class="flex flex-row user-card">
-                    <div class="user-desc">$id</div>
                     <div class="user-desc">
                         $name
                     </div>

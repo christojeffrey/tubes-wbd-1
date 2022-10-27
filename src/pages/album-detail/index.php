@@ -33,9 +33,9 @@
 
                         <div id="button-container" class="button-container">
                             <a href= "" id="edit-hyperlink">
-                                <img class="edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
+                                <img class="update-album-song-edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
                             </a>
-                            <button onclick="deleteAlbum()" class="erase-button">
+                            <button onclick="deleteAlbum()" class="update-album-song-erase-button">
                                 <img class="" src="../../assets/icons/trash.svg" alt="Edit"/>
                             </button>
                         </div>

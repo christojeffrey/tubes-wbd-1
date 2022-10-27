@@ -17,61 +17,79 @@
         <div id="navbar"></div>
         <section class="main-section">
             <div id="account-info"></div>
+
+            <div class="search-container">
+                <!-- textbox -->
+                <input class="bg-black search-box" type="text" id="search-text" placeholder="Search for songs">
+                <!-- search button -->
+                <button id="search-button" onclick="onSearchClick()">
+                    <img class="search-button" src="../../assets/icons/search.svg" alt="search">
+                </button>
+            </div>
+
             <!-- drop down. option is title, singer, and year -->
-            <select name="option" id="search-option" class="bg-black">
-                <option value="title">title</option>
-                <option value="singer">singer</option>
-                <option value="year">year</option>
-            </select>
-            <label for="sort">sort by</label>
-            <select name="sort" id="sort" class="bg-black">
-                <option value="">none</option>
-                <option value="year-asc">year asc</option>
-                <option value="year-desc">year desc</option>
-                <option value="title-asc">title asc</option>
-                <option value="title-desc">title desc</option>
-            </select>
+            <div class="search-filter-container">
+                <div class="filter-container">
+                    <select name="option" id="search-option" class="bg-black search-filter-dropdown">
+                        <option value="title">title</option>
+                        <option value="singer">singer</option>
+                        <option value="year">year</option>
+                    </select>
+                </div>
 
-            <label for="filter">filter by genre</label>
-            <select name="filter" id="filter" class="bg-black">
-                <option value="">none</option>
+                <div class="filter-container">
+                    <label for="sort">sort by</label>
+                    <select name="sort" id="sort" class="bg-black search-filter-dropdown">
+                        <option value="">none</option>
+                        <option value="year-asc">year asc</option>
+                        <option value="year-desc">year desc</option>
+                        <option value="title-asc">title asc</option>
+                        <option value="title-desc">title desc</option>
+                    </select>
+                </div>
+                <div class="filter-container">
+                    <label for="filter">filter by genre</label>
+                    <select name="filter" id="filter" class="bg-black search-filter-dropdown">
+                        <option value="">none</option>
 
-                <?php
-                 $GENRE_LIST = array("alternative",
-                 "blues",
-                 "children",
-                 "classical",
-                 "country",
-                 "EDM",
-                 "Electronic",
-                 "Folk",
-                 "Hip-Hop/Rap",
-                 "Indie",
-                 "Jazz",
-                 "J-Pop",
-                 "K-Pop",
-                 "Latin",
-                 "Metal",
-                 "Opera",
-                 "Pop",
-                 "RnB",
-                 "Reggae",
-                 "Rock",
-                 "Traditional",
-                 "Others");
-                foreach($GENRE_LIST as $value) {
-                    echo "<option value=$value>$value</option>";
-                }
-                ?>
-            </select>
+                        <?php
+                        $GENRE_LIST = array("alternative",
+                        "blues",
+                        "children",
+                        "classical",
+                        "country",
+                        "EDM",
+                        "Electronic",
+                        "Folk",
+                        "Hip-Hop/Rap",
+                        "Indie",
+                        "Jazz",
+                        "J-Pop",
+                        "K-Pop",
+                        "Latin",
+                        "Metal",
+                        "Opera",
+                        "Pop",
+                        "RnB",
+                        "Reggae",
+                        "Rock",
+                        "Traditional",
+                        "Others");
+                        foreach($GENRE_LIST as $value) {
+                            echo "<option value=$value>$value</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                
+            </div>
+            
 
-            <!-- textbox -->
-            <input class="bg-black" type="text" id="search-text" placeholder="Search for songs">
-            <!-- search button -->
-            <button id="search-button" onclick="onSearchClick()">Search</button>
+
             <!-- search result -->
             <div id="pagination" class="move-page-button-container"></div>
-            <div id="song-list"></div>
+            <div id="song-list">
+            </div>
         </section>
     </div>
     <div id="player"></div>

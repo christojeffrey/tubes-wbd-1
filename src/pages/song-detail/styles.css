@@ -12,7 +12,8 @@
 }
 
 .song-information-detail {
-    margin-left: 20px
+    margin-left: 20px;
+    width:30%
 }
 
 .ref-to-album-detail-page-button {
@@ -38,4 +39,11 @@
 
 .song-duration-detail {
     color: #b3b3b3;
+}
+
+.song-title-and-edit-delete-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

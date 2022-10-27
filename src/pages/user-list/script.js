@@ -10,7 +10,6 @@ const getUserList = () => {
           {
             name: "userCard",
             args: {
-              id: `${user.user_id}`,
               username: `${user.username}`,
               email: `${user.email}`,
               is_admin: `${user.is_admin}`,
