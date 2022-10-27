@@ -106,8 +106,7 @@ function fetchSongs() {
           // add next button
           document.getElementById("pagination").innerHTML += `<button onclick="onNextClick()" class="move-page-button flex justify-center items-center  "
           id="next-button"> <img class="prevnexticon" src="../../assets/icons/next.svg" alt="next" />
-      </button>
-          
+      </button> 
         `;
         }
       }
