@@ -26,8 +26,8 @@
     if ($delete_from_album){
         $delete_button = 
         <<<EOT
-        <button onclick="$on_click_delete($id, '$title', '$artist', '$publish_date', '$genre', '$audio_path', '$image_path', $duration)">
-            <img class="delete-button" src="../../assets/icons/delete.svg" alt="Edit"/>
+        <button onclick="$on_click_delete($id, '$title', '$artist', '$publish_date', '$genre', '$audio_path', '$image_path', $duration)" class="erase-button">
+            <img class="" src="../../assets/icons/delete.svg" alt="Edit"/>
         </button>
         EOT;
         $play_button = "";
@@ -77,16 +77,20 @@
             width: 100%;
         }
 
-        .delete-button{
+        .erase-button{
+            background-color: transparent;
+        }
+        .erase-button img{
             width: 1.5rem;
             height: 1.5rem;
             cursor: pointer;
             margin-left: auto;
             margin-top: auto;
+            background-color: transparent;
             filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(115deg) brightness(113%) contrast(101%);
         }
 
-        .delete-button:hover{
+        .erase-button img:hover{
             filter: invert(15%) sepia(80%) saturate(6424%) hue-rotate(358deg) brightness(110%) contrast(115%)
         }
 

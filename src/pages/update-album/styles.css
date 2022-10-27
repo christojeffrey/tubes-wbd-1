@@ -43,13 +43,13 @@ form{
   
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #242424;
     margin: 10% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 20px;
     max-width: 32rem;
      /* Could be more or less, depending on screen size */
-    color: #000;
+    color: #fff;
     
 }
 
@@ -88,4 +88,29 @@ align-items: center;
 
 .add-button:hover{
     filter: invert(80%) sepia(60%) saturate(6179%) hue-rotate(99deg) brightness(97%) contrast(77%);
+}
+
+.album-image{
+    object-fit: cover;
+    /* border-radius: 0.5em; */
+    /* border: 2px solid #fefefe; */
+    margin: auto 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+}
+
+.center {
+    align-self: center;
+    align-items: center;
+}
+
+.album-songs {
+    background-color: #242424;
+    border-radius: 20px;
+    width: 80%;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    padding-bottom: 2rem;
+    
 }

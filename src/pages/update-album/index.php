@@ -24,55 +24,60 @@
         </div>
     </div>
     <div class="flex">
-        <div id="navbar">
-        
-        </div>
-        <div>
+        <aside id="navbar">
+        </aside>
+        <section class="main-section">
             <div id="account-info">
-
+    
             </div>
-            <section class="main-section">
-                <div class="heading">
-                    <h1 class="title">
-                        <b>Update Album</b>
-                    </h1>
-                </div>
-                <div>
-                
-                    <h2>Album Info</h2>
+            <div class="song-album-form-container">
+                <form onsubmit="updateAlbum()" class="song-album-form" method="POST" and enctype="multipart/form-data">
+                    <h1 class="form-header"><b>Update Album</b></h1>
                     <div class="album-info">
-                        <img id="album-image" src="" alt="">
-                        <form onsubmit="updateAlbum()" method="POST" and enctype="multipart/form-data">
+                        <img id="album-image" src="" alt="Album image" class="album-image"> 
+                        <div>
+                            <div class="label-input-form-container">
+                                <label for="album-title" class="form-label">Name</label>  
+                                <input class="form-input" type="text" name="album-title" id="album-title" placeholder="Add a name" >
+                            </div>
+    
+                            <div class="label-input-form-container">
+                                <label for="singer" class="form-label">Singer</label>  
+                                <input class="form-input" type="text" name="singer" id="singer" placeholder="Add a name" disabled>
+                            </div>
+    
+                            <div class="label-input-form-container">
+                                <label for="genre" class="form-label">Genre</label>
+                                <select id="genre"  class="form-input">
+                                </select>    
+                            </div>       
                             
-                            <label for="album-title">Name</label>  
-                            <input type="text" name="album-title" id="album-title" placeholder="Add a name" required>
-                        
-                            <label for="singer">Singer</label>  
-                            <input type="text" name="singer" id="singer" disabled>
-                        
-                            <label for="genre" class="">Genre</label>
-                            <select id="genre">
-                            </select>
-                        
-                            <label for="publish-date">Publish Date</label>  
-                            <input type="date" name="publish-date" id="publish-date">
-                            <label for="image-file">Image File</label>
-                            <input onchange="onChange()" type="file" name="image-file" id="image-file">
-                            <button class="submit" type="submit">Submit</button>
-                        </form>
+                            <div class="label-input-form-container">
+                                <label for="publish-date" class="form-label">Publish Date</label>
+                                <input type="date" name="publish-date" id="publish-date" class="form-input">    
+                            </div>
+    
+                            <div class="label-input-form-container">
+                                <label for="image-file" class="form-label">Image File</label>
+                                <input onchange="onChange()" type="file" name="image-file" id="image-file" class="form-input">    
+                            </div>
+                        </div>
                     </div>
-                    <div class="album-song-heading">
-                        <h2>Album's songs</h2>
-                        <button class="move-page-button" id="plus-button">
-                        <img class="add-button" src="../../assets/icons/plus.svg" alt="Add"/>
-                        </button>
-                    </div>
-                    <div id="song-list">
-                    </div>
+                    <button class="form-submit" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="album-songs">
+                <div class="album-song-heading">
+                    <h2>Album's songs</h2>
+                    <button class="move-page-button" id="plus-button">
+                    <img class="add-button" src="../../assets/icons/plus.svg" alt="Add"/>
+                    </button>
                 </div>
-            </section>
-        </div>
-        
+                <div id="song-list">
+                    
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 <?php
