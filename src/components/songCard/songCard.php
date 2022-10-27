@@ -13,7 +13,7 @@
         $edit_button = <<<EOT
             <div class="song-card-button">
                 <a href="../update-song/index.php?song_id=$id">
-                    edit
+                    <img class="play-edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
                 </a>
             </div>
         EOT;
@@ -21,7 +21,7 @@
 
     $play_button = <<<EOT
     <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "button">
-        play
+        <img class="play-edit-button" src="../../assets/icons/play.svg" alt="Play"/>
     </button>
     EOT;
 
@@ -50,6 +50,12 @@
     $html = 
     <<<"EOT"
         <style>
+
+        .play-edit-button {
+            width:20px;
+            filter: invert(81%) sepia(15%) saturate(8%) hue-rotate(357deg) brightness(87%) contrast(89%);
+
+        }
         .button {
             margin: 0 0.5rem;
         }
