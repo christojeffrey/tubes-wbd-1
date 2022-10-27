@@ -10,7 +10,6 @@ const prefillForm = () => {
         // fill the form fields with the song data
         if (status === 200) {
             document.getElementById("song-title").value = data.song_title;
-            document.getElementById("singer").value = data.singer;
             document.getElementById(`genre-option-${data.genre}`).setAttribute("selected", true);
             data.album_id != null ? 
                 document.getElementById(`album-option-${data.album_id}`).setAttribute("selected", true)
@@ -73,7 +72,6 @@ const updateSong = () => {
                     const body = {
                         "song_id": song_id,
                         "song_title": song_title,
-                        "singer": singer,
                         "publish_date": publish_date,
                         "genre": genre,
                         "audio_path": audio_file_name ? audio_file_name : null,

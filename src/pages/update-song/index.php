@@ -21,12 +21,9 @@
 
             </div>
             <div>
-                <form onsubmit="updateSong()" class="update-song-form-container" method="POST" and enctype="multipart/form-data">
+                <form onsubmit="updateSong()" class="song-album-form-container" method="POST" and enctype="multipart/form-data">
                     <label for="song-title" class="form-label">Song Title</label>
                     <input type="text" name="song-title" id="song-title" required>
-
-                    <label for="singer class="form-label"">Singer</label>
-                    <input type="text" name="singer" id="singer">
 
                     <label for="publish-date" class="form-label">Publish Date</label>
                     <input type="date" name="publish-date" id="publish-date" required>

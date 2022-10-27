@@ -7,11 +7,11 @@
     };
 
     $body = json_decode(file_get_contents('php://input'), true);
-    if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'duration', 'album_id'))) {
+    if (!validateNeededKeys($body, array('song_id', 'song_title', 'publish_date', 'genre', 'duration', 'album_id'))) {
         exitWithError(400, 'All song detail is needed');
     }
 
-    if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'duration', 'album_id'))) {
+    if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'publish_date', 'genre', 'duration', 'album_id'))) {
         exitWithError(400, 'All song detail must be filled');
     }
 
@@ -46,7 +46,6 @@
 
     $song_id = $body['song_id'];
     $song_title = $body['song_title'];
-    $singer = $body['singer'];
     $publish_date = $body['publish_date'];
     $genre = $body['genre'];
     $audio_path = $body['audio_path'];
@@ -83,15 +82,14 @@
         $audio_path = $body['audio_path'];
     }
 
-    $sql = "UPDATE Song SET song_title = ?, singer = ?, publish_date = ?, genre = ?, audio_path = ?, image_path = ?, duration = ?, album_id = ? WHERE song_id = ?";
+    $sql = "UPDATE Song SET song_title = ?,  publish_date = ?, genre = ?, audio_path = ?, image_path = ?, duration = ?, album_id = ? WHERE song_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssiii", $song_title, $singer, $publish_date, $genre, $audio_path, $image_path, $duration, $album_id, $song_id);
+    $stmt->bind_param("ssssssiii", $song_title,  $publish_date, $genre, $audio_path, $image_path, $duration, $album_id, $song_id);
     if ($stmt->execute()) {
        
        $data = array(
             "song_id" => $song_id,
             "song_title" => $song_title,
-            "singer" => $singer,
             "publish_date" => $publish_date,
             "genre" => $genre,
             "audio_path" => $audio_path,
