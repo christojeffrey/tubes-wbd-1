@@ -21,20 +21,21 @@
             <div id="account-info">
 
             </div>
-            <div id="song-detail-container">
+            <div class="song-detail-container">
                 <img id="song-image" class="song-image-detail"/>
-                <div>
+                <div class = "song-information-detail">
                     <div id="song-title" class="song-title-detail"></div>
                     <div id="singer" class="song-detail-fields"></div>
-                    <div id="publish-date" class="song-detail-fields"></div>
-                    <div id="genre" class="song-detail-fields"></div>
-                    <button> <a id="ref-to-album-detail-page">On Album</a></button>
+                    <div id="date-genre" class="song-detail-fields"></div>
+                    <div id="duration" class="song-duration-detail"></div>
+                    <button class="ref-to-album-detail-page-button"> <a id="ref-to-album-detail-page"></a></button>
                 </div>
             </div>
        </section>
        <footer id="player" class="player-container">
 
         </footer>
+    </div>
 </body>
 <?php
     // add global js and styles

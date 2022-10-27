@@ -17,13 +17,7 @@ body{
 
 
 .album-list-content {
-    max-width: 54rem;
     padding: 0 1rem;
-    margin: 3rem auto 6rem;
+    margin: 3rem 0;
   }
 
-  
-.album-list-main-section {
-    display: flex;
-    flex-direction: column;
-  }

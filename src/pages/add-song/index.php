@@ -59,7 +59,7 @@
 
                     <div class="label-input-form-container">
                         <label for="album-id" class="form-label">Album</label>
-                        <select id="album-id">
+                        <select id="album-id" class="form-input">
                         </select>
                     </div>
 

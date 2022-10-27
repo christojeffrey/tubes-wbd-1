@@ -133,6 +133,29 @@ img {
   border-style: none;
 }
 
+.list-header-container {
+  padding: 10px;
+  margin: 0 10px;
+  padding-top: 0;
+}
+
+.list-title {
+  font-size: 30px
+}
+
+.move-page-button-container {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.move-page-button {
+  background-color: #000;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  font-weight: 500;
+  border-radius: 50%;
+}
 /* Forms
      ========================================================================== */
 

@@ -17,7 +17,7 @@
     
         </div>
 
-        <div class="album-list-main-section">
+        <div class="main-section">
             <div id="account-info">
 
             </div>

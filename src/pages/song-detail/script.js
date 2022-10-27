@@ -14,13 +14,19 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
     // set song singer
     document.getElementById("singer").innerText = data.singer;
     // set song publish date
-    document.getElementById("publish-date").innerText = data.publish_date;
-    // set song genre
-    document.getElementById("genre").innerText = data.genre;
+    document.getElementById("date-genre").innerText = data.publish_date + " • " + data.genre;
+    // set song duration
+    document.getElementById("duration").innerText = durationConverter(data.duration);
 
+    // set song image
     document.getElementById("song-image").setAttribute("src", SONG_IMAGE_PATH + data.image_path);
 
-    document.getElementById("ref-to-album-detail-page").setAttribute("href", `../album-detail?album_id=${data.album_id}`);
+    document.getElementById("ref-to-album-detail-page").setAttribute("href", `../album-detail/index.php?album_id=${data.album_id}`);
+    
+    data.album_id?
+      document.getElementById("ref-to-album-detail-page").innerHTML = data.album_title
+      :
+      document.getElementById("ref-to-album-detail-page-button").setAttribute("hidden", true);
     // load song player
     LOAD_COMPONENT(
       {

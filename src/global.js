@@ -249,5 +249,21 @@ const getGenreList = () => {
       document.getElementById("genre").appendChild(genreOption);
   });
 }
-
+const durationConverter = (duration) => {
+  //convert second to HHh MMm SSs, MMm SSs, SSs format
+  let hours = Math.floor(duration / 3600);
+  let minutes = Math.floor((duration % 3600) / 60);
+  let seconds = Math.floor(duration % 60);
+  let durationString = "";
+  if (hours > 0) {
+      durationString += `${hours}h `;
+  }
+  if (minutes > 0) {
+      durationString += `${minutes}m `;
+  }
+  if (seconds > 0) {
+      durationString += `${seconds}s`;
+  }
+  return durationString;
+}
 preventReloadOnFormSubmit();
