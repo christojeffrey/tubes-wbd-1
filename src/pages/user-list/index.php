@@ -13,13 +13,15 @@
 
 <body>
     <div>
-        <!-- navbar -->
-        <div id="navbar"></div>
-        <div>
-            <!-- account info -->
-            <div id="account-info"></div>
-            <!-- content -->
-            <div id="user-list"></div>
+        <div class="flex">
+            <!-- navbar -->
+            <div id="navbar"></div>
+            <section class="main-section">
+                <!-- account info -->
+                <div id="account-info"></div>
+                <!-- content -->
+                <div id="user-list"></div>
+            </section>
         </div>
     </div>
 </body>

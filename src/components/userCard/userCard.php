@@ -5,19 +5,33 @@
         extract($args);
         $role  = $is_admin ? "Admin" : "User";
         $html = <<<"EOT"
-            <div class="user-card border-2 border-white flex">
-                    <div class="">$id</div>
-                    <div class="">
-                        <h3>$name</h3>
+        <style>
+        .user-desc{
+            width: 15%;
+        }
+        .user-card{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid black;
+            margin: 1rem;
+        }
+        </style>
+            <div class="flex flex-row user-card">
+                    <div class="user-desc">$id</div>
+                    <div class="user-desc">
+                        $name
                     </div>
-                    <div class="">
-                        <h4>$username</h4>
+                    <div class="user-desc">
+                        $username
                     </div>
-                    <div class="">
-                        <h4>$email</h4>
+                    <div class="user-desc">
+                        $email
                     </div>
-                    <div class="">
-                        <h4>$role</h4>
+                    <div class="user-desc">
+                        $role
                     </div>
             </div>
         EOT;

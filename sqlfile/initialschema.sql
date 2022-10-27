@@ -78,6 +78,21 @@ INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `p
 -- how im feeling
 INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
 ('How Im Feeling', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'Pop');
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('C', 'lauv', 0, 'i_met_you_when_i_was_18.jpg', '2018-01-01', 'Pop');
+-- how im feeling
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('F', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'Pop');
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('J', 'lauv', 0, 'i_met_you_when_i_was_18.jpg', '2018-01-01', 'Pop');
+-- how im feeling
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('M', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'Pop');
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('K', 'lauv', 0, 'i_met_you_when_i_was_18.jpg', '2018-01-01', 'Pop');
+-- how im feeling
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('N', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'Pop');
 
 -- add song
 -- i like me better

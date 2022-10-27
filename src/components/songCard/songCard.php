@@ -1,22 +1,26 @@
 <?php
     function songCard($args) {
-        // $id, $title, $artist, $audio_path, $img, on_click, is_admin, $genre, delete_from_album, $year
+
+    // titlecolor is green is the song is selected
+        // $id, $title, $artist, $audio_path, $img, on_click, $is_admin, $genre, $delete_from_album, $add_to_album, $year
         extract($args);
     // titlecolor is green is the song is selected
+        
+ 
     // if is admin, show the edit button
     $edit_button = "";
     if ($is_admin) {
         $edit_button = <<<EOT
             <div class="song-card-button">
-                <a href="editsong.php?id=$id">
-                    <img class="edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
+                <a href="../update-song/index.php?song_id=$id">
+                    edit
                 </a>
             </div>
         EOT;
     }
 
     $play_button = <<<EOT
-    <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "song-card-button">
+    <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "button">
         play
     </button>
     EOT;
@@ -25,7 +29,7 @@
     if ($delete_from_album){
         $delete_button = 
         <<<EOT
-        <button onclick="$on_click_delete($id, '$title', '$artist', '$publish_date', '$genre', '$audio_path', '$image_path', $duration)" class="erase-button">
+        <button onclick="$on_click_delete($id, '$title', '$artist', '$publish_date', '$genre', '$audio_path', '$image_path', $duration)" class="erase-button button">
             <img class="" src="../../assets/icons/delete.svg" alt="Edit"/>
         </button>
         EOT;
@@ -46,6 +50,9 @@
     $html = 
     <<<"EOT"
         <style>
+        .button {
+            margin: 0 0.5rem;
+        }
         .selected-song {
             background-color: green;
         }
@@ -131,6 +138,10 @@
 
         .right-side{
             margin: auto 0.5em;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
 
         .left-side{

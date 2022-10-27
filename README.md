@@ -1,5 +1,7 @@
 # Description
 
+a copy of spotify. build using vanilla PHP, js, html and css. implement login and register, differentiating admin and user(and 'user' who does not logged in), pagination, and search.
+
 # Requirements
 
 1. docker, docker desktop would be the easiest way to get started
@@ -61,6 +63,51 @@ that means we're going to push to both gitlab and github, and we're going to fet
 press `ctrl + c` to stop the docker compose
 
 # what will you see if all goes well
+
+# work distribution
+
+these are the people who make this project
+
+- Christopher Jeffrey, 13520055
+- Addin Nabilal Huda, 13520045
+- Dimas Faidh Muzaki, 13520156
+
+First we did our own exploration, to get the idea about _how to do it_ first. Kinda like prove of concept. then after we get a good enough idea about how the project will be done, we discuss thoroughly about the project requirement. Including the APIs that we will make, and the pages. We then create API spec (the link is in the sidenote) then we create the API.
+
+- Jeffrey do the auth API,
+- Addin do the song API,
+- Dimas do the album API.
+
+then we start moving on to the pages and implementation. we do this by taking task, and tackling them one by one. When someone have finished their task, they take another task. here's a rough task distribution that we end up with. note that this does not represent the full task distribution, since we kinda not really do this in a strict way. we just do it as we go.
+
+#### COMPONENTS
+
+- [jef] song-card
+- [dim] album-card
+- [jef] navbar
+- [din] player
+- [jef] user-card
+
+#### PAGES
+
+- [dim] album-list
+- [jef] user-list
+- [jef] song-detail
+- [jef] album-detail
+- [din] update-song
+- [Dimas]update-album
+- [din] home (song list)
+- [din] add-album
+- [din] add-song
+- [jef] search-song
+
+#### STYLE
+
+- [din] update2an dan add2an
+
+#### OTHER
+
+- [din] itung durasi lagu
 
 ### sidenote
 

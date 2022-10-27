@@ -20,8 +20,8 @@
             <div id="account-info">
 
             </div>
-            <div class="song-album-form-container">
-                <form onsubmit="addAlbum()" class="song-album-form" method="POST" and enctype="multipart/form-data">
+            <div class="song-album-form-container ">
+                <form onsubmit="addAlbum()" class="margin-bawah song-album-form" method="POST" and enctype="multipart/form-data">
                     <h1 class="form-header">Add Album</h1>
 
                     <div class="album-info">
@@ -59,9 +59,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                     <input type="submit" value="Add Album" class="form-submit">
                 </form>
             </div>

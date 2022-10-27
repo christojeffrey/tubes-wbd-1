@@ -29,26 +29,36 @@ LOAD_COMPONENT(
   }
 );
 
+let filterText = "";
+let sortText = "";
+let option;
+let search_text;
+let filter;
+let sort;
 function onSearchClick() {
   // get option
-  let option = document.getElementById("search-option").value;
+  option = document.getElementById("search-option").value;
   // get search text
-  let search_text = document.getElementById("search-text").value;
+  search_text = document.getElementById("search-text").value;
 
   // get filter
-  let filter = document.getElementById("filter").value;
-  let filterText = "";
+  filter = document.getElementById("filter").value;
   if (filter !== "") {
     filterText = "&filter_by=" + filter;
   }
 
   // get sort
-  let sort = document.getElementById("sort").value;
-  let sortText = "";
+  sort = document.getElementById("sort").value;
   if (sort !== "") {
     sortText = "&sort=" + sort;
   }
-  POST_API(`../../api/song/searchSong.php?page=1&limit=10${sortText}${filterText}`, null, [{ search_key: option, search_value: search_text }], (status, data) => {
+
+  fetchSongs();
+}
+
+let page = 1;
+function fetchSongs() {
+  POST_API(`../../api/song/searchSong.php?page=${page}&limit=1${sortText}${filterText}`, null, [{ search_key: option, search_value: search_text }], (status, data) => {
     if (status === 200) {
       let song_list = document.getElementById("song-list");
       // append child song_list
@@ -83,13 +93,35 @@ function onSearchClick() {
       // if total page > 0, show pagination
       if (data.total_page > 0) {
         document.getElementById("pagination").innerHTML = "";
-        // add left right button
-        document.getElementById("pagination").innerHTML += `<li class="page-item" id="left-button"><a class="page-link" href="#" onclick="onLeftClick()">Previous</a></li>`;
+
+        if (page > 1) {
+          // add prev button
+          document.getElementById("pagination").innerHTML += `
+         <button onclick="onPrevClick()" class="move-page-button flex justify-center items-center"
+        id="back-button">
+        <img class="prevnexticon" src="../../assets/icons/prev.svg" alt="prev" />
+    </button>`;
+        }
+        if (page < data.total_page) {
+          // add next button
+          document.getElementById("pagination").innerHTML += `<button onclick="onNextClick()" class="move-page-button flex justify-center items-center  "
+          id="next-button"> <img class="prevnexticon" src="../../assets/icons/next.svg" alt="next" />
+      </button> 
+        `;
+        }
       }
     }
   });
 }
 
+function onPrevClick() {
+  page--;
+  fetchSongs();
+}
+function onNextClick() {
+  page++;
+  fetchSongs();
+}
 // update card style
 let previd = null;
 const songCardOnClick = (id, title, singer, audio_path, img) => {
