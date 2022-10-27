@@ -1,29 +1,25 @@
-body{
-    background-color: #121212;
+body {
+  background-color: #121212;
 }
 
-.see-all:hover{
-    text-decoration: underline;
-    cursor: pointer;
+.see-all:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.albums{
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.albums {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
 
 .album-list-content {
-    max-width: 54rem;
-    padding: 0 1rem;
-    margin: 3rem auto 6rem;
-  }
+  max-width: 54rem;
+}
 
-  
 .album-list-main-section {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+}

@@ -14,30 +14,37 @@
 <body>
     <div class="flex">
         <div id="navbar">
-    
+
         </div>
+        <section class="main-section">
 
-        <div class="album-list-main-section">
-            <div id="account-info">
+            <div class="album-list-main-section">
+                <div id="account-info">
 
-            </div>
+                </div>
+                <div>
+                    <div class="album-list-content">
+                        <div class="list-header-container">
+                            <h1 class="list-title">
+                                <b>Albums</b>
+                            </h1>
+                            <div class="move-page-button-container">
+                                <button onclick="movePage(true)" class="move-page-button" id="back-button">
+                                    prev</button>
+                                <button onclick="movePage(false)" class="move-page-button"
+                                    id="next-button">next</button>
+                            </div>
+                        </div>
+                        <div id="albums" class="albums">
 
-            <div class="album-list-content">
-                <div class="list-header-container">
-                    <h1 class="list-title">
-                        <b>Albums</b>
-                    </h1>
-                    <div class="move-page-button-container">
-                        <button onclick="movePage(true)" class="move-page-button" id="back-button"><</button>
-                        <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+                        </div>
                     </div>
                 </div>
-                <div id="albums" class="albums">
-                    
-                </div>
+
             </div>
-        </div>
-        
+        </section>
+
+
 </body>
 <?php
     // add global js and styles

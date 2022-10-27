@@ -19,7 +19,6 @@
             </aside>
             <section class="main-section">
                 <div id="account-info">
-
                 </div>
                 <div class="list-header-container">
                     <h1 class="list-title">
@@ -27,8 +26,8 @@
                     </h1>
                     <div class="move-page-button-container">
                         <button onclick="movePage(true)" class="move-page-button" id="back-button">
-                            < </button>
-                                <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+                            prev</button>
+                        <button onclick="movePage(false)" class="move-page-button" id="next-button">next</button>
                     </div>
                 </div>
                 <div class="song-list-content">

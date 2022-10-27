@@ -15,7 +15,7 @@
     <div class="flex">
 
         <div id="navbar"></div>
-        <section>
+        <section class="main-section">
             <div id="account-info"></div>
             <!-- drop down. option is title, singer, and year -->
             <select name="option" id="search-option" class="bg-black">
@@ -70,8 +70,8 @@
             <!-- search button -->
             <button id="search-button" onclick="onSearchClick()">Search</button>
             <!-- search result -->
-            <div id="song-list"></div>
             <div id="pagination"></div>
+            <div id="song-list"></div>
         </section>
     </div>
     <div id="player"></div>
