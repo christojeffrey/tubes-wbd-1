@@ -1,3 +1,6 @@
+checkTokenOnPageLoad(false);
+
+
 // update card style
 let previd = null;
 const songCardOnClick = (id, title, singer, audio_path, img) => {
@@ -50,12 +53,15 @@ const songCardOnClick = (id, title, singer, audio_path, img) => {
 const urlParams = new URLSearchParams(window.location.search);
 const album_id = urlParams.get("album_id");
 
+
 // load song detail from getSongDetail
 GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`, token, (status, data) => {
   if (status === 200) {
     let year = new Date(data.publish_date).getFullYear();
     // album_title
     document.getElementById("album-title").innerText = data.album_title;
+    document.getElementById("album-title").title = data.album_title;
+
     // singer
     document.getElementById("singer").innerText = data.singer;
     // total_duration
@@ -98,11 +104,18 @@ GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`,
 const deleteAlbum = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const album_id = urlParams.get("album_id");
-  GET_API(`../../api/album/deleteAlbum.php?album_id=${album_id}`, token, (status, data) => {
-    if (status === 200) {
-      window.location.href = "../album-list/index.php";
-    }
-  });
+  const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
+  if (confirm("Are you sure you want to delete this album?")) {
+    GET_API(`../../api/album/deleteAlbum.php?album_id=${album_id}`, token, (status, data) => {
+      if (status === 200) {
+        window.location.href = "../album-list/index.php";
+      }
+    });
+  }
+}
+
+if (!localStorage.getItem("admin_token")) {
+  document.getElementById("button-container").hidden = true;
 }
 
 LOAD_NAVBAR();

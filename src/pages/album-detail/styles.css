@@ -30,7 +30,7 @@
 }
 
 .album-info-title{
-    display: inline-block;
+    max-width: 60vw;
     font-size: 4rem;
     font-weight:bold;
     margin: 0.5rem 0;

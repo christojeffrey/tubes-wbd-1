@@ -31,7 +31,7 @@
                     <div class="info-edit-container">
                         <p><b><span id="singer"></span></b> • <span id="publish-year"></span> • <span id="song-count"></span> songs, <span id="total-duration"></span></p>
 
-                        <div class="button-container">
+                        <div id="button-container" class="button-container">
                             <a href= "" id="edit-hyperlink">
                                 <img class="edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
                             </a>
