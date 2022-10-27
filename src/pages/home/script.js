@@ -27,6 +27,9 @@ const fetchSongs = () => {
               audio_path: "../../assets/song-audio/" + song.audio_path,
               img: SONG_IMAGE_PATH + song.image_path,
               on_click: "songCardOnClick",
+              is_admin: localStorage.getItem("admin_token"),
+              // get year from date format "YYYY--MM-DD"
+              year: song.publish_date.split("-")[0],
               genre: song.genre,
             },
           },
