@@ -33,6 +33,17 @@
         $play_button = "";
     }
 
+    $add_button = "";
+    if ($add_to_album){
+        $add_button = 
+        <<<EOT
+        <button onclick="$on_click_add($id, '$title', '$artist', '$publish_date', '$genre', '$audio_path', '$image_path', $duration,$new_album_id)">
+            <img class="add-button" src="../../assets/icons/plus.svg" alt="Add"/>
+        </button>
+        EOT;
+        $play_button = "";
+    }
+
     $html = 
     <<<"EOT"
         <style>
@@ -63,7 +74,7 @@
         }
         
         .song-text{
-            width: 500px;
+            width: 100%;
         }
 
         .delete-button{
@@ -78,10 +89,31 @@
         .delete-button:hover{
             filter: invert(15%) sepia(80%) saturate(6424%) hue-rotate(358deg) brightness(110%) contrast(115%)
         }
+
+        .add-button{
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+            margin-left: auto;
+            margin-top: auto;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(115deg) brightness(113%) contrast(101%);
+        }
+
+        .add-button:hover{
+            filter: invert(80%) sepia(60%) saturate(6179%) hue-rotate(99deg) brightness(97%) contrast(77%);
+        }
+
+        .right-side{
+            margin: auto 0.5em;
+        }
+
+        .left-side{
+            margin-right : auto;
+        }
         </style>
     
         <div id ="song-card-$id" class="song-card-container my-1">
-        <a href = "../song-detail/index.php?song_id=$id" class = "flex">
+        <a href = "../song-detail/index.php?song_id=$id" class = "flex left-side">
             <section class = "flex justify-center items-center ml-2">
                 $id
             </section>
@@ -92,12 +124,12 @@
                 <div class ="title">$title</div>
                 <div class="desc">$artist  -  $genre</div>
             </section>
-        </a>    
-            
-            <section>
+            </a>    
+            <section class="right-side">
+                $add_button
+                $delete_button
                 $play_button
                 $edit_button
-                $delete_button
             </section>
         </div>
     EOT;
