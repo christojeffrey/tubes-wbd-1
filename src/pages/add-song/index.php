@@ -23,7 +23,8 @@
             <div class="song-album-form-container">
                 <form onsubmit="addSong()" class="song-album-form" method="POST" and enctype="multipart/form-data">
                     <h1 class="form-header">Add New Song</h1>
-   
+                    <img id="song-image" src="../../assets/placeholder.jpg" alt="Album image" class="update-add-song-album-image">
+
                     <div class="label-input-form-container">
                         <label for="song-title" class="form-label">Song Title</label>
                         <input type="text" name="song-title" id="song-title" required class="form-input">

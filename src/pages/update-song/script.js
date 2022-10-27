@@ -12,6 +12,7 @@ const prefillForm = () => {
             document.getElementById("song-title").value = data.song_title;
             document.getElementById("singer").value = data.singer;
             document.getElementById(`genre-option-${data.genre}`).setAttribute("selected", true);
+            document.
             console.log(`album-option-${data.album_id}`)
             data.album_id != null ? 
                 document.getElementById(`album-option-${data.album_id}`).setAttribute("selected", true)
@@ -25,6 +26,14 @@ const prefillForm = () => {
 
     })
 }
+
+
+const onChange = () => {
+    const [file] = document.getElementById("image-file").files;
+    if (file) {
+      document.getElementById("song-image").src = URL.createObjectURL(file);
+    }
+  }
 
 const updateSong = () => {
     // get the form data

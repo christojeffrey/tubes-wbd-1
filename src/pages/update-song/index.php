@@ -23,6 +23,7 @@
             <div class="song-album-form-container">
                 <form onsubmit="updateSong()" class="song-album-form" method="POST" and enctype="multipart/form-data">
                     <h1 class="form-header">Update Song</h1>
+                    <img id="song-image" alt="Song image" class="update-add-song-album-image"> 
                     <div class="label-input-form-container">
                         <label for="song-title" class="form-label">Song Title</label>
                         <input type="text" name="song-title" id="song-title" required class="form-input">
@@ -31,7 +32,7 @@
 
                     <div class="label-input-form-container">          
                         <label for="singer" class="form-label">Singer</label>
-                        <input type="text" name="singer" id="singer" class="form-input" required>
+                        <input type="text" name="singer" id="singer" class="form-input" disabled>
                     </div>
 
 

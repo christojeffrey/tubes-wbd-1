@@ -1,6 +1,8 @@
 <?php
     function songCard($args) {
-        // $id, $title, $artist, $audio_path, $img, on_click, $is_admin, $genre, $delete_from_album, $add_to_album
+
+    // titlecolor is green is the song is selected
+        // $id, $title, $artist, $audio_path, $img, on_click, $is_admin, $genre, $delete_from_album, $add_to_album, $year
         extract($args);
     // titlecolor is green is the song is selected
         
@@ -9,9 +11,9 @@
     $edit_button = "";
     if ($is_admin) {
         $edit_button = <<<EOT
-            <div class="edit-button button">
+            <div class="song-card-button">
                 <a href="../update-song/index.php?song_id=$id">
-                    edit
+                    <img class="play-edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
                 </a>
             </div>
         EOT;
@@ -19,7 +21,7 @@
 
     $play_button = <<<EOT
     <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "button">
-        play
+        <img class="play-edit-button" src="../../assets/icons/play.svg" alt="Play"/>
     </button>
     EOT;
 
@@ -48,29 +50,56 @@
     $html = 
     <<<"EOT"
         <style>
+
+        .play-edit-button {
+            width:20px;
+            filter: invert(81%) sepia(15%) saturate(8%) hue-rotate(357deg) brightness(87%) contrast(89%);
+
+        }
         .button {
             margin: 0 0.5rem;
         }
         .selected-song {
             background-color: green;
         }
-        .song-card-container{
-
-
-            border: 2px solid black;
+        .song-card-information-container {
             display: flex;
-            flex-direction: col;
+            justify-content: space-between;
+            width: 70%;
+        }
+        .song-card-container{
+            display: flex;
+            flex-direction: row;
             margin: 2px;
-            border-radius: 5px;
             padding: 1px;
             width: 100%;
+            justify-content: space-between;
+            margin: 30px 0px;
         }
         .song-card-container:hover {
             background-color: #464646;
         }
+
+        .ref-to-song-detail-container {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .song-card-button {
+            padding: 10px;
+        }
+        .song-card-button-container {
+            margin-right: 30px;
+            display: flex;
+            align-self: center;
+        }
+
         .song-image {
             width: 50px;
             height: 50px;
+            align-self: center;
         }
         
         .title{
@@ -79,6 +108,8 @@
         
         .song-text{
             width: 100%;
+            margin-left: 15px;
+            padding: 5px;
         }
 
         .erase-button{
@@ -122,27 +153,33 @@
         .left-side{
             margin-right : auto;
         }
+
+        .song-year {
+            color: #b3b3b3;
+            align-self: center
+        }
         </style>
     
-        <div id ="song-card-$id" class="song-card-container my-1">
-        <a href = "../song-detail/index.php?song_id=$id" class = "flex left-side">
-            <section class = "flex justify-center items-center ml-2">
-                $id
-            </section>
-            <section class = "flex justify-center items-center mx-6">
-                <img src="$img" alt="Album Cover" class="song-image">
-            </section>
-            <section class ="flex flex-col justify-center  song-text">
-                <div class ="title">$title</div>
-                <div class="desc">$artist  -  $genre</div>
-            </section>
-            </a>    
-            <section class="right-side">
+        <div id ="song-card-$id" class="song-card-container">
+            <div class="song-card-information-container">
+                <a href = "../song-detail/index.php?song_id=$id" class = "ref-to-song-detail-container">
+                    <img src="$img" alt="Song Cover" class="song-image">
+                    <div class ="song-text">
+                        <div class ="title">$title</div>
+                        <div class="desc">$artist  -  $genre</div>
+                    </div>
+                </a>    
+                <div class="song-year">
+                    $year
+                </div>
+            </div>
+
+            <div class="song-card-button-container">
                 $add_button
                 $delete_button
                 $play_button
                 $edit_button
-            </section>
+            </div>
         </div>
     EOT;
     

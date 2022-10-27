@@ -175,6 +175,16 @@ img {
 
 }
 
+.update-add-song-album-image {
+  object-fit: cover;
+  /* border-radius: 0.5em; */
+  /* border: 2px solid #fefefe; */
+  margin: auto 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 230px;
+  height: 230px;
+}
+
 /* .move-page-button:hover {
   background-color: #1db954;
   transform: scale(1);

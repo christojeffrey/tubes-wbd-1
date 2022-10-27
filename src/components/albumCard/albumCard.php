@@ -47,7 +47,8 @@
                     cursor: pointer;
                 }
                 img{
-                    object-fit: cover;
+                    width: 180px;
+                    height: 180px;
                     border-radius: 0.5em;
                 }
                 

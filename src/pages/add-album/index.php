@@ -25,7 +25,7 @@
                     <h1 class="form-header">Add Album</h1>
 
                     <div class="album-info">
-                        <img id="album-image" src="../../assets/placeholder.jpg" alt="Album image" class="album-image">
+                        <img id="album-image" src="../../assets/placeholder.jpg" alt="Album image" class="update-add-song-album-image">
                         <div>
                             <div class="label-input-form-container">
                                 <label for="album-title" class="form-label">Album Title</label>
