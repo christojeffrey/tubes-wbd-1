@@ -11,12 +11,18 @@ const fetchSongs = () => {
 
   GET_API(`../../api/song/getSongList.php?page=${page}&limit=${limit}`, null, (status, data) => {
     if (status === 200) {
-      document.getElementById("cards").innerHTML = "";
+      let song_list = document.getElementById("cards");
+      song_list.innerHTML = "";
 
       // disable next page button if there is no more song
       data.length < limit ? document.getElementById("next-button").setAttribute("disabled", true) : document.getElementById("next-button").removeAttribute("disabled");
 
-      data.forEach((song) => {
+      // create div song-card-container-id
+      for (let i = 0; i < data.length; i++) {
+        // append child song_list
+        song_list.innerHTML += `<div id="song-card-container-${i}"></div>`;
+      }
+      data.forEach((song, index) => {
         LOAD_COMPONENT(
           {
             name: "songCard",
@@ -34,9 +40,9 @@ const fetchSongs = () => {
               is_admin: localStorage.getItem("admin_token") ? true : false,
             },
           },
-          (status, data) => {
+          (status, res) => {
             if (status === 200) {
-              document.getElementById("cards").innerHTML += data;
+              document.getElementById(`song-card-container-${index}`).innerHTML = res;
             }
           }
         );

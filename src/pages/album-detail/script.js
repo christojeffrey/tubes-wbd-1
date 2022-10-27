@@ -1,3 +1,6 @@
+checkTokenOnPageLoad(false);
+
+
 // update card style
 let previd = null;
 const songCardOnClick = (id, title, singer, audio_path, img) => {
@@ -50,23 +53,28 @@ const songCardOnClick = (id, title, singer, audio_path, img) => {
 const urlParams = new URLSearchParams(window.location.search);
 const album_id = urlParams.get("album_id");
 
+
 // load song detail from getSongDetail
 GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`, token, (status, data) => {
   if (status === 200) {
+    let year = new Date(data.publish_date).getFullYear();
     // album_title
     document.getElementById("album-title").innerText = data.album_title;
+    document.getElementById("album-title").title = data.album_title;
+
     // singer
     document.getElementById("singer").innerText = data.singer;
     // total_duration
-    document.getElementById("total-duration").innerText = data.total_duration;
+    document.getElementById("total-duration").innerText = durationConverter(data.total_duration);
     // publish_date
-    document.getElementById("publish-date").innerText = data.publish_date;
-    // genre
-    document.getElementById("genre").innerText = data.genre;
+    document.getElementById("publish-year").innerText = year;
     //image_path
     document.getElementById("album-image").src = "../../assets/album-image/" + data.image_path;
     //song_count
     document.getElementById("song-count").innerText = data.song_count;
+    
+    //anchor tag edit
+    document.getElementById("edit-hyperlink").href = `../update-album/index.php?album_id=${album_id}`
 
     // for each song in album, show songCard
     data.songs.forEach((song) => {
@@ -92,6 +100,23 @@ GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`,
     });
   }
 });
+
+const deleteAlbum = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const album_id = urlParams.get("album_id");
+  const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
+  if (confirm("Are you sure you want to delete this album?")) {
+    GET_API(`../../api/album/deleteAlbum.php?album_id=${album_id}`, token, (status, data) => {
+      if (status === 200) {
+        window.location.href = "../album-list/index.php";
+      }
+    });
+  }
+}
+
+if (!localStorage.getItem("admin_token")) {
+  document.getElementById("button-container").hidden = true;
+}
 
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();

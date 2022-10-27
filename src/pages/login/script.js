@@ -23,8 +23,8 @@ function formSubmit() {
         // set admin_token to local storage
         localStorage.setItem("admin_token", data.admin_token);
         // set username to local storage
-        localStorage.setItem("username", username);
       }
+      localStorage.setItem("username", username);
       window.location.href = "../home/index.php";
     } else {
       // else, show error message

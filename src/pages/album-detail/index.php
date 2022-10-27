@@ -5,33 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>detail album</title>
+    <title>Album Detail</title>
     <!-- styles -->
     <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
-
     <div class="flex">
         <!-- navbar -->
-        <div id="navbar"></div>
-        <div>
+        <aside id="navbar">
 
-            <div id="account-info"></div>
-            <div id="album-detail">
-                <div id="album-title"></div>
-                <div id="singer"></div>
-                <div id="publish-date"></div>
-                <div id="total-duration"></div>
+        </aside>
+        <section class="main-section">
+            <div id="account-info">
+                
             </div>
-            <div id="genre"></div>
+            <div class="album-detail-container">
+                <div class="album-image-container">
+                    <img id="album-image" src="" alt="" class="album-detail-image">
+                </div>
+                <div id="album-detail" class="album-detail-info">
+                    <h3>Album</h3>
+                    <div id="album-title" class="album-info-title"></div>
+                    <div class="info-edit-container">
+                        <p><b><span id="singer"></span></b> • <span id="publish-year"></span> • <span id="song-count"></span> songs, <span id="total-duration"></span></p>
+
+                        <div id="button-container" class="button-container">
+                            <a href= "" id="edit-hyperlink">
+                                <img class="edit-button" src="../../assets/icons/edit.svg" alt="Edit"/>
+                            </a>
+                            <button onclick="deleteAlbum()" class="erase-button">
+                                <img class="" src="../../assets/icons/trash.svg" alt="Edit"/>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- image -->
-            <img id="album-image" src="" alt="">
-            <div id="song-count"></div>
-            <div id="song-list" class="mb-32">
+            <div class="album-songs">
+                <div class="album-song-heading">
+                    <h2>Album's songs</h2>
+                </div>
+                <div id="song-list">
+                    
+                </div>
             </div>
-        </div>
+        </section>
     </div>
     <div id="player">
     </div>

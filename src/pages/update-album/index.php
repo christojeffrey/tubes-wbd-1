@@ -70,7 +70,7 @@
                 <div class="album-song-heading">
                     <h2>Album's songs</h2>
                     <button class="move-page-button" id="plus-button">
-                    <img class="add-button" src="../../assets/icons/plus.svg" alt="Add"/>
+                        <img class="add-button" src="../../assets/icons/plus.svg" alt="Add"/>
                     </button>
                 </div>
                 <div id="song-list">
