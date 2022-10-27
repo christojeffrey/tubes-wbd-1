@@ -52,7 +52,7 @@
     $audio_path = $body['audio_path'];
     $image_path = $body['image_path'];
     $duration = $body['duration'];
-    $album_id = $body['album_id'];
+    $album_id = ($body['album_id'] == 'null' || 'NULL') ? null : $body['album_id'];
      
     
     if ($body['image_path'] == null) {
@@ -83,8 +83,6 @@
         $audio_path = $body['audio_path'];
     }
 
-    echo $image_path;
-    echo $audio_path;
     $sql = "UPDATE Song SET song_title = ?, singer = ?, publish_date = ?, genre = ?, audio_path = ?, image_path = ?, duration = ?, album_id = ? WHERE song_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssssssiii", $song_title, $singer, $publish_date, $genre, $audio_path, $image_path, $duration, $album_id, $song_id);

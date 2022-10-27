@@ -148,7 +148,7 @@ function checkTokenOnPageLoad(isCheckAdmin) {
   let token;
   if (isCheckAdmin) {
     if (!localStorage.getItem("admin_token")) {
-      window.location.href = "../home";
+      window.location.href = "../home/index.php";
       alert("You are not authorized to access this page");
       return;
     } else {
@@ -156,7 +156,7 @@ function checkTokenOnPageLoad(isCheckAdmin) {
     }
   } else {
     if (!localStorage.getItem("user_token")) {
-      window.location.href = "../home";
+      window.location.href = "../home/index.php";
       alert("You are not authorized to access this page");
       return;
     } else {
@@ -168,7 +168,7 @@ function checkTokenOnPageLoad(isCheckAdmin) {
   GET_API("../../api/auth/checkToken.php", token, (status, data) => {
     if (status != 200) {
       // token is invalid
-      window.location.href = "../home";
+      window.location.href = "../home/index.php";
       alert("You are not authorized to access this page");
     }
   });
