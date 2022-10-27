@@ -36,7 +36,7 @@
                     <select id="genre" required>
                     </select>
 
-                    <label for="image-file"  class="form-label>Image File</label>
+                    <label for="image-file"  class="form-label">Image File</label>
                     <input type="file" name="image-file" id="image-file" required>
 
                     <input type="submit" value="Add Album">

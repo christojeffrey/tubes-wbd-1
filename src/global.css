@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 .song-album-form-container {
   display: flex;
   flex-direction: column;
@@ -9,10 +11,13 @@
   color: white;
 }
 
+#navbar {
+  background-color: #000000;
+}
 html {
   /* spotify font family */
 
-  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic Pro", Meiryo, "MS Gothic";
+  font-family: 'Montserrat', CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic Pro", Meiryo, "MS Gothic";
 
   line-height: 1.5; /* 2 */
 }
