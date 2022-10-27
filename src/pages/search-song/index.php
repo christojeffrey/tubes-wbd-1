@@ -70,7 +70,7 @@
             <!-- search button -->
             <button id="search-button" onclick="onSearchClick()">Search</button>
             <!-- search result -->
-            <div id="pagination"></div>
+            <div id="pagination" class="move-page-button-container"></div>
             <div id="song-list"></div>
         </section>
     </div>

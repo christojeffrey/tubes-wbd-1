@@ -5,6 +5,12 @@
   padding: 0 1rem;
 }
 
+.prevnexticon {
+  /* height 50px */
+  width: 25px;
+
+  filter: invert(1);
+}
 .song-album-form-container {
   background-color: #242424;
   border-radius: 20px;
@@ -140,11 +146,13 @@ img {
 }
 
 .list-title {
-  font-size: 30px
+  font-size: 30px;
 }
 
 .move-page-button-container {
-  text-align: right;
+  /* item on the right */
+  display: flex;
+  justify-content: flex-end;
   margin-right: 20px;
 }
 

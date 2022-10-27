@@ -58,7 +58,7 @@ function onSearchClick() {
 
 let page = 1;
 function fetchSongs() {
-  POST_API(`../../api/song/searchSong.php?page=${page}&limit=10${sortText}${filterText}`, null, [{ search_key: option, search_value: search_text }], (status, data) => {
+  POST_API(`../../api/song/searchSong.php?page=${page}&limit=1${sortText}${filterText}`, null, [{ search_key: option, search_value: search_text }], (status, data) => {
     if (status === 200) {
       let song_list = document.getElementById("song-list");
       // append child song_list
@@ -96,18 +96,19 @@ function fetchSongs() {
 
         if (page > 1) {
           // add prev button
-          document.getElementById("pagination").innerHTML += `<a class="page-link" onclick="onPrevClick()">
-          prev
-        </a>`;
+          document.getElementById("pagination").innerHTML += `
+         <button onclick="onPrevClick()" class="move-page-button flex justify-center items-center"
+        id="back-button">
+        <img class="prevnexticon" src="../../assets/icons/prev.svg" alt="prev" />
+    </button>`;
         }
         if (page < data.total_page) {
           // add next button
-          document.getElementById("pagination").innerHTML += `<a class="page-link"
-          onclick="onNextClick()"
-        >
+          document.getElementById("pagination").innerHTML += `<button onclick="onNextClick()" class="move-page-button flex justify-center items-center  "
+          id="next-button"> <img class="prevnexticon" src="../../assets/icons/next.svg" alt="next" />
+      </button>
           
-          next
-        </a>`;
+        `;
         }
       }
     }

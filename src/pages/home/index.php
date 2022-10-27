@@ -25,9 +25,14 @@
                         <b>Songs</b>
                     </h1>
                     <div class="move-page-button-container">
-                        <button onclick="movePage(true)" class="move-page-button" id="back-button">
-                            prev</button>
-                        <button onclick="movePage(false)" class="move-page-button" id="next-button">next</button>
+                        <button onclick="movePage(true)" class="move-page-button flex justify-center items-center"
+                            id="back-button">
+                            <!-- prev icon from asset icon prev.svg-->
+                            <img class="prevnexticon" src="../../assets/icons/prev.svg" alt="prev" />
+                        </button>
+                        <button onclick="movePage(false)" class="move-page-button flex justify-center items-center  "
+                            id="next-button"> <img class="prevnexticon" src="../../assets/icons/next.svg" alt="next" />
+                        </button>
                     </div>
                 </div>
                 <div class="song-list-content">
