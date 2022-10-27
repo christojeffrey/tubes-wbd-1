@@ -5,13 +5,22 @@
     $html = <<<EOT
     <style>
     .account-info-container{
-      // border: 2px solid white;
       text-align: right;
-      padding: 10px;
+    }
+
+    .account-info-label {
+      margin-right: 20px;
+      color: white;
+      font-size: 20px
+      font-weight: 300;
+      padding: 20px
+      
     }
     </style>
     <div class="account-info-container">
-     Username: $username
+      <p class="account-info-label">
+        Hi, $username!
+      </p>
     </div>
     EOT;
     return $html;

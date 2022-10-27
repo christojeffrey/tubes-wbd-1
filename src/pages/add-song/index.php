@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add album</title>
+    <title>Add Song</title>
     <!-- styles -->
     <link rel="stylesheet" href="styles.css">
 
@@ -20,33 +20,50 @@
             <div id="account-info">
 
             </div>
-            <div>
-                <form onsubmit="addSong()" class="song-album-form-container" method="POST" and enctype="multipart/form-data">
-                    <label for="song-title" class="form-label">Song Title</label>
-                    <input type="text" name="song-title" id="song-title" required>
+            <div class="song-album-form-container">
+                <form onsubmit="addSong()" class="song-album-form" method="POST" and enctype="multipart/form-data">
+                    <h1 class="form-header">Add New Song</h1>
+   
+                    <div class="label-input-form-container">
+                        <label for="song-title" class="form-label">Song Title</label>
+                        <input type="text" name="song-title" id="song-title" required class="form-input">
+                    </div>
 
-                    <label for="singer class="form-label"">Singer</label>
-                    <input type="text" name="singer" id="singer">
+                    <div class="label-input-form-container">
+                        <label for="singer class="form-label">Singer</label>
+                        <input type="text" name="singer" id="singer" class="form-input" required>    
+                    </div>
 
-                    <label for="publish-date" class="form-label">Publish Date</label>
-                    <input type="date" name="publish-date" id="publish-date" required>
+                    <div class="label-input-form-container">
+                        <label for="publish-date" class="form-label">Publish Date</label>
+                        <input type="date" name="publish-date" id="publish-date" required class="form-input">    
+                    </div>
 
-                    <label for="genre" class="form-label">Genre</label>
-                    <select id="genre" required>
-                    </select>
-
-                    <label for="audio-file">Audio File</label>
-                    <input type="file" name="audio-file" id="audio-file" required>
-
-                    <label for="image-file">Image File</label>
-                    <input type="file" name="image-file" id="image-file" required>
+                    <div class="label-input-form-container">
+                        <label for="genre" class="form-label">Genre</label>
+                        <select id="genre" required class="form-input">
+                        </select>    
+                    </div>
 
 
+                    <div class="label-input-form-container">
+                        <label for="audio-file" class="form-label">Audio File</label>
+                        <input type="file" name="audio-file" id="audio-file" required class="form-input">
+                    </div>
 
-                    <label for="album-id" class="form-label">Album</label>
-                    <select id="album-id">
-                    </select>
-                    <input type="submit" value="Add Song">
+                    <div class="label-input-form-container">
+                        <label for="image-file" class="form-label">Image File</label>
+                        <input type="file" name="image-file" id="image-file" required class="form-input">    
+                    </div>
+
+
+                    <div class="label-input-form-container">
+                        <label for="album-id" class="form-label">Album</label>
+                        <select id="album-id">
+                        </select>
+                    </div>
+
+                    <input type="submit" value="Add Song" class="form-submit">
                 </form>
             </div>
             
