@@ -168,7 +168,7 @@ function checkTokenOnPageLoad(isCheckAdmin) {
   GET_API("../../api/auth/checkToken.php", token, (status, data) => {
     if (status != 200) {
       // token is invalid
-      window.location.href = "../home";
+      window.location.href = "../home/index.php";
       alert("You are not authorized to access this page");
     }
   });
@@ -223,11 +223,11 @@ const getAlbumList = () => {
       document.getElementById("album-id").innerHTML = "";
       if (status === 200) {
           // if success, render dropdown
-          data["albums"].forEach(song => {
+          data.albums.forEach(album => {
               let albumOption = document.createElement("option");
-              albumOption.setAttribute("id", `album-option-${song.song_id}`);
-              albumOption.value = song.album_id;
-              albumOption.innerHTML = song.album_title + " - " + song.singer;
+              albumOption.setAttribute("id", `album-option-${album.album_id}`);
+              albumOption.value = album.album_id;
+              albumOption.innerHTML = album.album_title + " - " + album.singer;
               document.getElementById("album-id").appendChild(albumOption);
           });
       } 

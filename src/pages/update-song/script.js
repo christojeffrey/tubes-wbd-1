@@ -9,16 +9,17 @@ const prefillForm = () => {
     GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, data) => {
         // fill the form fields with the song data
         if (status === 200) {
+            console.log(data)
             document.getElementById("song-title").value = data.song_title;
             document.getElementById("singer").value = data.singer;
             document.getElementById(`genre-option-${data.genre}`).setAttribute("selected", true);
-            document.
-            console.log(`album-option-${data.album_id}`)
             data.album_id != null ? 
                 document.getElementById(`album-option-${data.album_id}`).setAttribute("selected", true)
             :
                 document.getElementById("album-option-none").setAttribute("selected", true);
             document.getElementById("publish-date").value = data.publish_date;
+            document.getElementById("song-image").setAttribute("src", SONG_IMAGE_PATH + data.image_path)
+            console.log(SONG_IMAGE_PATH + data.image_path)
 
         } else {
             alert("Error fetching song data");
