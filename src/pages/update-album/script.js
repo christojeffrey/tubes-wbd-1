@@ -14,6 +14,8 @@ const fetchAlbum = () => {
     if (status === 200) {
       prev_image_path = data.image_path;
 
+      console.log(data);
+
       // image_path
       document.getElementById("album-image").src = "../../assets/album-image/" + data.image_path;
   
@@ -68,8 +70,6 @@ const onClickDelete = (song_id, song_title, singer, publish_date, genre, audio_p
     "singer": singer,
     "publish_date": publish_date,
     "genre": genre,
-    "audio_path": audio_path,
-    "image_path": image_path,
     "duration": duration,
     "album_id": null,
   }
@@ -115,16 +115,6 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const getGenreList = () => {
-  document.getElementById("genre").innerHTML = "";
-  genre_list.forEach(genre => {
-      let genreOption = document.createElement("option");
-      genreOption.value = genre;
-      genreOption.innerHTML = genre;
-      document.getElementById("genre").appendChild(genreOption);
-  });
-}
-
 // Timezone support
 Date.prototype.toDateInputValue = (function() {
   var local = new Date(this);
@@ -154,7 +144,7 @@ const addAlbum = () => {
     let formData = new FormData();
 
     formData.append("file", image_files[0]);
-    UPLOAD_API('../../api/upload/fileUpload.php?type=album&name=' + image_path, token, formData,(status, data) => {
+    UPLOAD_API('../../api/upload/fileUpload.php?type=album-image&name=' + image_path, token, formData,(status, data) => {
       if (status !== 200) {
           alert("error uploading image");
           return;
@@ -247,6 +237,6 @@ window.onclick = function(event) {
 
 fetchAlbum(); 
 checkTokenOnPageLoad(true);
-const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
+// const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
 getGenreList();
 fetchModalData();

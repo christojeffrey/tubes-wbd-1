@@ -9,21 +9,21 @@
     $body = json_decode(file_get_contents('php://input'), true);
 
     if (isset($_REQUEST["delete-album"]) && $_REQUEST["delete-album"] == "1") {
-        if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration'))) {
+        if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'duration'))) {
             exitWithError(400, 'All song detail is needed');
         }
     } else{
-        if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
+        if (!validateNeededKeys($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'duration', 'album_id'))) {
             exitWithError(400, 'All song detail is needed');
         }
     }
 
     if (isset($_REQUEST["delete-album"]) && $_REQUEST["delete-album"] == "1") {
-        if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration'))) {
+        if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'duration'))) {
             exitWithError(400, 'All song detail must be filled');
         }
     } else {
-        if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'audio_path', 'image_path', 'duration', 'album_id'))) {
+        if (!validateKeyValueIsNotNull($body, array('song_id', 'song_title', 'singer', 'publish_date', 'genre', 'duration', 'album_id'))) {
             exitWithError(400, 'All song detail must be filled');
         }
     }
@@ -74,7 +74,37 @@
 
     }
      
+    
+    if ($body['image_path'] == null) {
+        $sql = "SELECT image_path FROM Song WHERE song_id = ?"; 
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $body['song_id']);
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $image_path = $row['image_path'];
+        }
+        $stmt->close();
+    } else {
+        $image_path = $body['image_path'];
+    }
 
+    if ($body['audio_path'] == null) {
+        $sql = "SELECT audio_path FROM Song WHERE song_id = ?"; 
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $body['song_id']);
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $audio_path = $row['audio_path'];
+        }
+        $stmt->close();
+    } else {
+        $audio_path = $body['audio_path'];
+    }
+
+    // echo $image_path;
+    // echo $audio_path;
     $sql = "UPDATE Song SET song_title = ?, singer = ?, publish_date = ?, genre = ?, audio_path = ?, image_path = ?, duration = ?, album_id = ? WHERE song_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssssssiii", $song_title, $singer, $publish_date, $genre, $audio_path, $image_path, $duration, $album_id, $song_id);

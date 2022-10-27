@@ -1,3 +1,14 @@
+.song-album-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  color: black
+}
+
+.form-label {
+  color: white;
+}
+
 html {
   /* spotify font family */
 

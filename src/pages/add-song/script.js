@@ -1,33 +1,3 @@
-// get album list from backend to display album title and singer in dropdown
-const getAlbumList = () => {
-    GET_API('../../api/album/getAlbumList.php?with_song=false&get_all=true', token, (status, data) => {
-        document.getElementById("album-id").innerHTML = "";
-        if (status === 200) {
-            // if success, render dropdown
-            data["albums"].forEach(song => {
-                let albumOption = document.createElement("option");
-                albumOption.value = song.album_id;
-                albumOption.innerHTML = song.album_title + " - " + song.singer;
-                document.getElementById("album-id").appendChild(albumOption);
-            });
-        } 
-        let albumOption = document.createElement("option");
-        albumOption.value = null;
-        albumOption.innerHTML = "None";
-        document.getElementById("album-id").appendChild(albumOption);
-    })
-}
-
-const getGenreList = () => {
-    document.getElementById("genre").innerHTML = "";
-    genre_list.forEach(genre => {
-        let genreOption = document.createElement("option");
-        genreOption.value = genre;
-        genreOption.innerHTML = genre;
-        document.getElementById("genre").appendChild(genreOption);
-    });
-}
-
 const addSong = () => {
     const song_title = document.getElementById('song-title').value;
     const singer = document.getElementById('singer').value;
@@ -48,7 +18,7 @@ const addSong = () => {
         formData.append('file', audio_file);
         audio_file_name = unique_file_name + "." + auio_file_ext
 
-        UPLOAD_API('../../api/upload/fileUpload.php?type=audio&name=' +  audio_file_name, token, formData,  (status, data) => {
+        UPLOAD_API('../../api/upload/fileUpload.php?type=song-audio&name=' +  audio_file_name, token, formData,  (status, data) => {
             if (status !== 200) {
                 alert("error uploading audio");
                 return;
@@ -66,7 +36,7 @@ const addSong = () => {
         formData.append("file", image_files[0]);
         image_file_name = unique_file_name + "." + image_file_ext
 
-        UPLOAD_API('../../api/upload/fileUpload.php?type=image&name=' + image_file_name, token, formData,(status, data) => {
+        UPLOAD_API('../../api/upload/fileUpload.php?type=song-image&name=' + image_file_name, token, formData,(status, data) => {
             if (status !== 200) {
                 alert("error uploading image");
                 return;
@@ -85,10 +55,11 @@ const addSong = () => {
         "album_id": album_id
     }
 
-    POST_API('../../api/song/addSong.php', token, body, formData, (status, data) => {
+    POST_API('../../api/song/addSong.php', token, body,  (status, data) => {
         if (status === 200) {
             // if success, show success message
             alert("success")
+            window.location.href = "../home/index.php";
             // document.getElementById('add-song-form-container').reset();
         } else {
             // else, show error message
@@ -99,7 +70,6 @@ const addSong = () => {
 
 
 checkTokenOnPageLoad(true);
-const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
 getAlbumList();

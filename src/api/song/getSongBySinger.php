@@ -16,9 +16,9 @@
     }
 
     if ($album_free){
-        $stmt = $conn->prepare("SELECT * FROM Song WHERE singer = ? AND album_id IS NULL");
+        $stmt = $conn->prepare("SELECT * FROM Song WHERE singer = ? AND album_id IS NULL ORDER BY song_title ASC");
     } else {
-        $stmt = $conn->prepare("SELECT * FROM Song WHERE singer = ?");
+        $stmt = $conn->prepare("SELECT * FROM Song WHERE singer = ?  ORDER BY song_title ASC");
     }
 
     $stmt->bind_param("s", $singer);

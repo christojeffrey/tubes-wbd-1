@@ -50,7 +50,6 @@ const songCardOnClick = (id, title, singer, audio_path, img) => {
 const urlParams = new URLSearchParams(window.location.search);
 const album_id = urlParams.get("album_id");
 
-const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
 // load song detail from getSongDetail
 GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`, token, (status, data) => {
   if (status === 200) {

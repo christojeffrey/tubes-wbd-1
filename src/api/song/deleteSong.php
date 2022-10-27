@@ -9,7 +9,7 @@
         exitWithError(500, $map['err']);
     }
 
-    check if user is admin
+    // check if user is admin
     $auth = checkIsAuthTokenValid();
     if (!$auth['is_admin']){
         $conn->close();
@@ -19,6 +19,12 @@
     if (empty($_REQUEST["song_id"])) {
         exitWithError(400, "Song id unspecified");
     }
+
+    if (!validateRowExist($conn, "Song", $_REQUEST["song_id"])) {
+        $conn->close();
+        exitWithError(404, "Song not found");
+    }
+    
     $song_id = intval($_REQUEST["song_id"]);
 
     // connect to database
