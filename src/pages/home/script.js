@@ -29,6 +29,9 @@ const fetchSongs = () => {
               on_click: "songCardOnClick",
               is_admin: localStorage.getItem("admin_token"),
               genre: song.genre,
+              delete_from_album: false,
+              add_to_album: false,
+              is_admin: localStorage.getItem("admin_token") ? true : false,
             },
           },
           (status, data) => {

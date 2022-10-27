@@ -12,23 +12,27 @@
 </head>
 
 <body>
-    <div class="flex-column">
+    <div class="">
         <div class="flex">
             <aside id="navbar">
 
             </aside>
             <section class="main-section">
                 <div id="account-info">
-
                 </div>
                 <div class="list-header-container">
                     <h1 class="list-title">
                         <b>Songs</b>
                     </h1>
                     <div class="move-page-button-container">
-                        <button onclick="movePage(true)" class="move-page-button" id="back-button">
-                            < </button>
-                                <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+                        <button onclick="movePage(true)" class="move-page-button flex justify-center items-center"
+                            id="back-button">
+                            <!-- prev icon from asset icon prev.svg-->
+                            <img class="prevnexticon" src="../../assets/icons/prev.svg" alt="prev" />
+                        </button>
+                        <button onclick="movePage(false)" class="move-page-button flex justify-center items-center  "
+                            id="next-button"> <img class="prevnexticon" src="../../assets/icons/next.svg" alt="next" />
+                        </button>
                     </div>
                 </div>
                 <div class="song-list-content">

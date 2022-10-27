@@ -12,13 +12,13 @@
             // admin navbar
             $admin_navbar = <<<ADMIN_NAVBAR
             <li class="nav-item">
-                <a class="nav-link" href="../add-song/index.php">ADMIN Add Song</a>
+                <a class="nav-link" href="../add-song/index.php">Add Song</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../add-album/index.php">ADMIN Add Album</a>
+                <a class="nav-link" href="../add-album/index.php">Add Album</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../user-list/index.php">ADMIN User List</a>
+                <a class="nav-link" href="../user-list/index.php">User List</a>
             </li>
             ADMIN_NAVBAR;
         } else {
@@ -41,16 +41,25 @@
         }
         $navbar = <<<NAVBAR
         <style>
-            .navbar {
-                overflow: hidden
+            .navbar{
+                min-height: 100vh;
+            }
+            .nav-item{
+                margin: 1rem 0rem;
+            }
+
+            .brand{
+                margin: 1rem 0rem;
+                text-align: center;
+                font-weight: 800;
             }
         </style>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mx-8">
-            <div class = "font-bold text-xl">
+        <nav class="navbar mx-8">
+            <div class = "brand">
             supotifiy
             </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+            <div id="navbarNav">
+                <ul >
                     <li class="nav-item">
                         <a class="nav-link" href="../home/index.php">Home</a>
                     </li>

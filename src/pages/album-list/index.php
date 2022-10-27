@@ -14,30 +14,39 @@
 <body>
     <div class="flex">
         <div id="navbar">
-    
-        </div>
 
-        <div class="main-section">
+        </div>
+        <section class="main-section">
+
             <div id="account-info">
 
             </div>
-
-            <div class="album-list-content">
-                <div class="list-header-container">
-                    <h1 class="list-title">
-                        <b>Albums</b>
-                    </h1>
-                    <div class="move-page-button-container">
-                        <button onclick="movePage(true)" class="move-page-button" id="back-button"><</button>
-                        <button onclick="movePage(false)" class="move-page-button" id="next-button">></button>
+            <div>
+                <div class="album-list-content">
+                    <div class="list-header-container">
+                        <h1 class="list-title">
+                            <b>Albums</b>
+                        </h1>
+                        <div class="move-page-button-container">
+                            <button onclick="movePage(true)" class="move-page-button flex justify-center items-center"
+                                id="back-button">
+                                <!-- prev icon from asset icon prev.svg-->
+                                <img class="prevnexticon" src="../../assets/icons/prev.svg" alt="prev" />
+                            </button>
+                            <button onclick="movePage(false)"
+                                class="move-page-button flex justify-center items-center  " id="next-button"> <img
+                                    class="prevnexticon" src="../../assets/icons/next.svg" alt="next" />
+                            </button>
+                        </div>
+                    </div>
+                    <div id="albums" class="albums">
                     </div>
                 </div>
-                <div id="albums" class="albums">
-                    
-                </div>
             </div>
-        </div>
-        
+
+        </section>
+
+
 </body>
 <?php
     // add global js and styles
