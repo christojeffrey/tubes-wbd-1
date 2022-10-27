@@ -76,7 +76,7 @@ function fetchSongs() {
               title: `${song.song_title}`,
               artist: `${song.singer}`,
               audio_path: "../../assets/song-audio/" + song.audio_path,
-              img: "../../assets/song-image/" + song.image_path,
+              img: SONG_IMAGE_PATH + song.image_path,
               on_click: "songCardOnClick",
               genre: song.genre,
             },

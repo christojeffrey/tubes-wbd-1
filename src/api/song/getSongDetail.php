@@ -22,7 +22,9 @@
         exitWithError(400, "No song specified");
     }
 
-    $sql = "SELECT * FROM Song WHERE song_id = ?";
+    $sql = "SELECT Song.song_id, Song.song_title, Song.singer, Song.publish_date,
+            Song.genre, Song.audio_path, Song.image_path, Song.duration, Song.album_id, Album.album_title
+            FROM Song LEFT JOIN Album ON Song.album_id = Album.album_id WHERE song_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $song_id);
 
@@ -45,7 +47,8 @@
             "audio_path" => $song["audio_path"],
             "image_path" => $song["image_path"],
             "duration" => $song["duration"],
-            "album_id" => $song["album_id"]
+            "album_id" => $song["album_id"],
+            "album_title" => $song["album_title"]
         );
         exitWithDataReturned($data);
     } else {

@@ -1,3 +1,7 @@
+checkTokenOnPageLoad(false);
+LOAD_NAVBAR();
+LOAD_ACCOUNT_INFO();
+
 // get song id from query
 const urlParams = new URLSearchParams(window.location.search);
 const song_id = urlParams.get("song_id");
@@ -10,10 +14,19 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
     // set song singer
     document.getElementById("singer").innerText = data.singer;
     // set song publish date
-    document.getElementById("publish-date").innerText = data.publish_date;
-    // set song genre
-    document.getElementById("genre").innerText = data.genre;
+    document.getElementById("date-genre").innerText = data.publish_date + " • " + data.genre;
+    // set song duration
+    document.getElementById("duration").innerText = durationConverter(data.duration);
 
+    // set song image
+    document.getElementById("song-image").setAttribute("src", SONG_IMAGE_PATH + data.image_path);
+
+    document.getElementById("ref-to-album-detail-page").setAttribute("href", `../album-detail/index.php?album_id=${data.album_id}`);
+    
+    data.album_id?
+      document.getElementById("ref-to-album-detail-page").innerHTML = data.album_title
+      :
+      document.getElementById("ref-to-album-detail-page-button").setAttribute("hidden", true);
     // load song player
     LOAD_COMPONENT(
       {
@@ -23,7 +36,7 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
           title: data.song_title,
           singer: data.singer,
           audio_path: "../../assets/song-audio/" + data.audio_path,
-          img: "../../assets/song-image/" + data.image_path,
+          img: SONG_IMAGE_PATH + data.image_path,
         },
       },
       (status, data) => {
@@ -34,6 +47,3 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
     );
   }
 });
-
-LOAD_NAVBAR();
-LOAD_ACCOUNT_INFO();

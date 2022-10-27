@@ -16,10 +16,6 @@ body {
 }
 
 .album-list-content {
-  max-width: 54rem;
-}
-
-.album-list-main-section {
-  display: flex;
-  flex-direction: column;
+  padding: 0 1rem;
+  margin: 3rem 0;
 }

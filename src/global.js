@@ -27,7 +27,7 @@ const genre_list = [
   "Traditional",
   "Others"
 ];
-
+const SONG_IMAGE_PATH = "../../assets/song-image/";
 // ===FUNCTION===
 
 // callback function for the API have two args: status and respondData
@@ -155,12 +155,12 @@ function checkTokenOnPageLoad(isCheckAdmin) {
       token = localStorage.getItem("admin_token");
     }
   } else {
-    if (!localStorage.getItem("user_token")) {
+    if (!(localStorage.getItem("admin_token") || localStorage.getItem("user_token"))) {
       window.location.href = "../home/index.php";
       alert("You are not authorized to access this page");
       return;
     } else {
-      token = localStorage.getItem("user_token");
+      token = localStorage.getItem("admin_token") || localStorage.getItem("user_token");
     }
   }
 
@@ -249,5 +249,21 @@ const getGenreList = () => {
       document.getElementById("genre").appendChild(genreOption);
   });
 }
-
+const durationConverter = (duration) => {
+  //convert second to HHh MMm SSs, MMm SSs, SSs format
+  let hours = Math.floor(duration / 3600);
+  let minutes = Math.floor((duration % 3600) / 60);
+  let seconds = Math.floor(duration % 60);
+  let durationString = "";
+  if (hours > 0) {
+      durationString += `${hours}h `;
+  }
+  if (minutes > 0) {
+      durationString += `${minutes}m `;
+  }
+  if (seconds > 0) {
+      durationString += `${seconds}s`;
+  }
+  return durationString;
+}
 preventReloadOnFormSubmit();
