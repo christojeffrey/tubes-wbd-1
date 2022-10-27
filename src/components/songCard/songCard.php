@@ -9,7 +9,7 @@
     if ($is_admin) {
         $edit_button = <<<EOT
             <div class="edit-button">
-                <a href="editsong.php?id=$id">
+                <a href="../../pages/update-song/index.php?song_id=$id">
                     edit
                 </a>
             </div>

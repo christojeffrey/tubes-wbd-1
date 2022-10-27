@@ -34,7 +34,7 @@
                 <form onsubmit="updateAlbum()" class="song-album-form" method="POST" and enctype="multipart/form-data">
                     <h1 class="form-header"><b>Update Album</b></h1>
                     <div class="album-info">
-                        <img id="album-image" src="" alt="Album image" class="album-image"> 
+                        <img id="album-image" src="" alt="Album image" class="update-add-song-album-image"> 
                         <div>
                             <div class="label-input-form-container">
                                 <label for="album-title" class="form-label">Name</label>  
