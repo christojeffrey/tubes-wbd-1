@@ -1,6 +1,6 @@
 <?php
     function songCard($args) {
-        // $id, $title, $artist, $audio_path, $img, on_click, is_admin, $genre
+        // $id, $title, $artist, $audio_path, $img, on_click, is_admin, $genre, delete_from_album
         extract($args);
     // titlecolor is green is the song is selected
 
@@ -15,6 +15,24 @@
             </div>
         EOT;
     }
+
+    $play_button = <<<EOT
+    <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "border-2 rounded-lg border-green-500 h-12 ml-32">
+        play
+    </button>
+    EOT;
+
+    $delete_button = "";
+    if ($delete_from_album){
+        $delete_button = 
+        <<<EOT
+        <button onclick="$on_click_delete($id, '$title', '$artist', '$publish_date', '$genre', '$audio_path', '$image_path', $duration)">
+            <img class="delete-button" src="../../assets/icons/delete.svg" alt="Edit"/>
+        </button>
+        EOT;
+        $play_button = "";
+    }
+
     $html = 
     <<<"EOT"
         <style>
@@ -44,9 +62,21 @@
             font-weight: bold;
         }
         
-        
         .song-text{
             width: 500px;
+        }
+
+        .delete-button{
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+            margin-left: auto;
+            margin-top: auto;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(115deg) brightness(113%) contrast(101%);
+        }
+
+        .delete-button:hover{
+            filter: invert(15%) sepia(80%) saturate(6424%) hue-rotate(358deg) brightness(110%) contrast(115%)
         }
         </style>
     
@@ -65,10 +95,9 @@
         </a>    
             
             <section>
-                <button onclick = "$on_click($id, '$title', '$artist', '$audio_path', '$img')" class = "border-2 rounded-lg border-green-500 h-12 ml-32">
-                    play
-                </button>
+                $play_button
                 $edit_button
+                $delete_button
             </section>
         </div>
     EOT;

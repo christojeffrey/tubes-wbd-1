@@ -45,6 +45,13 @@ UPDATE Album
 SET total_duration = total_duration + NEW.duration
 WHERE Album.album_id = NEW.album_id;
 
+CREATE TRIGGER update_album_total_duration_on_update
+BEFORE UPDATE ON Song
+FOR EACH ROW
+UPDATE Album
+SET total_duration = total_duration - OLD.duration
+WHERE Album.album_id = OLD.album_id;
+
 CREATE TRIGGER update_album_total_duration_on_delete
 BEFORE DELETE ON Song
 FOR EACH ROW 
@@ -84,3 +91,12 @@ INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`,
 -- mean it
 INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
 ('Mean It', 'lauv', '2020-01-01', 'Pop', 243, 'mean_it.mp3', 'mean_it.jpg', 2);
+
+INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`, `audio_path`, `image_path`) VALUES
+('Tak Beralbum 1', 'lauv', '2020-01-01', 'Pop', 243, 'mean_it.mp3', 'mean_it.jpg');
+
+INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`, `audio_path`, `image_path`) VALUES
+('Tak Beralbum 2', 'lauv', '2020-01-01', 'Pop', 243, 'mean_it.mp3', 'mean_it.jpg');
+
+INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`, `audio_path`, `image_path`) VALUES
+('Tak Beralbum 3', 'lauv', '2020-01-01', 'Pop', 243, 'mean_it.mp3', 'mean_it.jpg');

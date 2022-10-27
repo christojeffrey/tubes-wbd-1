@@ -17,6 +17,10 @@
             $location = "../../assets/song-audio/";
         } else if ($type == "image") {
             $location = "../../assets/song-image/";
+        } else if ($type == "album") {
+            $location = "../../assets/album-image/";
+        } else {
+            exitWithError(400, "Type is invalid");
         }
 
         move_uploaded_file($file_tmp, $location . $name);
