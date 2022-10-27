@@ -1,6 +1,6 @@
 let prev_image_path = "";
 let album_id = 0;
-let singer = "";
+let prev_singer = "";
 
 const fetchAlbum = () => {
   // get album id from query
@@ -14,8 +14,6 @@ const fetchAlbum = () => {
     if (status === 200) {
       prev_image_path = data.image_path;
 
-      console.log(data);
-
       // image_path
       document.getElementById("album-image").src = "../../assets/album-image/" + data.image_path;
   
@@ -24,13 +22,12 @@ const fetchAlbum = () => {
   
       // singer
       document.getElementById("singer").value = data.singer;
-      document.getElementById("singer_modal").innerHTML = data.singer;
+      document.getElementById("singer-modal").innerHTML = data.singer;
 
       // publish_date
       document.getElementById("publish-date").value = new Date(data.publish_date).toDateInputValue();
 
       // genre
-      console.log(data.genre);
       document.getElementById("genre").value = capitalizeFirstLetter(data.genre);
 
       // for each song in album, show songCard
@@ -63,6 +60,7 @@ const fetchAlbum = () => {
   });
 }
 
+
 const onClickDelete = (song_id, song_title, singer, publish_date, genre, audio_path, image_path,duration) => {
   const body = {
     "song_id": song_id,
@@ -83,7 +81,7 @@ const onClickDelete = (song_id, song_title, singer, publish_date, genre, audio_p
 
 const fetchModalData = () => {
   const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
-  GET_API('../../api/song/getSongBySinger.php?singer=lauv&album-free=1', token, (status, data) => {
+  GET_API('../../api/song/getSongByAlbumSinger.php?album-id='+album_id+'&album-free=1', token, (status, data) => {
     if (status === 200) {
       // for each song, show songCard
       data.songs.forEach((song) => {
@@ -96,8 +94,12 @@ const fetchModalData = () => {
               artist: song.singer,
               audio_path: "../../assets/song-audio/" + song.audio_path,
               img: SONG_IMAGE_PATH + song.image_path,
-              on_click: "songCardOnClick",
+              on_click_add: "onClickAdd",
               genre: song.genre,
+              new_album_id: album_id,
+              add_to_album: true,
+              publish_date: song.publish_date,
+              duration: song.duration,
             },
           },
           (status, data) => {
@@ -107,6 +109,24 @@ const fetchModalData = () => {
           }
         );
       });
+    }
+  });
+}
+
+const onClickAdd = (song_id, song_title, singer, publish_date, genre, audio_path, image_path,duration, album_id) => {
+  const body = {
+    "song_id": song_id,
+    "song_title": song_title,
+    "singer": singer,
+    "publish_date": publish_date,
+    "genre": genre,
+    "duration": duration,
+    "album_id": album_id,
+  }
+  const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
+  POST_API('../../api/song/updateSongDetail.php?', token, body, (status, data) => {
+    if (status === 200) {
+      window.location.reload();
     }
   });
 }
@@ -129,7 +149,7 @@ const onChange = () => {
   }
 }
 
-const addAlbum = () => {
+const updateAlbum = () => {
   const album_title = document.getElementById("album-title").value;
   const singer = document.getElementById("singer").value;
   const publish_date = document.getElementById("publish-date").value;
@@ -164,6 +184,7 @@ const addAlbum = () => {
     if (status === 200) {
         // if success, show success message
         alert("success")
+        window.location.reload();
         // document.getElementById('add-song-form-container').reset();
     } else {
         // else, show error message
@@ -235,8 +256,7 @@ window.onclick = function(event) {
 
 
 
-fetchAlbum(); 
 checkTokenOnPageLoad(true);
-// const token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
 getGenreList();
+fetchAlbum(); 
 fetchModalData();

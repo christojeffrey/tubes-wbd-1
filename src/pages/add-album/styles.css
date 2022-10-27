@@ -1,0 +1,16 @@
+.album-info {
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    width: 230px;
+    height: 230px;
+}
+
+.album-image{
+    object-fit: cover;
+    /* border-radius: 0.5em; */
+    /* border: 2px solid #fefefe; */
+    margin: auto 0;
+}

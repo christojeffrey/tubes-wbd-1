@@ -42,6 +42,13 @@ const addAlbum = () => {
     })
 }
 
+const onChange = () => {
+    const [file] = document.getElementById("image-file").files;
+    if (file) {
+      document.getElementById("album-image").src = URL.createObjectURL(file);
+    }
+  }
+
 checkTokenOnPageLoad(true);
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
