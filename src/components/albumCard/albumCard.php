@@ -57,7 +57,7 @@
                     overflow: hidden;
                     font-size: 16px;
                     color: #FFFFFF;
-                    padding-bottom: 4px;
+                    margin:0.5em 0;
                 }
 
                 .album-info p {
@@ -66,6 +66,7 @@
                     overflow: hidden;
                     font-size: 13px;
                     color: #B3B3B3;
+                    margin:0;
                 }
 
                 .edit-button{
@@ -146,7 +147,7 @@
                     </a>
                 </div>
 
-                $edit_button
+                <!-- $edit_button -->
             </div>
         EOT;
         return $html;

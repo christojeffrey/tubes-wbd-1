@@ -8,11 +8,11 @@
         exitWithError(500, $map['err']);
     }
         
-    // $auth = checkIsAuthTokenValid();
-    // if (!$auth['is_admin']){
-    //     $conn->close();
-    //     exitWithError(401, "You are not authorized to access this");
-    // }
+    $auth = checkIsAuthTokenValid();
+    if (!$auth['is_admin']){
+        $conn->close();
+        exitWithError(401, "You are not authorized to access this");
+    }
 
      if (empty($_REQUEST["album_id"])) {
         $conn->close();

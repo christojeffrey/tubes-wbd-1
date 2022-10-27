@@ -256,13 +256,13 @@ const durationConverter = (duration) => {
   let seconds = Math.floor(duration % 60);
   let durationString = "";
   if (hours > 0) {
-      durationString += `${hours}h `;
+      durationString += `${hours}hr `;
   }
   if (minutes > 0) {
-      durationString += `${minutes}m `;
+      durationString += `${minutes}min `;
   }
   if (seconds > 0) {
-      durationString += `${seconds}s`;
+      durationString += `${seconds}sec`;
   }
   return durationString;
 }

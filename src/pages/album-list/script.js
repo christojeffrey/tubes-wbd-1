@@ -10,7 +10,6 @@ const fetchAlbum = () =>{
     const limit = urlParams.get("limit");
     const is_admin = localStorage.getItem("admin_token")? true : false;
 
-
     GET_API(`../../api/album/getAlbumList.php?page=${page}&limit=${limit}`,null, (status,data)=>{
         if(status === 200){
             document.getElementById("albums").innerHTML = "";
@@ -115,6 +114,8 @@ LOAD_COMPONENT(
 // console.log("selected id " + id);
 // previd = id;
 // };
+
+
 
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();

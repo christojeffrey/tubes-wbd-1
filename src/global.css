@@ -143,27 +143,49 @@ img {
   padding: 10px;
   margin: 0 10px;
   padding-top: 0;
+  display: flex;
 }
 
 .list-title {
   font-size: 30px;
+  margin: 0;
+}
+
+.list-title:hover {
+  text-decoration: underline;
 }
 
 .move-page-button-container {
   /* item on the right */
   display: flex;
   justify-content: flex-end;
-  margin-right: 20px;
+  margin: auto 0 auto auto ;
 }
 
 .move-page-button {
-  background-color: #000;
+  background-color: #181818;
   width: 40px;
   height: 40px;
   font-size: 30px;
   font-weight: 500;
   border-radius: 50%;
+  margin: 0 0.5rem;
+  transform: scale(0.95);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
 }
+
+/* .move-page-button:hover {
+  background-color: #1db954;
+  transform: scale(1);
+} */
+
+.move-page-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
 /* Forms
      ========================================================================== */
 
