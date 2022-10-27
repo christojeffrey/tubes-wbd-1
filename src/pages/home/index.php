@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="flex-column">
+    <div class="">
         <div class="flex">
             <aside id="navbar">
 

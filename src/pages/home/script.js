@@ -28,6 +28,9 @@ const fetchSongs = () => {
               img: "../../assets/song-image/" + song.image_path,
               on_click: "songCardOnClick",
               genre: song.genre,
+              delete_from_album: false,
+              add_to_album: false,
+              is_admin: localStorage.getItem("admin_token") ? true : false,
             },
           },
           (status, data) => {
