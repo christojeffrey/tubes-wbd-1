@@ -1,4 +1,4 @@
-checkTokenOnPageLoad(false);
+token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
 
@@ -38,6 +38,7 @@ GET_API(`../../api/song/getSongDetail.php?song_id=${song_id}`, token, (status, d
           singer: data.singer,
           audio_path: "../../assets/song-audio/" + data.audio_path,
           img: SONG_IMAGE_PATH + data.image_path,
+          autoplay: false
         },
       },
       (status, data) => {

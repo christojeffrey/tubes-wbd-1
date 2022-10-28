@@ -82,32 +82,24 @@ then we start moving on to the pages and implementation. we do this by taking ta
 
 #### COMPONENTS
 
-- [jef] song-card
-- [dim] album-card
-- [jef] navbar
-- [din] player
-- [jef] user-card
+- [Jeffrey] song-card
+- [Dimas] album-card
+- [Jeffrey] navbar
+- [Addin] player
+- [Jeffrey] user-card
 
 #### PAGES
 
-- [dim] album-list
-- [jef] user-list
-- [jef] song-detail
-- [jef] album-detail
-- [din] update-song
+- [Dimas] album-list
+- [Jeffrey] user-list
+- [Jeffrey] song-detail
+- [Jeffrey] album-detail
+- [Addin] update-song
 - [Dimas]update-album
-- [din] home (song list)
-- [din] add-album
-- [din] add-song
-- [jef] search-song
-
-#### STYLE
-
-- [din] update2an dan add2an
-
-#### OTHER
-
-- [din] itung durasi lagu
+- [Addin] home (song list)
+- [Addin] add-album
+- [Addin] add-song
+- [Jeffrey] search-song
 
 ### sidenote
 

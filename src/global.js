@@ -148,7 +148,7 @@ let token;
 function checkTokenOnPageLoad(isCheckAdmin) {
   if (isCheckAdmin) {
     if (!localStorage.getItem("admin_token")) {
-      window.location.href = "../home/index.php";
+      window.location.href = "../login/index.php";
       alert("You are not authorized to access this page");
       return;
     } else {
@@ -156,7 +156,7 @@ function checkTokenOnPageLoad(isCheckAdmin) {
     }
   } else {
     if (!(localStorage.getItem("admin_token") || localStorage.getItem("user_token"))) {
-      window.location.href = "../home/index.php";
+      window.location.href = "../login/index.php";
       alert("You are not authorized to access this page");
       return;
     } else {
