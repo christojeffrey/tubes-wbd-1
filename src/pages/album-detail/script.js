@@ -83,7 +83,7 @@ GET_API(`../../api/album/getAlbumByID.php?album_id=${album_id}&song_detailed=1`,
           args: {
             id: song.song_id,
             title: song.song_title,
-            singer: song.singer,
+            artist: song.singer,
             audio_path: "../../assets/song-audio/" + song.audio_path,
             img: SONG_IMAGE_PATH + song.image_path,
             on_click: "songCardOnClick",
