@@ -12,22 +12,30 @@
 </head>
 
 <body>
-    <div class="flex justify-center items-center h-screen bg-black">
-        <div class="container w-1/2 md:w-1/4 bg-gray-800 p-12 rounded-lg">
-            <form onsubmit="formSubmit()" class="flex flex-col" onchange="onFormChange()">
+    <div>
+        <div class="login-register-container" >
+            <a href="../../pages/home/index.php"  class="brand-logo-login-register-container">
+                <img src="../../assets/logo/brand-logo.png" class="brand-logo-login-register"/>
+            </a>
+            <form onsubmit="formSubmit()" class="login-register-form" onchange="onFormChange()">
+                <div class="label-input-form-container">
+                    <label for="username" class="form-label"><b>Username</b></label>
+                    <input id="username" type="text" placeholder="Enter Username" name="username" required
+                        class="border-2 bg-black">
+                </div>
 
-                <label for="username"><b>Username</b></label>
-                <input id="username" type="text" placeholder="Enter Username" name="username" required
-                    class="border-2 bg-black">
+                <div class="label-input-form-container">
+                    <label for="password" class="form-label"><b>Password</b></label>
+                    <input id="password" type="password" placeholder="Enter Password" name="password" required
+                        class="border-2 bg-black">
+                </div>
 
-                <label for="password"><b>Password</b></label>
-                <input id="password" type="password" placeholder="Enter Password" name="password" required
-                    class="border-2 bg-black">
+                <div class="form-button-container">
+                    <button type="submit" class="form-submit">Login</button>
+                </div>
 
-                <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Login</button>
                 <div id="status" class="h-6"></div>
-                <div>don't have an account? click <a href="/pages/register">here</a></div>
+                <div class="ref-to-login-register-page">don't have an account? click <a href="/pages/register/index.php">here</a></div>
             </form>
 
         </div>

@@ -63,7 +63,6 @@
                     </div>
 
                     <div class="form-button-container">
-                    <button onclick = "deleteSong()" class="form-submit delete-button">Delete Song</button>
                         <input type="submit" value="Update Song" class="form-submit">
                     </div>
                 </form>
