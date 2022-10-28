@@ -94,6 +94,17 @@ INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `p
 INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
 ('N', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'Pop');
 
+\INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('sasdad', 'lauv', 0, 'i_met_you_when_i_was_18.jpg', '2018-01-01', 'Pop');
+-- how im feeling
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('ghgh', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'Pop');
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('ebrt', 'lauv', 0, 'i_met_you_when_i_was_18.jpg', '2018-01-01', 'Pop');
+-- how im feeling
+INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
+('eayb', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'Pop');
+
 
 -- add song
 -- i like me better

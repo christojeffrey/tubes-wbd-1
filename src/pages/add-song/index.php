@@ -49,7 +49,7 @@
 
                     <div class="label-input-form-container">
                         <label for="audio-file" class="form-label">Audio File</label>
-                        <input type="file" name="audio-file" id="audio-file" required class="form-input">
+                        <input type="file" accept=".mp3" name="audio-file" id="audio-file" required class="form-input">
                     </div>
 
                     <div class="label-input-form-container">
