@@ -25,6 +25,7 @@ const fetchAlbum = () => {
       document.getElementById("singer-modal").innerHTML = data.singer;
 
       // publish_date
+      console.log(data.publish_date);
       document.getElementById("publish-date").value = new Date(data.publish_date).toDateInputValue();
 
       // genre
@@ -183,8 +184,8 @@ const updateAlbum = () => {
   POST_API('../../api/album/updateAlbum.php', token, body, (status, data) => {
     if (status === 200) {
         // if success, show success message
-        alert("success")
-        window.location.reload();
+        alert("Album updated succesfully")
+        window.location.href = `../album-detail/index.php?album_id=${album_id}`;
         // document.getElementById('add-song-form-container').reset();
     } else {
         // else, show error message

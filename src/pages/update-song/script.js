@@ -17,7 +17,9 @@ const prefillForm = () => {
                 document.getElementById(`album-option-${data.album_id}`).setAttribute("selected", true)
             :
                 document.getElementById("album-option-none").setAttribute("selected", true);
-            document.getElementById("publish-date").value = data.publish_date;
+
+            document.getElementById("publish-date").value = new Date(data.publish_date).toDateInputValue();
+
             document.getElementById("song-image").setAttribute("src", SONG_IMAGE_PATH + data.image_path)
             console.log(SONG_IMAGE_PATH + data.image_path)
 

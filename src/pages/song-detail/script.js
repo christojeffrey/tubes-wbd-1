@@ -1,4 +1,7 @@
 token = localStorage.getItem("user_token") || localStorage.getItem("admin_token");
+if (!localStorage.getItem("admin_token")) {
+  document.getElementById("button-container").hidden = true;
+}
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
 
