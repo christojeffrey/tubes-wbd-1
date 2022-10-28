@@ -12,13 +12,19 @@ const fetchAlbum = () =>{
 
     GET_API(`../../api/album/getAlbumList.php?page=${page}&limit=${limit}`,null, (status,data)=>{
         if(status === 200){
-            document.getElementById("albums").innerHTML = "";
+            let album_list = document.getElementById("albums");
+            album_list.innerHTML = "";
 
             // disable next page button if there is no more album
             data.albums.length < limit ? document.getElementById("next-button").setAttribute("disabled", true) : document.getElementById("next-button").removeAttribute("disabled");
             
+
             
-            data.albums.forEach((album) => {
+            for(let i = 0; i < data.albums.length; i++){
+                album_list.innerHTML += `<div id="album-card-container-${i}"></div>`;
+            }
+            
+            data.albums.forEach((album,index) => {
                 let year = new Date(album.publish_date).getFullYear();
                 LOAD_COMPONENT(
                     {
@@ -36,7 +42,7 @@ const fetchAlbum = () =>{
                     },
                     (status, data) => {
                         if (status === 200){
-                            document.getElementById("albums").innerHTML += data;
+                            document.getElementById(`album-card-container-${index}`).innerHTML += data;
                         }
                     }
                     );
