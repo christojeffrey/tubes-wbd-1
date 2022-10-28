@@ -8,11 +8,23 @@
         exitWithError(500, $map['err']);
     }
 
+
     // check if page and limit number is provided
     if (!empty($_REQUEST["page"] && !empty($_REQUEST["limit"]))) {
         $page = intval($_REQUEST["page"]);
         $limit = intval($_REQUEST["limit"]);
         $offset = ($limit * $page) - $limit;
+
+        // count total number of row in song table
+        $stmt = $conn->prepare("SELECT COUNT(song_id) as number FROM Song");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $number= $row["number"];
+        $total_page = ceil($number / $limit);
+        $stmt->close();
+
+        
         $stmt = $conn->prepare("SELECT * FROM (SELECT * FROM Song ORDER BY song_id DESC LIMIT ? OFFSET ?) AS Z ORDER BY song_title ASC");
         $stmt->bind_param("ii", $limit, $offset);
     } else {
@@ -23,7 +35,6 @@
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         $data = array();
-        $total_page = ceil(count($data) / $limit);
         while ($row = $result->fetch_assoc()) {
             $song = array(
                 "song_id" => $row["song_id"],
@@ -37,7 +48,7 @@
             );
             array_push($data, $song);
         }
-        
+
         $response = array(
             "data" => $data,
             "total_page" => $total_page

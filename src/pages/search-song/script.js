@@ -58,7 +58,7 @@ function onSearchClick() {
 
 let page = 1;
 function fetchSongs() {
-  POST_API(`../../api/song/searchSong.php?page=${page}&limit=1${sortText}${filterText}`, null, [{ search_key: option, search_value: search_text }], (status, data) => {
+  POST_API(`../../api/song/searchSong.php?page=${page}&limit=10${sortText}${filterText}`, null, [{ search_key: option, search_value: search_text }], (status, data) => {
     if (status === 200) {
       let song_list = document.getElementById("song-list");
       // append child song_list
@@ -163,8 +163,7 @@ const songCardOnClick = (id, title, singer, audio_path, img) => {
         title: title,
         singer: singer,
         audio_path: audio_path,
-        img: img,
-        autoplay: true
+        img: img
       },
     },
     (status, data) => {

@@ -30,7 +30,7 @@
             <!-- drop down. option is title, singer, and year -->
             <div class="search-filter-container">
                 <div class="filter-container">
-                    <select name="option" id="search-option" class="bg-black search-filter-dropdown">
+                    <select name="option" id="search-option" class="search-filter-dropdown">
                         <option value="title">title</option>
                         <option value="singer">singer</option>
                         <option value="year">year</option>
@@ -39,7 +39,7 @@
 
                 <div class="filter-container">
                     <label for="sort">sort by</label>
-                    <select name="sort" id="sort" class="bg-black search-filter-dropdown">
+                    <select name="sort" id="sort" class="search-filter-dropdown">
                         <option value="">none</option>
                         <option value="year-asc">year asc</option>
                         <option value="year-desc">year desc</option>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="filter-container">
                     <label for="filter">filter by genre</label>
-                    <select name="filter" id="filter" class="bg-black search-filter-dropdown">
+                    <select name="filter" id="filter" class="search-filter-dropdown">
                         <option value="">none</option>
 
                         <?php

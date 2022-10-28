@@ -38,7 +38,7 @@
                     <div id="singer" class="song-detail-fields"></div>
                     <div id="date-genre" class="song-detail-fields"></div>
                     <div id="duration" class="song-duration-detail"></div>
-                    <button class="ref-to-album-detail-page-button"> <a id="ref-to-album-detail-page"></a></button>
+                    <button id="ref-to-album-detail-page-button"><a id="ref-to-album-detail-page"></a></button>
 
                 </div>
             </div>

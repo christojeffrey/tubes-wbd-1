@@ -21,13 +21,13 @@
                 <div class="label-input-form-container">
                     <label for="username" class="form-label"><b>Username</b></label>
                     <input id="username" type="text" placeholder="Enter Username" name="username" required
-                        class="border-2 bg-black">
+                        class="form-input">
                 </div>
 
                 <div class="label-input-form-container">
                     <label for="password" class="form-label"><b>Password</b></label>
                     <input id="password" type="password" placeholder="Enter Password" name="password" required
-                        class="border-2 bg-black">
+                        class="form-input">
                 </div>
 
                 <div class="form-button-container">

@@ -37,8 +37,7 @@ const songCardOnClick = (id, title, singer, audio_path, img) => {
         title: title,
         singer: singer,
         audio_path: audio_path,
-        img: img,
-        autoplay: true
+        img: img
       },
     },
     (status, data) => {
