@@ -46,6 +46,7 @@
         <style>
             .navbar{
                 min-height: 100vh;
+                margin: 2rem 2rem 0 2rem;
             }
             .nav-item{
                 margin: 1rem 0rem;
@@ -53,11 +54,12 @@
 
             .brand{
                 margin: 1rem 0rem;
+                font-size: 1.5rem;
                 text-align: center;
                 font-weight: 800;
             }
         </style>
-        <nav class="navbar mx-8">
+        <nav class="navbar">
             <div class = "brand">
             supotifiy
             </div>

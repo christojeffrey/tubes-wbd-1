@@ -12,39 +12,53 @@
 </head>
 
 <body>
-    <div class="flex justify-center items-center h-screen bg-black">
-        <div class="container  w-1/2 lg:w-1/4 bg-white p-12 rounded-lg">
-            <form onsubmit="formSubmit()" class="flex flex-col" onchange="onFormChange()">
+    <div>
+        <div class="login-register-container">
+            <a href="../../pages/home/index.php"  class="brand-logo-login-register-container">
+                <img src="../../assets/logo/brand-logo.png" class="brand-logo-login-register"/>
+            </a>
+            <form onsubmit="formSubmit()" class="login-register-form" onchange="onFormChange()">
                 <!-- name -->
-                <label for="name"><b>Name</b></label>
-                <input id="name" type="text" placeholder="Enter Name" name="name" required class="border-2 p-1">
-                <span class="status-span"></span>
+                <div class="label-input-form-container">
+                    <label for="name"><b>Name</b></label>
+                    <input id="name" type="text" placeholder="Enter Name" name="name" required class="form-input">
+                    <span class="status-span"></span>
+                </div>
 
+                <div class="label-input-form-container">
+                    <label for="username"><b>Username</b></label>
+                    <input id="username" type="text" placeholder="Enter Username" name="username" required
+                        class="form-input" oninput="updateUsername(this.value)">
+                    <span class="status-span" id="usernameStatus"></span>
+                </div>
 
-                <label for="username"><b>Username</b></label>
-                <input id="username" type="text" placeholder="Enter Username" name="username" required
-                    class="border-2 p-1 " oninput="updateUsername(this.value)">
-                <span class="status-span" id="usernameStatus"></span>
+                <div class="label-input-form-container">
+                    <label for="email"><b>email</b></label>
+                    <input id="email" type="email" placeholder="Enter Email" name="email" required class="form-input"
+                        oninput="updateEmail(this.value)">
+                    <span class="form-input" id="emailStatus"></span>
+                </div>
 
-                <label for="email"><b>email</b></label>
-                <input id="email" type="email" placeholder="Enter Email" name="email" required class="border-2 p-1"
-                    oninput="updateEmail(this.value)">
-                <span class="status-span" id="emailStatus"></span>
+                <div class="label-input-form-container">
+                    <label for="password"><b>Password</b></label>
+                    <input id="password" type="password" placeholder="Enter Password" name="password" required
+                        class="form-input">
+                    <span class="status-span"></span>
+                </div>
 
-                <label for="password"><b>Password</b></label>
-                <input id="password" type="password" placeholder="Enter Password" name="password" required
-                    class="border-2 p-1">
-                <span class="status-span"></span>
+                <div class="label-input-form-container">
+                    <label for="password2"><b>Confirm Password</b></label>
+                    <input id="password2" type="password" placeholder="Confirm Password" name="password2" required
+                        class="form-input">
+                    <span class="h-6"></span>
+                </div>
 
-                <label for="password2"><b>Confirm Password</b></label>
-                <input id="password2" type="password" placeholder="Confirm Password" name="password2" required
-                    class="border-2 p-1 mb-2">
-                <span class="h-6"></span>
+                <div class="form-button-container">
+                    <button type="submit" class="form-submit">Register</button>
+                </div>
 
-                <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Register</button>
                 <span id="status" class="h-6 mb-1"></span>
-                <div>already have an account? click <a href="/pages/login">here</a></div>
+                <div>already have an account? click <a href="/pages/login/index.php">here</a></div>
 
             </form>
 

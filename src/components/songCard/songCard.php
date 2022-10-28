@@ -158,6 +158,9 @@
             color: #b3b3b3;
             align-self: center
         }
+        .desc {
+            font-size: 14px;
+        }
         </style>
     
         <div id ="song-card-$id" class="song-card-container">
