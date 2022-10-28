@@ -63,6 +63,16 @@ that means we're going to push to both gitlab and github, and we're going to fet
 press `ctrl + c` to stop the docker compose
 
 # what will you see if all goes well
+![image](https://user-images.githubusercontent.com/70847819/198525109-c3ea1af4-bc97-4cb3-9b77-d8e68ab0fcde.png)
+![image](https://user-images.githubusercontent.com/70847819/198525379-04debdf3-876e-4eb9-8aa0-5f7c0aab71e4.png)
+![image](https://user-images.githubusercontent.com/70847819/198525478-bb625e56-3741-47ac-9ac7-099083a78be0.png)
+![image](https://user-images.githubusercontent.com/70847819/198525585-d0049238-d293-4b12-bd41-3c1b1c4376de.png)
+![image](https://user-images.githubusercontent.com/70847819/198525675-11b20e2c-5f6c-4537-b873-6a4cf8252e0c.png)
+![image](https://user-images.githubusercontent.com/70847819/198525976-b8c21f54-9d76-432b-a697-ca05fbac700c.png)
+![image](https://user-images.githubusercontent.com/70847819/198528879-68442fc0-6bfb-4a81-be9b-2b6d170d6900.png)
+![image](https://user-images.githubusercontent.com/70847819/198529515-9ce80161-e34e-4bca-92dd-5ae42c84b5df.png)
+![image](https://user-images.githubusercontent.com/70847819/198530495-e2acc6b0-eae6-4f0e-91d6-8b34270f24f2.png)
+![image](https://user-images.githubusercontent.com/70847819/198530578-61136aac-3347-44d0-89b3-3dec6ca9a16b.png)
 
 # work distribution
 
