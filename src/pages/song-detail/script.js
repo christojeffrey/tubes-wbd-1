@@ -1,4 +1,7 @@
 checkTokenOnPageLoad(false);
+if (!localStorage.getItem("admin_token")) {
+  document.getElementById("button-container").hidden = true;
+}
 LOAD_NAVBAR();
 LOAD_ACCOUNT_INFO();
 
