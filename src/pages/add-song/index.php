@@ -53,8 +53,8 @@
                     </div>
 
                     <div class="label-input-form-container">
-                        <label for="image-file" class="form-label">Image File</label>
-                        <input type="file" name="image-file" id="image-file" required class="form-input">    
+                        <label  for="image-file" class="form-label">Image File</label>
+                        <input onchange="onChange()" accept="image/*" type="file" name="image-file" id="image-file" required class="form-input">    
                     </div>
 
 

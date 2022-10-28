@@ -68,6 +68,13 @@ const addSong = () => {
     });
 }
 
+const onChange = () => {
+    const [file] = document.getElementById("image-file").files;
+    if (file) {
+      document.getElementById("song-image").src = URL.createObjectURL(file);
+    }
+  }
+
 
 checkTokenOnPageLoad(true);
 LOAD_NAVBAR();
