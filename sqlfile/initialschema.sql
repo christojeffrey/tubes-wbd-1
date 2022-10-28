@@ -94,6 +94,7 @@ INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `p
 INSERT INTO `Album` (`album_title`, `singer`, `total_duration`, `image_path`, `publish_date`, `genre`) VALUES
 ('N', 'lauv', 0, 'how_im_feeling.jpg', '2018-01-01', 'Pop');
 
+
 -- add song
 -- i like me better
 INSERT INTO `Song` (`song_title`, `singer`, `publish_date`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
